@@ -585,7 +585,7 @@ body {
 }
 
 .hero--light .hero__bg {
-  background-image: url('../website building/background2.png.avif');
+  background-image: url('background2.avif');
   opacity: 0.55;
 }
 
