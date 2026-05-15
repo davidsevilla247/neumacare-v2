@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="logos/favicon.png" />
+  <link rel="icon" type="image/png" href="logos/favicon-v02.png" />
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute;overflow:hidden">
@@ -22,31 +22,34 @@
 
   <div class="snap-wrap">
 
-  <!-- HERO DUPLICATE — light variant -->
-  <section class="hero hero--light">
+  <!-- HERO 1 -->
+  <div class="hero-scroll-zone">
+  <section class="hero hero--light hero--editorial">
 
     <div class="hero__bg"></div>
 
-
     <div class="hero__wrap">
-      <div class="hero__grid">
+      <div class="hero__editorial-grid">
 
-        <div class="hero__left">
-          <div class="hero__badge anim delay-1">
-            <span>Environmental Intelligence</span>
-          </div>
-
-          <h1 class="hero__title anim delay-2">
+        <!-- Left: title -->
+        <div class="hero__editorial-left">
+          <h1 class="hero__title anim delay-1">
             Transforming<br/>
             <span class="hero__title-gradient">Patient Care</span><br/>
-            Through Sensory AI
+            Through<br/>
+            Sensory AI
           </h1>
+        </div>
 
-          <p class="hero__desc anim delay-3">
+        <!-- Right: badge + desc + CTAs -->
+        <div class="hero__editorial-right">
+          <div class="hero__badge anim delay-2">
+            <span>Environmental Intelligence</span>
+          </div>
+          <p class="hero__desc hero__desc--lg anim delay-3">
             We design intelligent hospital spaces that use cutting-edge AI to adapt
             the environment to each patient's physiological needs.
           </p>
-
           <div class="hero__ctas anim delay-4">
             <a href="#" class="hero__cta hero__cta--primary" id="cta-explore">
               Explore System
@@ -63,110 +66,348 @@
           </div>
         </div>
 
-        <div class="hero__right">
-          <div class="glass-card anim delay-5">
-            <div class="glass-card__glow"></div>
-            <div class="glass-card__body">
-              <div class="gc-header">
-                <div class="gc-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="3" width="9" height="9" rx="1.5"/><rect x="13" y="3" width="9" height="9" rx="1.5"/>
-                    <rect x="2" y="14" width="9" height="9" rx="1.5"/><rect x="13" y="14" width="9" height="9" rx="1.5"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="gc-big-num">23</div>
-                  <div class="gc-big-label">Active Devices</div>
-                </div>
-              </div>
+      </div>
+    </div>
+  </section>
+  </div><!-- /hero-scroll-zone -->
 
-              <div class="gc-progress-wrap">
-                <div class="gc-slider-row">
-                  <div class="gc-progress-row">
-                    <span class="gc-slider-label">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg>
-                      Sound
-                    </span>
-                    <span>72%</span>
-                  </div>
-                  <div class="gc-track" style="--thumb:72%"><div class="gc-fill" style="width:72%"></div></div>
-                </div>
-                <div class="gc-slider-row">
-                  <div class="gc-progress-row">
-                    <span class="gc-slider-label">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                      Light
-                    </span>
-                    <span>58%</span>
-                  </div>
-                  <div class="gc-track" style="--thumb:58%"><div class="gc-fill" style="width:58%"></div></div>
-                </div>
-                <div class="gc-slider-row">
-                  <div class="gc-progress-row">
-                    <span class="gc-slider-label">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
-                      Scent
-                    </span>
-                    <span>45%</span>
-                  </div>
-                  <div class="gc-track" style="--thumb:45%"><div class="gc-fill" style="width:45%"></div></div>
-                </div>
-              </div>
+  <!-- SWITCH ZONE -->
+  <div class="switch-zone">
+    <section class="switch-sec">
+      <div class="switch-sec__rings">
+        <div class="switch-sec__ring switch-sec__ring--1"></div>
+        <div class="switch-sec__ring switch-sec__ring--2"></div>
+        <div class="switch-sec__ring switch-sec__ring--3"></div>
+      </div>
 
-              <div class="gc-divider"></div>
-
-              <div class="gc-stats">
-                <div class="gc-stat"><span class="gc-stat-val">72</span><span class="gc-stat-lbl">Avg Score</span></div>
-                <div class="gc-sep"></div>
-                <div class="gc-stat"><span class="gc-stat-val">20</span><span class="gc-stat-lbl">Patients</span></div>
-                <div class="gc-sep"></div>
-                <div class="gc-stat"><span class="gc-stat-val">18</span><span class="gc-stat-lbl">Rooms Opt.</span></div>
-                <div class="gc-sep"></div>
-                <div class="gc-stat"><span class="gc-stat-val">9</span><span class="gc-stat-lbl">Auto.</span></div>
-              </div>
-
-              </div>
-          </div>
-
-          <div class="marquee-card anim delay-5">
-            <p class="marquee-card__lbl">Supported by</p>
-            <div class="marquee-track">
-              <div class="marquee-inner">
-                <div class="mq-item"><img src="Support/1.png" alt="Tarragona Impulsa" /></div>
-                <div class="mq-item"><img src="Support/2.png" alt="Support 2" /></div>
-                <div class="mq-item"><img src="Support/3.png" alt="i2cat" /></div>
-                <div class="mq-item"><img src="Support/4.png" alt="Support 4" /></div>
-                <div class="mq-item"><img src="Support/5.png" alt="Support 5" /></div>
-                <div class="mq-item mq-item--sm"><img src="Support/6.png" alt="ACCIO" /></div>
-                <div class="mq-item"><img src="Support/7.png" alt="Support 7" /></div>
-                <div class="mq-item"><img src="Support/8.png" alt="Support 8" /></div>
-                <div class="mq-item"><img src="Support/10.png" alt="Support 10" /></div>
-                <div class="mq-item"><img src="Support/1.png" alt="Tarragona Impulsa" /></div>
-                <div class="mq-item"><img src="Support/2.png" alt="Support 2" /></div>
-                <div class="mq-item"><img src="Support/3.png" alt="i2cat" /></div>
-                <div class="mq-item"><img src="Support/4.png" alt="Support 4" /></div>
-                <div class="mq-item"><img src="Support/5.png" alt="Support 5" /></div>
-                <div class="mq-item mq-item--sm"><img src="Support/6.png" alt="ACCIO" /></div>
-                <div class="mq-item"><img src="Support/7.png" alt="Support 7" /></div>
-                <div class="mq-item"><img src="Support/8.png" alt="Support 8" /></div>
-                <div class="mq-item"><img src="Support/10.png" alt="Support 10" /></div>
-              </div>
+      <!-- Slide 1: toggle + headline -->
+      <div class="switch-sec__slide switch-sec__slide--1">
+        <div class="switch-sec__inner">
+          <div class="switch-sec__toggle-wrap">
+            <span class="switch-sec__label">RECOVERY</span>
+            <div class="switch-sec__toggle">
+              <div class="switch-sec__knob"></div>
             </div>
           </div>
+          <h2 class="switch-sec__title">If only creating the perfect<br>healing environment were as<br>simple as flipping a switch.</h2>
+          <p class="switch-sec__sub">With NeumaCare, it is.<br>Our sensory AI adapts light, sound and air to each patient — automatically.</p>
+        </div>
+      </div>
+
+
+    </section>
+    <div class="switch-zone__gate"></div>
+  </div>
+
+  <!-- SHOWCASE SECTION -->
+  <section class="sc">
+    <div class="sc__grid">
+
+      <!-- Large left card -->
+      <div class="sc__card sc__card--large sc-reveal">
+        <img src="capt/capt1.png" alt="Hospital environment" />
+      </div>
+
+      <!-- Right stack -->
+      <div class="sc__stack">
+
+        <!-- Top card: text over image -->
+        <div class="sc__card sc__card--text sc-reveal sc-reveal--delay-1">
+          <div class="sc__text">
+            <h3 class="sc__heading">A multisensory system powered by real-time data</h3>
+            <a href="#" class="sc__btn">Learn More <span>→</span></a>
+          </div>
+          <img class="sc__card-bg" src="capt/capt2.png" alt="Sensory system" />
+        </div>
+
+        <!-- Bottom card: image -->
+        <div class="sc__card sc__card--img sc-reveal sc-reveal--delay-2">
+          <img src="capt/capt3.png" alt="Medical technology" />
         </div>
 
       </div>
     </div>
   </section>
 
+  <!-- AMBIENT MODULATION SECTION -->
+  <div class="ambient-zone">
+    <section class="ambient-sec">
+
+      <div class="ambient-sec__bg">
+        <span>Intelligent</span>
+        <span>Ambient</span>
+        <span>Modulation</span>
+      </div>
+      <div class="ambient-sec__bg ambient-sec__bg--dark">
+        <span>Intelligent</span>
+        <span>Ambient</span>
+        <span>Modulation</span>
+      </div>
+
+      <div class="ambient-sec__stage">
+
+        <!-- Card 1: Adaptive Lighting -->
+        <div class="ambient-card ambient-card--1">
+          <div class="ambient-card__head">
+            <div class="ambient-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </div>
+            <span class="ambient-card__badge ambient-card__badge--on">Active · Room 214</span>
+          </div>
+          <h3 class="ambient-card__title">Adaptive Lighting</h3>
+          <div class="ambient-card__widget">
+            <div class="ambient-lux">
+              <div class="ambient-lux__dots">
+                <span class="on"></span><span class="on"></span><span class="on"></span>
+                <span></span><span></span><span></span>
+              </div>
+              <div class="ambient-lux__bar"><div class="ambient-lux__handle"></div></div>
+              <div class="ambient-lux__meta"><span>2700K · Warm White</span><span>Intensity 58%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Acoustic Environment -->
+        <div class="ambient-card ambient-card--2">
+          <div class="ambient-card__head">
+            <div class="ambient-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            </div>
+            <span class="ambient-card__badge">Calibrating</span>
+          </div>
+          <h3 class="ambient-card__title">Acoustic Environment</h3>
+          <div class="ambient-card__widget">
+            <div class="ambient-wave">
+              <div class="ambient-wave__bars">
+                <span style="height:35%"></span><span style="height:65%"></span><span style="height:50%"></span>
+                <span style="height:90%"></span><span style="height:38%"></span><span style="height:78%"></span>
+                <span style="height:55%"></span><span style="height:85%"></span><span style="height:32%"></span>
+                <span style="height:68%"></span><span style="height:44%"></span><span style="height:60%"></span>
+              </div>
+              <div class="ambient-wave__modes">
+                <span class="active">Nature</span>
+                <span>White Noise</span>
+                <span>Silence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Climate Control -->
+        <div class="ambient-card ambient-card--3">
+          <div class="ambient-card__head">
+            <div class="ambient-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+            </div>
+            <span class="ambient-card__badge ambient-card__badge--ok">Optimal</span>
+          </div>
+          <h3 class="ambient-card__title">Climate Control</h3>
+          <div class="ambient-card__widget">
+            <div class="ambient-climate">
+              <div class="ambient-climate__item">
+                <div class="ambient-climate__val">21.4<sup>°</sup></div>
+                <div class="ambient-climate__lbl">Temperature</div>
+                <div class="ambient-climate__bar"><div style="width:62%"></div></div>
+              </div>
+              <div class="ambient-climate__item">
+                <div class="ambient-climate__val">47<sup>%</sup></div>
+                <div class="ambient-climate__lbl">Humidity</div>
+                <div class="ambient-climate__bar"><div style="width:47%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat: Results ring -->
+        <div class="ambient-card ambient-card--4 ambient-stat">
+          <div class="ambient-stat__arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </div>
+          <div class="ambient-stat__ring">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#d8b4fe"/>
+                  <stop offset="100%" stop-color="#818cf8"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="url(#ring-grad)" stroke-width="6"
+                      stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="32.7"
+                      transform="rotate(-90 50 50)"/>
+            </svg>
+            <div class="ambient-stat__check">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d8b4fe" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <div class="ambient-stat__value">+87%</div>
+          <div class="ambient-stat__label">Results</div>
+        </div>
+
+        <!-- Noise Level card -->
+        <div class="ambient-card ambient-card--10 ambient-noise">
+          <div class="ambient-card__head">
+            <div class="ambient-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            </div>
+            <span class="ambient-card__badge">Quiet Zone</span>
+          </div>
+          <h3 class="ambient-card__title">Noise Level</h3>
+          <div class="ambient-card__widget">
+            <div class="ambient-noise__value">34 <span>dB</span></div>
+            <div class="ambient-noise__bars">
+              <span class="on" style="height:30%"></span>
+              <span class="on" style="height:48%"></span>
+              <span class="on" style="height:62%"></span>
+              <span style="height:72%"></span>
+              <span style="height:84%"></span>
+              <span style="height:93%"></span>
+              <span style="height:100%"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Circadian Phase card — radial 24h dial -->
+        <div class="ambient-card ambient-card--11 ambient-circadian">
+          <div class="ambient-circadian__toprow">
+            <span class="ambient-circadian__name">Circadian Phase</span>
+            <span class="ambient-card__badge" style="color:#fb923c;background:rgba(251,146,60,0.15)">Dusk</span>
+          </div>
+          <div class="ambient-circadian__dial">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="circ-glow">
+                  <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <!-- Background ring -->
+              <circle cx="50" cy="50" r="36" stroke="rgba(255,255,255,0.07)" stroke-width="5.5"/>
+              <!-- Night pre-dawn 0h–6h (0–56.5px) -->
+              <circle cx="50" cy="50" r="36" stroke="#4338ca" stroke-width="5.5"
+                      stroke-dasharray="56.5 226.2" stroke-dashoffset="0"
+                      transform="rotate(-90 50 50)"/>
+              <!-- Dawn 6h–8h (56.5–75.4px) -->
+              <circle cx="50" cy="50" r="36" stroke="#fbbf24" stroke-width="5.5"
+                      stroke-dasharray="18.9 226.2" stroke-dashoffset="-56.5"
+                      transform="rotate(-90 50 50)"/>
+              <!-- Day 8h–18h (75.4–169.7px) -->
+              <circle cx="50" cy="50" r="36" stroke="#38bdf8" stroke-width="5.5"
+                      stroke-dasharray="94.3 226.2" stroke-dashoffset="-75.4"
+                      transform="rotate(-90 50 50)"/>
+              <!-- Dusk 18h–20h (169.7–188.5px) -->
+              <circle cx="50" cy="50" r="36" stroke="#f97316" stroke-width="5.5"
+                      stroke-dasharray="18.8 226.2" stroke-dashoffset="-169.7"
+                      transform="rotate(-90 50 50)"/>
+              <!-- Night 20h–24h (188.5–226.2px) -->
+              <circle cx="50" cy="50" r="36" stroke="#3730a3" stroke-width="5.5"
+                      stroke-dasharray="37.7 226.2" stroke-dashoffset="-188.5"
+                      transform="rotate(-90 50 50)"/>
+              <!-- Dot at 7:42 PM — 83% through 24h cycle, upper-left arc -->
+              <circle cx="17.5" cy="34.5" r="9" fill="rgba(249,115,22,0.2)"/>
+              <circle cx="17.5" cy="34.5" r="5" fill="#f97316" filter="url(#circ-glow)"/>
+            </svg>
+            <div class="ambient-circadian__center">
+              <span class="ambient-circadian__clock">7:42</span>
+              <span class="ambient-circadian__period">PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Heart Rate card -->
+        <div class="ambient-card ambient-card--8 ambient-bpm">
+          <div class="ambient-card__head">
+            <div class="ambient-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <span class="ambient-card__badge">Real-time</span>
+          </div>
+          <h3 class="ambient-card__title">Heart Rate</h3>
+          <div class="ambient-card__widget">
+            <div class="ambient-bpm__value">72 <span>BPM</span></div>
+            <svg class="ambient-bpm__ecg" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="0,22 18,22 28,22 34,4 38,38 43,4 48,22 70,22 78,22 84,12 88,32 92,22 115,22 120,22 126,10 130,34 134,22 150,22"
+                        stroke="#f472b6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- SpO2 card -->
+        <div class="ambient-card ambient-card--9 ambient-o2">
+          <div class="ambient-card__head">
+            <div class="ambient-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <span class="ambient-card__badge ambient-card__badge--ok">Normal</span>
+          </div>
+          <h3 class="ambient-card__title">Blood Oxygen</h3>
+          <div class="ambient-card__widget">
+            <div class="ambient-o2__value">98.4 <span>SpO₂</span></div>
+            <div class="ambient-o2__bar"><div style="width:98%"></div></div>
+          </div>
+        </div>
+
+        <!-- Trend / sparkline card -->
+        <div class="ambient-card ambient-card--7 ambient-trend">
+          <div class="ambient-trend__arrow">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </div>
+          <div class="ambient-trend__chart">
+            <svg viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <path d="M4,50 C18,46 30,38 46,30 C58,24 68,20 82,15 C96,10 110,8 126,5"
+                    stroke="#c084fc" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="82" cy="15" r="5" fill="#f0abfc" filter="url(#glow)"/>
+              <circle cx="82" cy="15" r="9" fill="rgba(240,171,252,0.2)"/>
+            </svg>
+          </div>
+          <div class="ambient-trend__footer">
+            <span class="ambient-trend__value">+90%</span>
+            <span class="ambient-trend__badge">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              AI Assist
+            </span>
+          </div>
+        </div>
+
+        <!-- Photo card -->
+        <div class="ambient-card ambient-card--6 ambient-photo">
+          <img src="capt/face01.png" alt="Patient" class="ambient-photo__img" />
+          <div class="ambient-photo__label">Room 214</div>
+          <div class="ambient-photo__icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)" stroke="none">
+              <circle cx="5"  cy="5"  r="1.6"/><circle cx="12" cy="5"  r="1.6"/><circle cx="19" cy="5"  r="1.6"/>
+              <circle cx="5"  cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>
+              <circle cx="5"  cy="19" r="1.6"/><circle cx="12" cy="19" r="1.6"/><circle cx="19" cy="19" r="1.6"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- AI Assist widget -->
+        <div class="ambient-card ambient-card--5 ambient-ai">
+          <div class="ambient-ai__circle">
+            <img src="logos/favicon-white.png" width="22" height="22" alt="NeumaCare AI" />
+          </div>
+          <div class="ambient-ai__label">AI Assist</div>
+          <div class="ambient-ai__dots">
+            <span></span><span class="on"></span><span></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+
+
   <!-- PLATFORM SECTION -->
   <section class="trifeat">
     <div class="trifeat__wrap">
-
-      <div class="trifeat__header">
-        <h2 class="trifeat__title">The Intelligence<br>Behind the Care.</h2>
-        <p class="trifeat__sub">Transforming physiological data into adaptive environments that support every patient's therapeutic journey.</p>
-      </div>
 
       <div class="trifeat__grid">
 
@@ -180,7 +421,7 @@
           <div class="trifeat__glass">
             <div class="trifeat__glass-header">
               <div class="trifeat__glass-icon">
-                <img src="logos/favicon.png" alt="NeumaCare" />
+                <img src="logos/favicon-white.png" alt="NeumaCare" />
               </div>
               <div>
                 <p class="trifeat__glass-name">NeumaCare AI</p>
@@ -221,7 +462,7 @@
             <div class="trifeat__ring trifeat__ring--1"></div>
             <div class="trifeat__ring trifeat__ring--2"></div>
             <!-- Central NC -->
-            <div class="trifeat__orbit-center"><img src="logos/favicon.png" alt="NC" class="trifeat__orbit-favicon" /></div>
+            <div class="trifeat__orbit-center"><img src="logos/favicon-white.png" alt="NC" class="trifeat__orbit-favicon" /></div>
             <!-- Orbiting devices -->
             <div class="trifeat__orbit-item trifeat__orbit-item--top" data-label="Sound">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
@@ -296,7 +537,7 @@
           <div class="trifeat__card-visual">
           <div class="trifeat__chat">
             <div class="trifeat__chat-reply">
-              <div class="trifeat__chat-avatar"><img src="logos/favicon.png" alt="NC" class="trifeat__chat-favicon" /></div>
+              <div class="trifeat__chat-avatar"><img src="logos/favicon-white.png" alt="NC" class="trifeat__chat-favicon" /></div>
               <div>
                 <p class="trifeat__chat-name">NeumaCare AI</p>
                 <p class="trifeat__chat-msg">Reduce ambient light 40% and activate the Sleep Recovery protocol.</p>
@@ -313,62 +554,9 @@
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- SHOWCASE SECTION -->
-  <section class="sc">
-    <div class="sc__grid">
+      <div class="trifeat__header"></div>
 
-      <!-- Large left card -->
-      <div class="sc__card sc__card--large sc-reveal">
-        <img src="photo-gallery/img1.png" alt="Hospital environment" />
-      </div>
-
-      <!-- Right stack -->
-      <div class="sc__stack">
-
-        <!-- Top card: text over image -->
-        <div class="sc__card sc__card--text sc-reveal sc-reveal--delay-1">
-          <div class="sc__text">
-            <h3 class="sc__heading">A multisensory system powered by real-time data</h3>
-            <a href="#" class="sc__btn">Learn More <span>→</span></a>
-          </div>
-          <img class="sc__card-bg" src="photo-gallery/img2.png" alt="Sensory system" />
-        </div>
-
-        <!-- Bottom card: image -->
-        <div class="sc__card sc__card--img sc-reveal sc-reveal--delay-2">
-          <img src="photo-gallery/img3.png" alt="Medical technology" />
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- STATS SECTION -->
-  <section class="stats">
-    <div class="stats__wrap">
-      <div class="stats__header">
-        <span class="stats__label">Sensory AI Platform / Tarragona, ES</span>
-        <h2 class="stats__heading">Measurable outcomes that<br>transform patient care.</h2>
-      </div>
-      <div class="stats__cards">
-        <div class="stats__card stats__card--sm">
-          <span class="stats__num stats__num--zero">0</span>
-          <p class="stats__desc">adverse sensory events recorded across all clinical pilots to date.</p>
-        </div>
-        <div class="stats__card stats__card--md">
-          <span class="stats__num" data-target="3" data-suffix="×">0×</span>
-          <p class="stats__desc">faster protocol adaptation through real-time AI sensing and environmental feedback loops.</p>
-        </div>
-        <div class="stats__card stats__card--lg">
-          <span class="stats__num" data-target="82" data-suffix="%">0%</span>
-          <p class="stats__desc">of patients report improved sleep quality within the first week of sensory therapy.</p>
-        </div>
-      </div>
-      <a href="#" class="stats__pill">About Us →</a>
     </div>
   </section>
 
@@ -376,94 +564,127 @@
   <section class="rev">
     <div class="rev__wrap">
 
-      <h2 class="rev__heading">Trusted by leading<br>clinical experts.</h2>
-
-      <div class="rev__list">
-
-        <div class="rev__card">
-          <div class="rev__photo">
-            <img src="reviews/viladot.jpg" alt="Dr. Viladot" />
-          </div>
-          <div class="rev__body">
-            <p class="rev__quote">"The arrival of NeumaCare represents an opportunity to move towards more humanized care with less reliance on medication. It provides benefits for both patients and healthcare staff."</p>
-            <div class="rev__author">
-              <div class="rev__name">Dra. Viladot</div>
-              <div class="rev__role">Internist</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rev__card">
-          <div class="rev__photo">
-            <img src="reviews/aligue.jpg" alt="Dr. Aligué" />
-          </div>
-          <div class="rev__body">
-            <p class="rev__quote">"We believe NeumaCare can become a key tool to reduce stress and anxiety in our patients. The ability to adapt light, sound, and scent stimuli according to physiological state could significantly improve comfort within the unit."</p>
-            <div class="rev__author">
-              <div class="rev__name">Dr. Aligué</div>
-              <div class="rev__role">Internist</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rev__card">
-          <div class="rev__photo">
-            <img src="reviews/chus.jpg" alt="Chus Del Rincón" />
-          </div>
-          <div class="rev__body">
-            <p class="rev__quote">"From a physiotherapy perspective, we see NeumaCare as a tool with enormous potential to optimize rehabilitation sessions. It allows us to work with patients who are more alert, calm, and cooperative."</p>
-            <div class="rev__author">
-              <div class="rev__name">Chus Del Rincón</div>
-              <div class="rev__role">Physiotherapist</div>
-            </div>
-          </div>
-        </div>
-
+      <div class="rev__header rev-reveal rev-reveal--d0">
+        <h2 class="rev__heading">Trusted by</h2>
       </div>
 
-      <!-- Media strip -->
-      <div class="press-strip">
-        <p class="press-strip__label">As seen in</p>
-        <div class="press-strip__track">
-          <div class="press-strip__inner">
-            <a href="https://www.youtube.com/watch?si=gNsZNN0ls1Zwpv1R&v=WQhkAJNhkVA&feature=youtu.be" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/calafell-tv-radio.png" alt="Calafell TV / Ràdio" />
-            </a>
-            <a href="https://www.linkedin.com/posts/david-sevilla-marketing_laltre-dia-vam-tenir-loportunitat-dexplicar-activity-7421809250445774848-I9px?utm_source=share&utm_medium=member_desktop&rcm=ACoAADAPi6ABiIJ7NWicjMsgEK9rlBlc_CzJPTM" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/la-xarxa.png" alt="La Xarxa" style="height:36px;" />
-            </a>
-            <a href="https://www.diaridetarragona.com/economia/244043/neumacare-estancia-hospital-amable.html" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/diari-tarragona.png" alt="Diari de Tarragona" style="height:32px;" />
-            </a>
-            <a href="https://youtu.be/FrmiAJdNySc?si=43JiGesXtP1BaDaY&t=96" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/connecta10.png" alt="Connecta10 Comarques" />
-            </a>
-            <a href="https://www.diarimes.com/es/reus/251015/incubadora-redessa-duplica-numero-proyectos-acompanara-5-a-edicion_195092.html" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/diari-mes.png" alt="Diari Més" style="height:30px;" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=TV1etbfohSM" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/canal-reus.png" alt="Canal Reus" />
-            </a>
-            <!-- Duplicate for seamless loop -->
-            <a href="https://www.youtube.com/watch?si=gNsZNN0ls1Zwpv1R&v=WQhkAJNhkVA&feature=youtu.be" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/calafell-tv-radio.png" alt="Calafell TV / Ràdio" />
-            </a>
-            <a href="https://www.linkedin.com/posts/david-sevilla-marketing_laltre-dia-vam-tenir-loportunitat-dexplicar-activity-7421809250445774848-I9px?utm_source=share&utm_medium=member_desktop&rcm=ACoAADAPi6ABiIJ7NWicjMsgEK9rlBlc_CzJPTM" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/la-xarxa.png" alt="La Xarxa" style="height:36px;" />
-            </a>
-            <a href="https://www.diaridetarragona.com/economia/244043/neumacare-estancia-hospital-amable.html" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/diari-tarragona.png" alt="Diari de Tarragona" style="height:32px;" />
-            </a>
-            <a href="https://youtu.be/FrmiAJdNySc?si=43JiGesXtP1BaDaY&t=96" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/connecta10.png" alt="Connecta10 Comarques" />
-            </a>
-            <a href="https://www.diarimes.com/es/reus/251015/incubadora-redessa-duplica-numero-proyectos-acompanara-5-a-edicion_195092.html" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/diari-mes.png" alt="Diari Més" style="height:30px;" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=TV1etbfohSM" target="_blank" rel="noopener" class="press-strip__item">
-              <img src="media/press/canal-reus.png" alt="Canal Reus" />
-            </a>
+      <div class="rev__tabs rev-reveal rev-reveal--d1" role="tablist">
+        <button class="rev__tab is-active" role="tab" data-tab="experts" aria-selected="true">
+          <span>Experts</span>
+          <span class="rev__tab-bar"></span>
+        </button>
+        <div class="rev__tabs-sep" aria-hidden="true"></div>
+        <button class="rev__tab" role="tab" data-tab="media" aria-selected="false">
+          <span>Media</span>
+          <span class="rev__tab-bar"></span>
+        </button>
+        <div class="rev__tabs-sep" aria-hidden="true"></div>
+        <button class="rev__tab" role="tab" data-tab="partners" aria-selected="false">
+          <span>Partners</span>
+          <span class="rev__tab-bar"></span>
+        </button>
+      </div>
+
+      <div class="rev__panel" id="rev-panel-experts" role="tabpanel">
+        <div class="rev__list">
+
+          <div class="rev__card rev-reveal rev-reveal--d2">
+            <p class="rev__quote">"The arrival of NeumaCare represents an opportunity to move towards more humanized care with less reliance on medication. It provides benefits for both patients and healthcare staff."</p>
+            <div class="rev__card-footer">
+              <div class="rev__author">
+                <img class="rev__avatar" src="reviews/viladot.jpg" alt="Dra. Viladot" />
+                <div>
+                  <div class="rev__name">Dra. Viladot</div>
+                  <div class="rev__role">Internist</div>
+                </div>
+              </div>
+              <div class="rev__stars" aria-label="5 stars">
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+              </div>
+            </div>
           </div>
+
+          <div class="rev__card rev-reveal rev-reveal--d3">
+            <p class="rev__quote">"We believe NeumaCare can become a key tool to reduce stress and anxiety in our patients. The ability to adapt light, sound, and scent stimuli according to physiological state could significantly improve comfort within the unit."</p>
+            <div class="rev__card-footer">
+              <div class="rev__author">
+                <img class="rev__avatar" src="reviews/aligue.jpg" alt="Dr. Aligué" />
+                <div>
+                  <div class="rev__name">Dr. Aligué</div>
+                  <div class="rev__role">Internist</div>
+                </div>
+              </div>
+              <div class="rev__stars" aria-label="5 stars">
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="rev__card rev-reveal rev-reveal--d4">
+            <p class="rev__quote">"From a physiotherapy perspective, we see NeumaCare as a tool with enormous potential to optimize rehabilitation sessions. It allows us to work with patients who are more alert, calm, and cooperative."</p>
+            <div class="rev__card-footer">
+              <div class="rev__author">
+                <img class="rev__avatar" src="reviews/chus.jpg" alt="Chus Del Rincón" />
+                <div>
+                  <div class="rev__name">Chus Del Rincón</div>
+                  <div class="rev__role">Physiotherapist</div>
+                </div>
+              </div>
+              <div class="rev__stars" aria-label="5 stars">
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+                <svg viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.14L8 10.5l-3.71 1.96.71-4.14L2 5.5l4.15-.75z"/></svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="rev__panel rev__panel--hidden" id="rev-panel-media" role="tabpanel">
+        <div class="rev__media-grid">
+          <a href="https://www.youtube.com/watch?si=gNsZNN0ls1Zwpv1R&v=WQhkAJNhkVA&feature=youtu.be" target="_blank" rel="noopener" class="rev__media-item">
+            <img src="media/press/calafell-tv-radio.png" alt="Calafell TV / Ràdio" />
+          </a>
+          <a href="https://www.linkedin.com/posts/david-sevilla-marketing_laltre-dia-vam-tenir-loportunitat-dexplicar-activity-7421809250445774848-I9px?utm_source=share&utm_medium=member_desktop&rcm=ACoAADAPi6ABiIJ7NWicjMsgEK9rlBlc_CzJPTM" target="_blank" rel="noopener" class="rev__media-item">
+            <img src="media/press/la-xarxa.png" alt="La Xarxa" />
+          </a>
+          <a href="https://www.diaridetarragona.com/economia/244043/neumacare-estancia-hospital-amable.html" target="_blank" rel="noopener" class="rev__media-item">
+            <img src="media/press/diari-tarragona.png" alt="Diari de Tarragona" />
+          </a>
+          <a href="https://youtu.be/FrmiAJdNySc?si=43JiGesXtP1BaDaY&t=96" target="_blank" rel="noopener" class="rev__media-item">
+            <img src="media/press/connecta10.png" alt="Connecta10 Comarques" />
+          </a>
+          <a href="https://www.diarimes.com/es/reus/251015/incubadora-redessa-duplica-numero-proyectos-acompanara-5-a-edicion_195092.html" target="_blank" rel="noopener" class="rev__media-item">
+            <img src="media/press/diari-mes.png" alt="Diari Més" />
+          </a>
+          <a href="https://www.youtube.com/watch?v=TV1etbfohSM" target="_blank" rel="noopener" class="rev__media-item">
+            <img src="media/press/canal-reus.png" alt="Canal Reus" />
+          </a>
+        </div>
+      </div>
+
+      <div class="rev__panel rev__panel--hidden" id="rev-panel-partners" role="tabpanel">
+        <div class="rev__partners-grid">
+          <div class="rev__partner-item"><img src="Support/1.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/2.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/3.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/4.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/5.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/6.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/7.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/8.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="Support/10.png" alt="" /></div>
         </div>
       </div>
 
@@ -590,6 +811,8 @@
 
     </div>
     </div><!-- /.team__carousel -->
+
+
   </section>
 
   <!-- FAQ SECTION -->
@@ -814,73 +1037,11 @@
 
   <!-- BOTTOM NAV BAR -->
   <nav class="bnb">
-    <img src="logos/logo_negro.png" alt="NeumaCare" class="bnb__logo" />
+    <a href="index.html"><img src="logos/logo_negro.png" alt="NeumaCare" class="bnb__logo" /></a>
     <div class="bnb__divider"></div>
-    <button class="bnb__item bnb__item--active" data-section="0">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-      </div>
-      <span class="bnb__label">Home</span>
-    </button>
-    <button class="bnb__item" data-section="1">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/><rect x="3" y="3" width="18" height="18" rx="3"/>
-        </svg>
-      </div>
-      <span class="bnb__label">Platform</span>
-    </button>
-    <button class="bnb__item" data-section="2">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
-        </svg>
-      </div>
-      <span class="bnb__label">Discover</span>
-    </button>
-    <button class="bnb__item" data-section="3">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-        </svg>
-      </div>
-      <span class="bnb__label">Stats</span>
-    </button>
-    <button class="bnb__item" data-section="4">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-      </div>
-      <span class="bnb__label">Testimonials</span>
-    </button>
-    <button class="bnb__item" data-section="5">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-        </svg>
-      </div>
-      <span class="bnb__label">Team</span>
-    </button>
-    <button class="bnb__item" data-section="6">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-      </div>
-      <span class="bnb__label">FAQs</span>
-    </button>
-    <button class="bnb__item" data-section="7">
-      <div class="bnb__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-      </div>
-      <span class="bnb__label">Contact</span>
-    </button>
+    <a href="index.html" class="bnb__link bnb__link--active">Home</a>
+    <a href="equipo.html" class="bnb__link">Team</a>
+    <a href="blog.html" class="bnb__link">Blog</a>
   </nav>
 
   <!-- Video Modal -->

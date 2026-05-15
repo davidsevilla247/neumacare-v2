@@ -251,6 +251,19 @@ const scObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
 
+// Reviews section reveal on scroll
+const revObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('rev-visible');
+      revObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
+
+
 // FAQ accordion
 document.querySelectorAll('.faq__q').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -370,18 +383,20 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   const items  = document.querySelectorAll('.trifeat__orbit-item[data-label]');
   if (!center || !items.length) return;
 
-  function swap(text) {
+  const logoHTML = '<img src="logos/favicon-white.png" alt="NC" class="trifeat__orbit-favicon" />';
+
+  function swap(content, isLabel) {
     center.classList.add('switching');
     setTimeout(() => {
-      center.textContent = text;
-      center.dataset.label = text !== 'NC' ? 'true' : 'false';
+      center.innerHTML = isLabel ? content : logoHTML;
+      center.dataset.label = isLabel ? 'true' : 'false';
       center.classList.remove('switching');
     }, 150);
   }
 
   items.forEach(item => {
-    item.addEventListener('mouseenter', () => swap(item.dataset.label));
-    item.addEventListener('mouseleave',  () => swap('NC'));
+    item.addEventListener('mouseenter', () => swap(item.dataset.label, true));
+    item.addEventListener('mouseleave',  () => swap(null, false));
   });
 })();
 
@@ -480,20 +495,40 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   });
 })();
 
-// ── PLATFORM — staggered card entrance (1 s between each) ────────────────
+// ── PLATFORM — scroll-driven depth entrance ───────────────────────────────
 (function () {
-  const section = document.querySelector('.trifeat');
-  const cards   = section ? [...section.querySelectorAll('.trifeat__card')] : [];
+  const grid  = document.querySelector('.trifeat__grid');
+  const cards = grid ? [...grid.querySelectorAll('.trifeat__card')] : [];
   if (!cards.length) return;
-  let done = false;
 
-  new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting || done) return;
-    done = true;
+  // All cards end at translateY(0)/opacity 1 but card 3 gets there first,
+  // cards 2&4 next, card 1 last. [start, end] as fraction of scroll range.
+  const ranges = [
+    [0.12, 1.00],  // card 1: starts late, finishes last (furthest)
+    [0.06, 0.88],  // card 2: mid
+    [0.00, 0.72],  // card 3: starts first, finishes first (frontmost)
+    [0.06, 0.88],  // card 4: mid
+  ];
+  const startY = [70, 48, 26, 48];
+
+  function clamp(v) { return Math.max(0, Math.min(1, v)); }
+
+  function update() {
+    const vh   = window.innerHeight;
+    const rect = grid.getBoundingClientRect();
+    const p    = clamp((vh - rect.top) / (vh * 0.75));
+
     cards.forEach((card, i) => {
-      setTimeout(() => card.classList.add('trifeat__card--visible'), i * 1000);
+      const [s, e] = ranges[i];
+      const cp = clamp((p - s) / (e - s));
+      card.style.opacity   = cp.toFixed(3);
+      card.style.transform = `translateY(${((1 - cp) * startY[i]).toFixed(1)}px)`;
     });
-  }, { threshold: 0.15 }).observe(section);
+  }
+
+  const snapWrap = document.querySelector('.snap-wrap') || window;
+  snapWrap.addEventListener('scroll', update, { passive: true });
+  update();
 })();
 
 // ── HERO CTAs ────────────────────────────────────────────────
@@ -532,4 +567,333 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   if (closeBtn) closeBtn.addEventListener('click',  closeModal);
   if (backdrop) backdrop.addEventListener('click',  closeModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+})();
+
+// ── HERO 1 → SWITCH: two-phase scroll transition ─────────────
+(function () {
+  const snapWrap  = document.querySelector('.snap-wrap');
+  const zone      = document.querySelector('.hero-scroll-zone');
+  if (!zone || !snapWrap) return;
+
+  const heroEl    = zone.querySelector('.hero--editorial');
+  const heroGrid  = heroEl && heroEl.querySelector('.hero__editorial-grid');
+  const heroBg    = heroEl && heroEl.querySelector('.hero__bg');
+  if (!heroGrid || !heroBg) return;
+
+  function update() {
+    const st       = snapWrap.scrollTop;
+    const zoneTop  = zone.offsetTop;
+    const vh       = window.innerHeight;
+    const raw      = (st - zoneTop) / (2.5 * vh); // 0 → 1 over 250vh of scroll
+    const progress = Math.max(0, Math.min(1, raw));
+
+    // Action 1: text slides up
+    heroGrid.style.transform = `translateY(${-progress * 100}vh)`;
+    heroGrid.style.opacity   = '1';
+
+    // Action 2: whole section slides up — starts when text is at 50%
+    const p2 = Math.max(0, Math.min(1, (progress - 0.5) / 0.5));
+    heroEl.style.transform = `translateY(${-p2 * 100}vh)`;
+  }
+
+  snapWrap.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// ── SWITCH SECTION: OFF → ON ──────────────────────────────────
+(function () {
+  const snapWrap   = document.querySelector('.snap-wrap');
+  const switchZone = document.querySelector('.switch-zone');
+  const switchSec  = document.querySelector('.switch-sec');
+  if (!snapWrap || !switchZone || !switchSec) return;
+
+  snapWrap.addEventListener('scroll', () => {
+    const st      = snapWrap.scrollTop;
+    const vh      = window.innerHeight;
+    const zoneTop = switchZone.getBoundingClientRect().top + st;
+    const into    = st - zoneTop;
+
+    if (into >= vh * 0.20) {
+      switchSec.classList.add('switch-sec--on');
+    } else {
+      switchSec.classList.remove('switch-sec--on');
+    }
+  }, { passive: true });
+})();
+
+// ── SPACES SECTION: scroll-driven entry / active / exit ───────
+(function () {
+  const snapWrap  = document.querySelector('.snap-wrap');
+  const spacesSec = document.querySelector('.spaces-sec');
+  if (!snapWrap || !spacesSec) return;
+
+  const label    = spacesSec.querySelector('.spaces-sec__label');
+  const title    = spacesSec.querySelector('.spaces-sec__title');
+  const desc     = spacesSec.querySelector('.spaces-sec__desc');
+  const cta      = spacesSec.querySelector('.spaces-sec__cta');
+  const imgBack  = spacesSec.querySelector('.spaces-sec__img--back');
+  const imgFront = spacesSec.querySelector('.spaces-sec__img--front');
+
+  function clamp(v)       { return Math.max(0, Math.min(1, v)); }
+  function map(v, a, b)   { return clamp((v - a) / (b - a)); }
+  function easeOut(t)     { return 1 - (1 - t) * (1 - t); }
+  function easeIn(t)      { return t * t; }
+
+  function apply(el, o, x, y, sc) {
+    el.style.opacity   = o;
+    el.style.transform = `translate(${x}px,${y}px) scale(${sc})`;
+  }
+
+  function update() {
+    const rect = spacesSec.getBoundingClientRect();
+    const vh   = window.innerHeight;
+    const p    = clamp(1 - rect.bottom / (vh + rect.height));
+
+    // text elements — staggered entry from below, unified exit upward
+    [label, title, desc, cta].forEach((el, i) => {
+      const d  = i * 0.05;
+      const a  = easeOut(map(p, 0 + d, 0.22 + d));
+      const o  = easeIn(map(p, 0.55, 0.92));
+      apply(el, a * (1 - o), 0, 22 * (1 - a) - 18 * o, 1);
+    });
+
+    // back image — slides in from right, exits right
+    const ba = easeOut(map(p, 0.05, 0.35));
+    const bo = easeIn(map(p, 0.52, 0.88));
+    apply(imgBack, ba * (1 - bo), 55 * (1 - ba) + 28 * bo, 0, 0.94 + 0.06 * ba);
+
+    // front image — slides up from below, exits down
+    const fa = easeOut(map(p, 0.12, 0.42));
+    const fo = easeIn(map(p, 0.54, 0.90));
+    apply(imgFront, fa * (1 - fo), 0, 45 * (1 - fa) + 28 * fo, 0.96 + 0.04 * fa);
+  }
+
+  [label, title, desc, cta, imgBack, imgFront].forEach(el => { el.style.opacity = '0'; });
+
+  snapWrap.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// ── AMBIENT MODULATION: vertical scroll-through + live data ────
+(function () {
+  const snapWrap  = document.querySelector('.snap-wrap');
+  const zone      = document.querySelector('.ambient-zone');
+  const ambientSec = document.querySelector('.ambient-sec');
+  const cards     = [...document.querySelectorAll('.ambient-card')];
+  if (!snapWrap || !zone || !cards.length) return;
+
+  // ── element refs ──────────────────────────────────────────────
+  const noiseVal   = document.querySelector('.ambient-noise__value');
+  const noiseBars  = [...document.querySelectorAll('.ambient-noise__bars span')];
+
+  const luxTempEl  = document.querySelector('.ambient-lux__meta span:first-child');
+  const luxIntEl   = document.querySelector('.ambient-lux__meta span:last-child');
+  const luxHandle  = document.querySelector('.ambient-lux__handle');
+  const luxDots    = [...document.querySelectorAll('.ambient-lux__dots span')];
+
+  const waveBars   = [...document.querySelectorAll('.ambient-wave__bars span')];
+
+  const climItems  = [...document.querySelectorAll('.ambient-climate__item')];
+
+  const statArc    = document.querySelector('.ambient-stat__ring svg circle:last-child');
+  const statVal    = document.querySelector('.ambient-stat__value');
+
+  const aiDots     = [...document.querySelectorAll('.ambient-ai__dots span')];
+
+  const trendVal   = document.querySelector('.ambient-trend__value');
+
+  const bpmVal     = document.querySelector('.ambient-bpm__value');
+
+  const o2Val      = document.querySelector('.ambient-o2__value');
+  const o2Bar      = document.querySelector('.ambient-o2__bar div');
+
+  const circClock  = document.querySelector('.ambient-circadian__clock');
+  const circPeriod = document.querySelector('.ambient-circadian__period');
+  const circBadge  = document.querySelector('.ambient-circadian__toprow .ambient-card__badge');
+  const circGlow   = document.querySelector('.ambient-circadian__dial svg circle:nth-last-child(2)');
+  const circDot    = document.querySelector('.ambient-circadian__dial svg circle:last-child');
+  const bgDark      = document.querySelector('.ambient-sec__bg--dark');
+  const bgDarkSpans = bgDark ? [...bgDark.querySelectorAll('span')] : [];
+  // scroll range [start, end] for each row's reveal
+  const rowRanges   = [[0.02, 0.20], [0.18, 0.36], [0.34, 0.52]];
+
+  // ── helpers ───────────────────────────────────────────────────
+  function clamp(v) { return Math.max(0, Math.min(1, v)); }
+  function osc(p, freq, phase) { return 0.5 + 0.5 * Math.sin(p * Math.PI * freq + (phase || 0)); }
+
+  // ── per-card update functions ─────────────────────────────────
+  function updateNoise(p) {
+    if (!noiseVal) return;
+    const wave = Math.pow(osc(p, 4.2), 1.4) * 0.68;
+    const db   = Math.round(22 + wave * 52);
+    const lit  = Math.round(wave * noiseBars.length);
+    noiseVal.firstChild.textContent = db + ' ';
+    noiseBars.forEach((b, i) => b.classList.toggle('on', i < lit));
+  }
+
+  const LUX_TEMPS = ['2700K · Warm', '3500K · Neutral', '5200K · Daylight', '6500K · Cool'];
+  function updateLighting(p) {
+    const wave = osc(p, 3.1);
+    const pct  = Math.round(18 + wave * 78);
+    if (luxTempEl) luxTempEl.textContent  = LUX_TEMPS[Math.min(Math.floor(wave * 4), 3)];
+    if (luxIntEl)  luxIntEl.textContent   = 'Intensity ' + pct + '%';
+    if (luxHandle) luxHandle.style.left   = pct + '%';
+    const lit = Math.round(wave * luxDots.length);
+    luxDots.forEach((d, i) => d.classList.toggle('on', i < lit));
+  }
+
+  function updateAcoustic(p) {
+    waveBars.forEach((bar, i) => {
+      bar.style.height = Math.round(12 + 83 * osc(p, 3.8 + i * 0.35, i * 0.55)) + '%';
+    });
+  }
+
+  function updateClimate(p) {
+    if (climItems.length < 2) return;
+    const tWave = osc(p, 2.8);
+    const hWave = osc(p, 3.5, 1.2);
+    const tEl  = climItems[0].querySelector('.ambient-climate__val');
+    const tBar = climItems[0].querySelector('.ambient-climate__bar div');
+    const hEl  = climItems[1].querySelector('.ambient-climate__val');
+    const hBar = climItems[1].querySelector('.ambient-climate__bar div');
+    if (tEl)  tEl.innerHTML    = (19.0 + tWave * 5.0).toFixed(1) + '<sup>°</sup>';
+    if (tBar) tBar.style.width = Math.round(20 + tWave * 70) + '%';
+    if (hEl)  hEl.innerHTML    = Math.round(35 + hWave * 35) + '<sup>%</sup>';
+    if (hBar) hBar.style.width = Math.round(35 + hWave * 35) + '%';
+  }
+
+  function updateStat(p) {
+    const wave = (Math.pow(osc(p, 3.3), 1.3) * 0.85) + 0.15;
+    const pct  = Math.round(55 + wave * 42);
+    if (statArc) statArc.setAttribute('stroke-dashoffset', (251.3 * (1 - pct / 100)).toFixed(1));
+    if (statVal) statVal.textContent = '+' + pct + '%';
+  }
+
+  function updateAI(p) {
+    const idx = Math.floor(p * 18) % Math.max(aiDots.length, 1);
+    aiDots.forEach((d, i) => d.classList.toggle('on', i === idx));
+  }
+
+  function updateTrend(p) {
+    const wave = Math.pow(osc(p, 3.7), 1.2);
+    if (trendVal) trendVal.textContent = '+' + Math.round(62 + wave * 35) + '%';
+  }
+
+  function updateBPM(p) {
+    const bpm = Math.round(58 + osc(p, 5.1) * 38);
+    if (bpmVal) bpmVal.firstChild.textContent = bpm + ' ';
+  }
+
+  function updateO2(p) {
+    const wave = Math.pow(osc(p, 2.9), 1.5);
+    const spo2 = (94.0 + wave * 5.8).toFixed(1);
+    if (o2Val) o2Val.firstChild.textContent = spo2 + ' ';
+    if (o2Bar) o2Bar.style.width = spo2 + '%';
+  }
+
+  const PHASE = {
+    Dawn:  { color: '#fbbf24', bg: 'rgba(251,191,36,0.15)'  },
+    Day:   { color: '#93c5fd', bg: 'rgba(147,197,253,0.13)' },
+    Dusk:  { color: '#fb923c', bg: 'rgba(251,146,60,0.15)'  },
+    Night: { color: '#a78bfa', bg: 'rgba(167,139,250,0.15)' },
+  };
+  const DOT_COLOR = { Dawn:'#fbbf24', Day:'#38bdf8', Dusk:'#f97316', Night:'#818cf8' };
+  const DOT_GLOW  = { Dawn:'rgba(251,191,36,0.2)', Day:'rgba(56,189,248,0.2)', Dusk:'rgba(249,115,22,0.2)', Night:'rgba(129,140,248,0.2)' };
+
+  function updateCircadian(p) {
+    const mins  = Math.round(360 + p * 1020);          // 6:00 → 23:00
+    const h     = Math.floor(mins / 60);
+    const m     = mins % 60;
+    const isPM  = h >= 12;
+    const h12   = h > 12 ? h - 12 : (h === 0 ? 12 : h);
+    if (circClock)  circClock.textContent  = h12 + ':' + String(m).padStart(2, '0');
+    if (circPeriod) circPeriod.textContent = isPM ? 'PM' : 'AM';
+
+    const phase = h >= 5 && h < 8 ? 'Dawn' : h >= 8 && h < 18 ? 'Day' : h >= 18 && h < 20 ? 'Dusk' : 'Night';
+    if (circBadge) {
+      circBadge.textContent       = phase;
+      circBadge.style.color       = PHASE[phase].color;
+      circBadge.style.background  = PHASE[phase].bg;
+    }
+
+    const frac  = mins / 1440;
+    const angle = frac * 2 * Math.PI - Math.PI / 2;
+    const cx    = (50 + 36 * Math.cos(angle)).toFixed(1);
+    const cy    = (50 + 36 * Math.sin(angle)).toFixed(1);
+    if (circDot)  { circDot.setAttribute('cx', cx);  circDot.setAttribute('cy', cy);  circDot.setAttribute('fill', DOT_COLOR[phase]); }
+    if (circGlow) { circGlow.setAttribute('cx', cx); circGlow.setAttribute('cy', cy); circGlow.setAttribute('fill', DOT_GLOW[phase]); }
+  }
+
+  // ── main scroll handler ───────────────────────────────────────
+  const speeds = [1.3, 0.75, 1.55, 0.9, 1.2, 0.65, 1.45, 1.0, 0.8, 1.35, 1.1];
+
+  function update() {
+    const vh        = window.innerHeight;
+    const st        = snapWrap.scrollTop;
+    const zoneTop   = zone.getBoundingClientRect().top + st;
+    const scrolled  = Math.max(0, st - zoneTop);
+    const maxScroll = zone.offsetHeight - vh;
+    const p         = clamp(scrolled / maxScroll);
+
+    const opacity = Math.min(clamp(p / 0.08), clamp((1 - p) / 0.08));
+    cards.forEach((card, i) => {
+      card.style.transform = `translateY(${vh * (1 - 2 * p) * speeds[i]}px)`;
+      card.style.opacity   = String(opacity);
+    });
+
+    updateNoise(p);
+    updateLighting(p);
+    updateAcoustic(p);
+    updateClimate(p);
+    updateStat(p);
+    updateAI(p);
+    updateTrend(p);
+    updateBPM(p);
+    updateO2(p);
+    updateCircadian(p);
+
+    // textP: starts 1 full viewport BEFORE the zone enters, so the reveal
+    // begins while the previous section is still visible
+    const preDistance  = vh * 0.6;
+    const textScrolled = Math.max(0, st - (zoneTop - preDistance));
+    const textMaxScroll = preDistance + (zone.offsetHeight - vh);
+    const textP = clamp(textScrolled / textMaxScroll);
+
+    bgDarkSpans.forEach((span, i) => {
+      const [s, e] = rowRanges[i] || [0, 1];
+      const rp = Math.max(0, Math.min((textP - s) / (e - s), 1));
+      span.style.setProperty('--p', (rp * 118) + '%');
+    });
+  }
+
+  cards.forEach((card, i) => {
+    card.style.opacity   = '0';
+    card.style.transform = `translateY(${window.innerHeight * speeds[i]}px)`;
+  });
+
+  snapWrap.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// Rev section tabs
+(function () {
+  const tabs   = [...document.querySelectorAll('.rev__tab')];
+  const panels = [...document.querySelectorAll('.rev__panel')];
+  if (!tabs.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+      panels.forEach(p => p.classList.add('rev__panel--hidden'));
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+      const target = document.getElementById('rev-panel-' + tab.dataset.tab);
+      if (target) {
+        target.classList.remove('rev__panel--hidden');
+        target.style.animation = 'none';
+        target.offsetHeight; // reflow to restart animation
+        target.style.animation = '';
+      }
+    });
+  });
 })();
