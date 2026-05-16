@@ -4541,57 +4541,34 @@ body {
   .switch-sec__title { font-size: clamp(22px, 6vw, 32px); }
   .switch-sec__sub { font-size: 15px; }
 
-  /* ── Ambient section — dark static layout on mobile ── */
+  /* ── Ambient section — light static layout on mobile ── */
   .ambient-zone { height: 100svh !important; }
-  .ambient-sec {
-    background: linear-gradient(160deg, #1e1a40 0%, #110e25 55%, #130F1E 100%) !important;
-  }
-  /* Watermark text: white, visible */
-  .ambient-sec__bg span { color: #ffffff !important; opacity: 0.06 !important; }
+  .ambient-sec { background: #F8F6FF !important; overflow: hidden !important; }
+  .ambient-sec__bg span { color: #0a0a1e !important; opacity: 0.05 !important; }
   .ambient-sec__bg--dark { display: none !important; }
 
-  /* Hide all cards by default */
-  .ambient-card { display: none !important; }
+  /* Hide all cards, set scale origin for shown ones */
+  .ambient-card { display: none !important; transform-origin: top left; }
 
-  /* Show 3 cards as static floating elements */
+  /* Show 5 cards at half size */
   .ambient-card--1,
+  .ambient-card--3,
+  .ambient-card--4,
   .ambient-card--10,
   .ambient-card--11 { display: block !important; }
 
-  /* Mobile card positions (inside ambient-sec__stage which fills the section) */
-  .ambient-card--1  {
-    width: 210px;
-    top: 9vh;
-    left: calc(100% - 190px);
-    transform: rotate(3deg);
-    animation: mob-float-a 5s ease-in-out infinite;
-  }
-  .ambient-card--10 {
-    width: 205px;
-    top: 40vh;
-    left: -28px;
-    transform: rotate(-2.5deg);
-    animation: mob-float-b 6.5s ease-in-out infinite;
-  }
-  .ambient-card--11 {
-    top: 64vh;
-    left: calc(50% - 85px);
-    transform: rotate(1.5deg);
-    animation: mob-float-c 4.8s ease-in-out infinite;
-  }
+  /* Positions — each card is 250px wide; scale(0.5) = ~125px visual footprint */
+  .ambient-card--1  { top:  6vh; left: calc(100% - 140px); animation: mf-1  5.0s ease-in-out infinite; }
+  .ambient-card--3  { top: 14vh; left: -10px;               animation: mf-3  6.2s ease-in-out infinite; }
+  .ambient-card--4  { top: 42vh; left: calc(100% - 125px); animation: mf-4  4.6s ease-in-out infinite; }
+  .ambient-card--10 { top: 48vh; left: -10px;               animation: mf-10 7.0s ease-in-out infinite; }
+  .ambient-card--11 { top: 70vh; left: calc(50% - 65px);    animation: mf-11 5.5s ease-in-out infinite; }
 
-  @keyframes mob-float-a {
-    0%, 100% { transform: rotate(3deg) translateY(0px); }
-    50%      { transform: rotate(3deg) translateY(-10px); }
-  }
-  @keyframes mob-float-b {
-    0%, 100% { transform: rotate(-2.5deg) translateY(0px); }
-    50%      { transform: rotate(-2.5deg) translateY(-8px); }
-  }
-  @keyframes mob-float-c {
-    0%, 100% { transform: rotate(1.5deg) translateY(0px); }
-    50%      { transform: rotate(1.5deg) translateY(-12px); }
-  }
+  @keyframes mf-1  { 0%,100%{transform:scale(.5) rotate( 3.0deg) translateY(  0px)} 50%{transform:scale(.5) rotate( 3.0deg) translateY(-10px)} }
+  @keyframes mf-3  { 0%,100%{transform:scale(.5) rotate(-2.0deg) translateY(  0px)} 50%{transform:scale(.5) rotate(-2.0deg) translateY( -8px)} }
+  @keyframes mf-4  { 0%,100%{transform:scale(.5) rotate( 1.5deg) translateY(  0px)} 50%{transform:scale(.5) rotate( 1.5deg) translateY(-12px)} }
+  @keyframes mf-10 { 0%,100%{transform:scale(.5) rotate(-3.0deg) translateY(  0px)} 50%{transform:scale(.5) rotate(-3.0deg) translateY( -6px)} }
+  @keyframes mf-11 { 0%,100%{transform:scale(.5) rotate( 2.0deg) translateY(  0px)} 50%{transform:scale(.5) rotate( 2.0deg) translateY( -9px)} }
 
   /* ── Platform / Trifeat ── */
   .trifeat { padding: 56px 20px 48px; margin-top: 0 !important; }
