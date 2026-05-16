@@ -268,7 +268,7 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
 (function () {
   const groups = [...document.querySelectorAll('.faq__group')];
   if (!groups.length) return;
-  const stagger = window.innerWidth <= 768 ? 120 : 500;
+  const stagger = window.innerWidth <= 768 ? 120 : 250;
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       groups.forEach((group, i) => {
