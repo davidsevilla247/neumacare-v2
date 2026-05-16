@@ -4440,17 +4440,18 @@ body {
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
-  /* ── Navbar — compact, stays at top ── */
+  /* ── Navbar — compact with logo ── */
   .bnb {
     top: 14px;
     height: 48px;
-    padding: 0 10px;
-    gap: 0;
+    padding: 0 12px;
+    gap: 2px;
     background: rgba(255,255,255,0.92);
     border-color: rgba(0,0,0,0.08);
   }
-  .bnb__logo, .bnb__divider { display: none; }
-  .bnb__link { padding: 6px 14px; font-size: 12px; }
+  .bnb__logo { display: block; height: 22px; }
+  .bnb__divider { display: block; }
+  .bnb__link { padding: 6px 12px; font-size: 12px; }
   .bnb__item { padding: 0 9px; gap: 0; }
   .bnb__label { display: none; }
   .bnb__icon { width: 22px; height: 22px; }
@@ -4646,13 +4647,14 @@ body {
   .cta__sub { font-size: 14px; }
   .cta__avatar-stack { flex-wrap: wrap; }
 
-  /* ── Footer ── */
+  /* ── Footer — simplified: logo + tagline + blog only ── */
   .ftr { padding: 36px 20px 20px; }
-  .ftr__row { flex-direction: column; gap: 28px; }
-  .ftr__left { flex: none; padding-right: 0; }
+  .ftr__row { flex-direction: column; gap: 0; }
+  .ftr__left { flex: none; padding-right: 0; padding-bottom: 28px; }
   .ftr__tagline { font-size: 16px; }
-  .ftr__nav { padding: 0; }
-  .ftr__col { gap: 14px; }
+  .ftr__nl { display: none; }
+  .ftr__nav { display: none; }
+  .ftr__social { display: none; }
   .ftr__blog-col {
     border-left: none;
     padding-left: 0;
@@ -4660,7 +4662,6 @@ body {
     border-top: 1px solid rgba(255,255,255,0.08);
   }
   .ftr__blog-item { margin: -6px; padding: 6px; }
-  .ftr__social { padding-left: 0; flex-direction: row; flex-wrap: wrap; gap: 8px; }
   .ftr__sep { margin-top: 8px; }
 
   /* ── Blog pages ── (blog.css handles these but add safety) */
@@ -4711,8 +4712,6 @@ body {
 
   /* Footer */
   .ftr { padding: 28px 16px 16px; }
-  .ftr__nl-form { flex-direction: column; gap: 8px; padding: 10px 12px; border-radius: 14px; }
-  .ftr__nl-btn { width: 100%; border-radius: 10px; justify-content: center; height: 38px; }
 
   /* Press strip */
   .press-strip__inner { gap: 28px; }
