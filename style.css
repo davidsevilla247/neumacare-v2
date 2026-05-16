@@ -4571,13 +4571,13 @@ body {
   @keyframes mf-11 { 0%,100%{transform:scale(.5) rotate( 2.0deg) translateY(  0px)} 50%{transform:scale(.5) rotate( 2.0deg) translateY( -9px)} }
 
   /* ── Platform / Trifeat ── */
-  .trifeat { padding: 56px 20px 48px; margin-top: 0 !important; }
+  .trifeat { padding: 56px 16px 48px; margin-top: 0 !important; }
   .trifeat__header { margin-bottom: 28px; }
   .trifeat__title { font-size: clamp(28px, 7vw, 40px); }
   .trifeat__sub { font-size: 14px; }
-  .trifeat__grid { grid-template-columns: 1fr; gap: 12px; }
-  .trifeat__card { min-height: auto; }
-  .trifeat__card-visual { max-height: 220px; overflow: hidden; }
+  .trifeat__grid { grid-template-columns: 1fr; gap: 16px; }
+  .trifeat__card { min-height: auto; padding: 28px 24px; gap: 20px; }
+  .trifeat__card-visual { max-height: 240px; overflow: hidden; }
   .trifeat__orbital { min-height: 140px; transform: scale(0.75); transform-origin: center top; }
   .trifeat__sliders { padding: 16px; }
   .trifeat__chat { padding: 12px; }
@@ -4687,7 +4687,7 @@ body {
 
   /* Platform */
   .trifeat { padding: 48px 16px; }
-  .trifeat__card-visual { display: none; }
+  .trifeat__card-visual { max-height: 260px; }
 
   /* Stats */
   .stats__wrap { padding: 48px 16px; }

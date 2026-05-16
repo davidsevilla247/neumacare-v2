@@ -501,13 +501,32 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   const cards = grid ? [...grid.querySelectorAll('.trifeat__card')] : [];
   if (!cards.length) return;
 
-  // All cards end at translateY(0)/opacity 1 but card 3 gets there first,
-  // cards 2&4 next, card 1 last. [start, end] as fraction of scroll range.
+  // Mobile: staggered IntersectionObserver fade-in per card
+  if (window.innerWidth <= 768) {
+    cards.forEach((card, i) => {
+      card.style.opacity   = '0';
+      card.style.transform = 'translateY(28px)';
+      card.style.transition = `opacity 0.55s ease ${i * 0.1}s, transform 0.55s ease ${i * 0.1}s`;
+    });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity   = '1';
+          e.target.style.transform = 'translateY(0)';
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    cards.forEach(card => obs.observe(card));
+    return;
+  }
+
+  // Desktop: scroll-driven depth entrance
   const ranges = [
-    [0.12, 1.00],  // card 1: starts late, finishes last (furthest)
-    [0.06, 0.88],  // card 2: mid
-    [0.00, 0.72],  // card 3: starts first, finishes first (frontmost)
-    [0.06, 0.88],  // card 4: mid
+    [0.12, 1.00],
+    [0.06, 0.88],
+    [0.00, 0.72],
+    [0.06, 0.88],
   ];
   const startY = [70, 48, 26, 48];
 
