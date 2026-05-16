@@ -22,7 +22,7 @@
     /* Override the JS-driven opacity:0 from style.css — use CSS keyframe instead */
     @keyframes team-in {
       from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(none); }
+      to   { opacity: 1; transform: translateY(0); }
     }
     .equipo-page .team__eyebrow,
     .equipo-page .team__heading,
@@ -64,7 +64,7 @@
     <a href="blog.html" class="bnb__link">Blog</a>
   </nav>
 
-  <section class="team equipo-page">
+  <section class="team equipo-page is-visible">
       <div class="team__header">
         <div class="team__eyebrow">
           <span class="team__eyebrow-dot"></span>
