@@ -264,27 +264,24 @@ const revObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
 
 
-// ── FAQ entrance animation (desktop only, staggered 0.5s) ────────────────
+// ── FAQ entrance animation — staggered, all devices ──────────────────────
 (function () {
-  if (window.innerWidth <= 768) return;
   const groups = [...document.querySelectorAll('.faq__group')];
   if (!groups.length) return;
-
+  const stagger = window.innerWidth <= 768 ? 120 : 500;
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       groups.forEach((group, i) => {
-        setTimeout(() => group.classList.add('faq--visible'), i * 500);
+        setTimeout(() => group.classList.add('faq--visible'), i * stagger);
       });
       observer.disconnect();
     }
-  }, { threshold: 0.15 });
-
+  }, { threshold: 0.1 });
   observer.observe(document.querySelector('.faq__list'));
 })();
 
-// ── TEAM section entrance (desktop only) ─────────────────────────────────
+// ── TEAM section entrance — all devices ──────────────────────────────────
 (function () {
-  if (window.innerWidth <= 768) return;
   const section = document.querySelector('.team');
   if (!section) return;
   const observer = new IntersectionObserver((entries) => {
@@ -292,13 +289,12 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
       section.classList.add('is-visible');
       observer.disconnect();
     }
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   observer.observe(section);
 })();
 
-// ── CTA / Speak with experts entrance (desktop only) ─────────────────────
+// ── CTA / Speak with experts entrance — all devices ──────────────────────
 (function () {
-  if (window.innerWidth <= 768) return;
   const section = document.querySelector('.cta');
   if (!section) return;
   const observer = new IntersectionObserver((entries) => {
@@ -306,7 +302,7 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
       section.classList.add('is-visible');
       observer.disconnect();
     }
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   observer.observe(section);
 })();
 

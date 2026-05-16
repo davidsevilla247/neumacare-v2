@@ -4684,7 +4684,7 @@ body {
   .faq__heading { font-size: clamp(26px, 7vw, 36px); }
   .faq__q { font-size: 14px; padding: 16px 0; }
   .faq__a > p { font-size: 13.5px; }
-  .faq__group { opacity: 1 !important; transform: none !important; }
+  /* FAQ: animate on mobile but faster stagger (handled in JS) */
 
   /* ── CTA ── */
   .cta__main { padding: 56px 20px; }
@@ -4785,10 +4785,11 @@ body {
   /* Ambient: full screen static on mobile */
   .ambient-zone { height: 100svh !important; }
   .ambient-sec { height: 100svh !important; }
-  /* Disable entrance animations on mobile */
-  .team__eyebrow, .team__heading, .team__sub, .team__carousel,
-  .cta__left, .cta__right {
-    opacity: 1 !important;
-    transform: none !important;
-  }
+  /* Team: keep fade-up but tighten delays */
+  .team__heading  { transition-delay: 0.08s; }
+  .team__sub      { transition-delay: 0.15s; }
+  .team__carousel { transition-delay: 0.24s; }
+  /* CTA: switch to vertical motion on mobile (horizontal looks odd) */
+  .cta__left  { transform: translateY(28px); transition-delay: 0s; }
+  .cta__right { transform: translateY(28px); transition-delay: 0.12s; }
 }
