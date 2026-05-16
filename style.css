@@ -4510,22 +4510,33 @@ body {
   .hero__play-mobile:active { background: rgba(19,15,30,0.95); transform: scale(0.95); }
   .hero__play-mobile svg { flex-shrink: 0; margin-left: 2px; }
 
-  /* ── Switch zone (static on mobile) ── */
+  /* ── Switch zone (static on mobile, full screen) ── */
   .switch-zone { height: auto !important; margin-top: 0 !important; }
   .switch-zone__gate { display: none; }
   .switch-sec {
     position: relative !important;
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: visible !important;
-    padding: 72px 24px;
+    height: 100svh !important;
+    min-height: 100svh !important;
+    overflow: hidden !important;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .switch-sec__slide { position: relative !important; inset: auto !important; display: none; }
+  .switch-sec__slide { position: relative !important; inset: auto !important; display: none !important; }
   .switch-sec__slide--1 { display: flex !important; }
-  .switch-sec__inner { max-width: 400px; }
+  .switch-sec__inner {
+    max-width: 400px;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .switch-sec.is-visible .switch-sec__inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .switch-sec__toggle { cursor: pointer; }
+  .switch-sec__toggle-wrap { cursor: pointer; gap: 16px; }
   .switch-sec__rings { display: none; }
   .switch-sec__title { font-size: clamp(22px, 6vw, 32px); }
   .switch-sec__sub { font-size: 15px; }
@@ -4699,6 +4710,7 @@ body {
   section { height: auto !important; min-height: 0 !important; }
   /* Exceptions: sections that must keep a specific height */
   .hero--editorial { height: 100svh !important; min-height: 100svh !important; }
+  .switch-sec { height: 100svh !important; min-height: 100svh !important; }
   /* Ambient: no extra scroll travel since cards are hidden */
   .ambient-zone { height: 100vh !important; }
   .ambient-sec { height: 100vh !important; }

@@ -601,7 +601,33 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   update();
 })();
 
-// ── SWITCH SECTION: OFF → ON ──────────────────────────────────
+// ── SWITCH SECTION: mobile entrance + interactive toggle ─────
+(function () {
+  if (window.innerWidth > 768) return;
+  const switchSec = document.querySelector('.switch-sec');
+  if (!switchSec) return;
+
+  // Entrance animation via IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        switchSec.classList.add('is-visible');
+        observer.unobserve(switchSec);
+      }
+    });
+  }, { threshold: 0.25 });
+  observer.observe(switchSec);
+
+  // Interactive toggle: tap to switch on/off
+  const toggleWrap = switchSec.querySelector('.switch-sec__toggle-wrap');
+  if (toggleWrap) {
+    toggleWrap.addEventListener('click', () => {
+      switchSec.classList.toggle('switch-sec--on');
+    });
+  }
+})();
+
+// ── SWITCH SECTION: OFF → ON (desktop scroll) ────────────────
 (function () {
   if (window.innerWidth <= 768) return; // disabled on mobile
   const snapWrap   = document.querySelector('.snap-wrap');
