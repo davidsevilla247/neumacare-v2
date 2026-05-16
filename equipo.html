@@ -19,6 +19,9 @@
       box-sizing: border-box;
     }
 
+    /* Hide supported-by on all devices */
+    .team__support { display: none !important; }
+
     /* Force team content visible — overrides style.css entrance animation system */
     .equipo-page .team__eyebrow,
     .equipo-page .team__heading,
@@ -37,7 +40,6 @@
         padding-right: 20px;
         padding-bottom: 56px;
       }
-      .team__support { display: none; }
     }
     @media (max-width: 480px) {
       section.equipo-page {
