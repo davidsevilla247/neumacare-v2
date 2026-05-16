@@ -11,26 +11,28 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=3" />
   <style>
-    body { background: #F4F2FC; margin: 0; }
-    .equipo-page { padding-top: 96px; }
-    .equipo-page .team {
-      min-height: unset;
-      padding: 48px 40px 80px;
+    body { background: #F8F6FF; margin: 0; }
+    /* Navbar is sticky 60px — team section absorbs that space in its own padding */
+    section.equipo-page {
+      min-height: 100svh;
+      padding-top: 124px; /* 60px navbar + 64px base gap */
+      box-sizing: border-box;
     }
     @media (max-width: 768px) {
-      .equipo-page { padding-top: 72px; }
-      .equipo-page .team {
-        padding: 32px 20px 60px;
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      section.equipo-page {
+        padding-top: 116px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 56px;
       }
       .team__support { display: none; }
     }
     @media (max-width: 480px) {
-      .equipo-page { padding-top: 64px; }
-      .equipo-page .team { padding: 24px 16px 48px; }
+      section.equipo-page {
+        padding-top: 108px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
     }
   </style>
 </head>
@@ -44,9 +46,7 @@
     <a href="blog.html" class="bnb__link">Blog</a>
   </nav>
 
-  <div class="equipo-page">
-
-    <section class="team">
+  <section class="team equipo-page">
       <div class="team__header">
         <div class="team__eyebrow">
           <span class="team__eyebrow-dot"></span>
@@ -182,9 +182,7 @@
         </div>
       </div>
 
-    </section>
-
-  </div><!-- /.equipo-page -->
+  </section>
 
   <script>
   // Team carousel — auto-scroll + drag
