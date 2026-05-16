@@ -241,6 +241,20 @@
 
     requestAnimationFrame(tick);
   })();
+
+  // Team entrance animation (mirrors script.js observer)
+  (function () {
+    const section = document.querySelector('.team');
+    if (!section) return;
+    const stagger = window.innerWidth <= 768 ? 120 : 250;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        section.classList.add('is-visible');
+        observer.disconnect();
+      }
+    }, { threshold: 0.05 });
+    observer.observe(section);
+  })();
   </script>
 
 </body>
