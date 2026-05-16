@@ -12,12 +12,30 @@
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=3" />
   <style>
     body { background: #F8F6FF; margin: 0; }
-    /* Navbar is sticky 60px — team section absorbs that space in its own padding */
+
     section.equipo-page {
       min-height: 100svh;
-      padding-top: 124px; /* 60px navbar + 64px base gap */
+      padding-top: 124px;
       box-sizing: border-box;
     }
+
+    /* Override the JS-driven opacity:0 from style.css — use CSS keyframe instead */
+    @keyframes team-in {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(none); }
+    }
+    .equipo-page .team__eyebrow,
+    .equipo-page .team__heading,
+    .equipo-page .team__sub,
+    .equipo-page .team__carousel {
+      opacity: 1;
+      transform: none;
+      animation: team-in 0.7s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    .equipo-page .team__heading  { animation-delay: 0.08s; }
+    .equipo-page .team__sub      { animation-delay: 0.16s; }
+    .equipo-page .team__carousel { animation-delay: 0.26s; }
+
     @media (max-width: 768px) {
       section.equipo-page {
         padding-top: 116px;
@@ -242,19 +260,6 @@
     requestAnimationFrame(tick);
   })();
 
-  // Team entrance animation (mirrors script.js observer)
-  (function () {
-    const section = document.querySelector('.team');
-    if (!section) return;
-    const stagger = window.innerWidth <= 768 ? 120 : 250;
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        section.classList.add('is-visible');
-        observer.disconnect();
-      }
-    }, { threshold: 0.05 });
-    observer.observe(section);
-  })();
   </script>
 
 </body>
