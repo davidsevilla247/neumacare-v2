@@ -282,6 +282,34 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   observer.observe(document.querySelector('.faq__list'));
 })();
 
+// ── TEAM section entrance (desktop only) ─────────────────────────────────
+(function () {
+  if (window.innerWidth <= 768) return;
+  const section = document.querySelector('.team');
+  if (!section) return;
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      section.classList.add('is-visible');
+      observer.disconnect();
+    }
+  }, { threshold: 0.12 });
+  observer.observe(section);
+})();
+
+// ── CTA / Speak with experts entrance (desktop only) ─────────────────────
+(function () {
+  if (window.innerWidth <= 768) return;
+  const section = document.querySelector('.cta');
+  if (!section) return;
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      section.classList.add('is-visible');
+      observer.disconnect();
+    }
+  }, { threshold: 0.12 });
+  observer.observe(section);
+})();
+
 // FAQ accordion
 document.querySelectorAll('.faq__q').forEach(btn => {
   btn.addEventListener('click', () => {

@@ -4077,6 +4077,40 @@ body {
 }
 .cta__card-arr svg { width: 15px; height: 15px; }
 
+/* ── TEAM section entrance animation ── */
+.team__eyebrow,
+.team__heading,
+.team__sub,
+.team__carousel {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.team__heading   { transition-delay: 0.1s; }
+.team__sub       { transition-delay: 0.2s; }
+.team__carousel  { transition-delay: 0.35s; }
+.team.is-visible .team__eyebrow,
+.team.is-visible .team__heading,
+.team.is-visible .team__sub,
+.team.is-visible .team__carousel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── CTA section entrance animation ── */
+.cta__left,
+.cta__right {
+  opacity: 0;
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
+}
+.cta__left  { transform: translateX(-44px); }
+.cta__right { transform: translateX(44px); transition-delay: 0.18s; }
+.cta.is-visible .cta__left,
+.cta.is-visible .cta__right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ── FOOTER (dentro de .cta) ─────────────────────────────── */
 .ftr {
   width: 100%;
@@ -4751,4 +4785,10 @@ body {
   /* Ambient: full screen static on mobile */
   .ambient-zone { height: 100svh !important; }
   .ambient-sec { height: 100svh !important; }
+  /* Disable entrance animations on mobile */
+  .team__eyebrow, .team__heading, .team__sub, .team__carousel,
+  .cta__left, .cta__right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
