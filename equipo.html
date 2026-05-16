@@ -19,22 +19,16 @@
       box-sizing: border-box;
     }
 
-    /* Override the JS-driven opacity:0 from style.css — use CSS keyframe instead */
-    @keyframes team-in {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    /* Force team content visible — overrides style.css entrance animation system */
     .equipo-page .team__eyebrow,
     .equipo-page .team__heading,
     .equipo-page .team__sub,
     .equipo-page .team__carousel {
-      opacity: 1;
-      transform: none;
-      animation: team-in 0.7s cubic-bezier(0.22,1,0.36,1) both;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+      animation: none !important;
     }
-    .equipo-page .team__heading  { animation-delay: 0.08s; }
-    .equipo-page .team__sub      { animation-delay: 0.16s; }
-    .equipo-page .team__carousel { animation-delay: 0.26s; }
 
     @media (max-width: 768px) {
       section.equipo-page {
