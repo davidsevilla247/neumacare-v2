@@ -704,6 +704,7 @@ document.querySelectorAll('.faq__q').forEach(btn => {
 
 // ── AMBIENT MODULATION: vertical scroll-through + live data ────
 (function () {
+  if (window.innerWidth <= 768) return; // mobile uses static layout
   const snapWrap  = document.querySelector('.snap-wrap');
   const zone      = document.querySelector('.ambient-zone');
   const ambientSec = document.querySelector('.ambient-sec');
