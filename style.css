@@ -4468,14 +4468,15 @@ body {
   .marquee-card { display: none; }
 
   /* ── Hero editorial (mobile layout) ── */
-  .hero-scroll-zone { height: 100vh; }
+  .hero-scroll-zone { height: 100svh !important; }
   .hero--editorial {
     position: relative !important;
-    height: 100vh;
+    height: 100svh !important;
+    min-height: 100svh !important;
     transform: none !important;
   }
   .hero--editorial .hero__wrap {
-    padding: 0 24px 48px;
+    padding: 72px 24px 48px !important;
     align-items: flex-end;
     height: 100%;
   }
@@ -4486,29 +4487,28 @@ body {
   .hero__editorial-right { display: none !important; }
   .hero--editorial .hero__title { font-size: clamp(38px, 10vw, 56px); }
 
-  /* Mobile play button */
+  /* Mobile play button — icon-only circle */
   .hero__play-mobile {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
     position: absolute;
-    bottom: 56px;
+    bottom: 48px;
     right: 24px;
-    padding: 13px 20px;
-    background: rgba(19,15,30,0.82);
+    width: 52px;
+    height: 52px;
+    background: rgba(19,15,30,0.80);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
     color: #fff;
-    font-size: 13px;
-    font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.15s;
     z-index: 4;
   }
-  .hero__play-mobile:active { background: rgba(19,15,30,0.95); }
-  .hero__play-mobile svg { flex-shrink: 0; }
+  .hero__play-mobile:active { background: rgba(19,15,30,0.95); transform: scale(0.95); }
+  .hero__play-mobile svg { flex-shrink: 0; margin-left: 2px; }
 
   /* ── Switch zone (static on mobile) ── */
   .switch-zone { height: auto !important; margin-top: 0 !important; }
@@ -4697,6 +4697,8 @@ body {
     overflow-y: visible;
   }
   section { height: auto !important; min-height: 0 !important; }
+  /* Exceptions: sections that must keep a specific height */
+  .hero--editorial { height: 100svh !important; min-height: 100svh !important; }
   /* Ambient: no extra scroll travel since cards are hidden */
   .ambient-zone { height: 100vh !important; }
   .ambient-sec { height: 100vh !important; }
