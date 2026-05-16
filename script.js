@@ -264,6 +264,24 @@ const revObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
 
 
+// ── FAQ entrance animation (desktop only, staggered 0.5s) ────────────────
+(function () {
+  if (window.innerWidth <= 768) return;
+  const groups = [...document.querySelectorAll('.faq__group')];
+  if (!groups.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      groups.forEach((group, i) => {
+        setTimeout(() => group.classList.add('faq--visible'), i * 500);
+      });
+      observer.disconnect();
+    }
+  }, { threshold: 0.15 });
+
+  observer.observe(document.querySelector('.faq__list'));
+})();
+
 // FAQ accordion
 document.querySelectorAll('.faq__q').forEach(btn => {
   btn.addEventListener('click', () => {
