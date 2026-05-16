@@ -583,6 +583,8 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   }
 
   if (demoBtn)  demoBtn.addEventListener('click',  e => { e.preventDefault(); openModal(); });
+  const demoBtnMobile = document.getElementById('cta-demo-mobile');
+  if (demoBtnMobile) demoBtnMobile.addEventListener('click', e => { e.preventDefault(); openModal(); });
   if (closeBtn) closeBtn.addEventListener('click',  closeModal);
   if (backdrop) backdrop.addEventListener('click',  closeModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
