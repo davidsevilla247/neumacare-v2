@@ -3771,7 +3771,7 @@ body {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: #ffffff;
+  background: #F8F6FF;
 }
 .faq__wrap {
   width: 100%;
@@ -3875,7 +3875,7 @@ body {
 
 /* ── CTA SECTION ─────────────────────────────────────────── */
 .cta {
-  background: #F4F2FC;
+  background: #F8F6FF;
   display: flex;
   flex-direction: column;
   /* sin height fija ni snap propio — los hijos definen los snap points */
