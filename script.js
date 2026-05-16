@@ -571,6 +571,7 @@ document.querySelectorAll('.faq__q').forEach(btn => {
 
 // ── HERO 1 → SWITCH: two-phase scroll transition ─────────────
 (function () {
+  if (window.innerWidth <= 768) return; // disabled on mobile
   const snapWrap  = document.querySelector('.snap-wrap');
   const zone      = document.querySelector('.hero-scroll-zone');
   if (!zone || !snapWrap) return;
@@ -602,6 +603,7 @@ document.querySelectorAll('.faq__q').forEach(btn => {
 
 // ── SWITCH SECTION: OFF → ON ──────────────────────────────────
 (function () {
+  if (window.innerWidth <= 768) return; // disabled on mobile
   const snapWrap   = document.querySelector('.snap-wrap');
   const switchZone = document.querySelector('.switch-zone');
   const switchSec  = document.querySelector('.switch-sec');

@@ -769,6 +769,10 @@ body {
   align-items: flex-end;
   text-align: right;
 }
+
+/* Mobile-only play button — hidden on desktop */
+.hero__play-mobile { display: none; }
+
 .hero__desc--lg {
   font-size: 19px;
   max-width: 480px;
@@ -4462,6 +4466,69 @@ body {
   .hero__ctas { flex-direction: column; gap: 10px; }
   .hero__cta { justify-content: center; width: 100%; }
   .marquee-card { display: none; }
+
+  /* ── Hero editorial (mobile layout) ── */
+  .hero-scroll-zone { height: 100vh; }
+  .hero--editorial {
+    position: relative !important;
+    height: 100vh;
+    transform: none !important;
+  }
+  .hero--editorial .hero__wrap {
+    padding: 0 24px 48px;
+    align-items: flex-end;
+    height: 100%;
+  }
+  .hero--editorial .hero__editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .hero__editorial-right { display: none !important; }
+  .hero--editorial .hero__title { font-size: clamp(38px, 10vw, 56px); }
+
+  /* Mobile play button */
+  .hero__play-mobile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 56px;
+    right: 24px;
+    padding: 13px 20px;
+    background: rgba(19,15,30,0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    z-index: 4;
+  }
+  .hero__play-mobile:active { background: rgba(19,15,30,0.95); }
+  .hero__play-mobile svg { flex-shrink: 0; }
+
+  /* ── Switch zone (static on mobile) ── */
+  .switch-zone { height: auto !important; margin-top: 0 !important; }
+  .switch-zone__gate { display: none; }
+  .switch-sec {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding: 72px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .switch-sec__slide { position: relative !important; inset: auto !important; display: none; }
+  .switch-sec__slide--1 { display: flex !important; }
+  .switch-sec__inner { max-width: 400px; }
+  .switch-sec__rings { display: none; }
+  .switch-sec__title { font-size: clamp(22px, 6vw, 32px); }
+  .switch-sec__sub { font-size: 15px; }
 
   /* ── Ambient section — hide floating cards, no scroll travel needed ── */
   .ambient-zone { height: 100vh !important; }
