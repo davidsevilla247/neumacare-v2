@@ -4700,7 +4700,19 @@ body {
   .ftr__left { flex: none; padding-right: 0; padding-bottom: 28px; }
   .ftr__tagline { font-size: 16px; }
   .ftr__nl { display: none; }
-  .ftr__nav { display: none; }
+  .ftr__nav {
+    display: flex;
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    margin-top: 4px;
+  }
+  .ftr__col {
+    flex-direction: row;
+    gap: 24px;
+    min-width: 0;
+  }
+  .ftr__link { font-size: 13px; }
   .ftr__social { display: none; }
   .ftr__blog-col {
     border-left: none;
