@@ -4731,10 +4731,11 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
   }
-  section { height: auto !important; min-height: 0 !important; }
-  /* Exceptions: sections that must keep a specific height */
-  .hero--editorial { height: 100svh !important; min-height: 100svh !important; }
-  .switch-sec { height: 100svh !important; min-height: 100svh !important; }
+  /* All sections: at least one full screen tall on mobile */
+  section { height: auto !important; min-height: 100svh !important; }
+  /* Sections pinned to exactly one screen */
+  .hero--editorial { height: 100svh !important; }
+  .switch-sec { height: 100svh !important; overflow: hidden !important; }
   /* Ambient: full screen static on mobile */
   .ambient-zone { height: 100svh !important; }
   .ambient-sec { height: 100svh !important; }
