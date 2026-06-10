@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE2PG8TJSP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XE2PG8TJSP');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waitlist — NeumaCare Home</title>
+  <meta name="description" content="Be among the first to bring NeumaCare home. Join the waitlist for our exclusive pre-sell round." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" href="logos/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
+  <style>
+    /* Reset snap/scroll from main style.css */
+    html, body { height: 100%; overflow: hidden; }
+    body { background: #0C0915; margin: 0; }
+
+    /* ── WAITLIST PAGE ───────────────────────────────────────── */
+    .wl {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #0C0915;
+    }
+
+    /* Ambient background glows */
+    .wl::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 55%;
+      height: 80%;
+      background: radial-gradient(ellipse, rgba(158,176,240,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .wl::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 40%;
+      height: 60%;
+      background: radial-gradient(ellipse, rgba(192,170,236,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .wl__wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 100px 48px 60px;
+      box-sizing: border-box;
+    }
+
+    .wl__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* ── LEFT: copy + form ───────────────────────────────────── */
+    .wl__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(158,176,240,0.25);
+      background: rgba(158,176,240,0.07);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #9EB0F0;
+      margin-bottom: 28px;
+    }
+
+    .wl__badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #9EB0F0;
+      animation: wl-pulse 2.2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes wl-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.75); }
+    }
+
+    .wl__title {
+      font-size: clamp(52px, 5vw, 78px);
+      font-weight: 500;
+      line-height: 0.93;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .wl__title-accent {
+      background: linear-gradient(160deg, #ffffff 0%, #D0D8FA 50%, #9EB0F0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .wl__desc {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.42);
+      max-width: 420px;
+      margin-bottom: 40px;
+    }
+
+    /* ── FORM ────────────────────────────────────────────────── */
+    .wl__form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .wl__input {
+      flex: 1;
+      min-width: 0;
+      height: 52px;
+      padding: 0 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .wl__input::placeholder { color: rgba(255,255,255,0.25); }
+    .wl__input:focus {
+      border-color: rgba(158,176,240,0.45);
+      background: rgba(158,176,240,0.05);
+    }
+
+    .wl__btn {
+      height: 52px;
+      padding: 0 28px;
+      background: linear-gradient(135deg, #9EB0F0 0%, #C0AAEC 100%);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(158,176,240,0.32);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      flex-shrink: 0;
+    }
+    .wl__btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .wl__btn:hover {
+      background: linear-gradient(135deg, #7A96E8 0%, #A890DC 100%);
+      box-shadow: 0 6px 28px rgba(158,176,240,0.5);
+      transform: scale(1.02);
+    }
+    .wl__btn:active { transform: scale(0.97); }
+
+    /* Loading state */
+    .wl__btn.is-loading { opacity: 0.7; pointer-events: none; }
+    .wl__btn.is-loading .wl__btn-text { opacity: 0.6; }
+
+    /* Success state */
+    .wl__success {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 22px;
+      background: rgba(74,222,128,0.07);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(74,222,128,0.9);
+      margin-bottom: 16px;
+    }
+    .wl__success.is-visible { display: flex; }
+    .wl__success svg { flex-shrink: 0; width: 18px; height: 18px; }
+
+    .wl__note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── RIGHT: product image ────────────────────────────────── */
+    .wl__visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wl__glow {
+      position: absolute;
+      width: 70%;
+      height: 50%;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse, rgba(158,176,240,0.22) 0%, transparent 70%);
+      filter: blur(48px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wl__product {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      filter: drop-shadow(0 48px 96px rgba(0,0,0,0.7));
+      animation: wl-float 6s ease-in-out infinite;
+    }
+
+    @keyframes wl-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-18px); }
+    }
+
+    /* ── HORIZONTAL RULE / STATS ─────────────────────────────── */
+    .wl__meta {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-top: 44px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .wl__stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .wl__stat-val {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+    .wl__stat-lbl {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .wl__meta-sep {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      html, body { height: auto; overflow: auto; }
+      .wl { height: auto; min-height: 100svh; padding: 0; }
+      .wl__wrap { padding: 110px 32px 60px; }
+      .wl__grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .wl__visual { order: -1; }
+      .wl__product { max-width: 280px; }
+    }
+
+    @media (max-width: 560px) {
+      .wl__wrap { padding: 100px 20px 52px; }
+      .wl__form { flex-direction: column; gap: 10px; }
+      .wl__input, .wl__btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .wl__title { font-size: 44px; }
+      .wl__product { max-width: 220px; }
+      .wl__meta { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="bnb bnb--dark">
+    <a href="index.html"><img src="logos/logo_negro.png" alt="NeumaCare" class="bnb__logo" /></a>
+    <div class="bnb__divider"></div>
+    <a href="index.html" class="bnb__link">Home</a>
+    <a href="equipo.html" class="bnb__link">Team</a>
+    <a href="blog.html" class="bnb__link">Blog</a>
+    <a href="waitlist.html" class="bnb__link bnb__link--active">Waitlist</a>
+  </nav>
+
+  <section class="wl">
+    <div class="wl__wrap">
+      <div class="wl__grid">
+
+        <!-- Left: copy + form -->
+        <div class="wl__left">
+
+          <div class="wl__badge">
+            <span class="wl__badge-dot"></span>
+            Early Adopter &middot; Pre-sell &middot; Crowdfunding
+          </div>
+
+          <h1 class="wl__title">
+            NeumaCare,<br>
+            <span class="wl__title-accent">at home.</span>
+          </h1>
+
+          <p class="wl__desc">
+            The same sensory intelligence that transforms hospital environments,
+            now designed for your home. Hardware + software that optimizes your
+            environment for better rest. Be among the first to get it.
+          </p>
+
+          <form class="wl__form" id="wl-form" data-endpoint="APPS_SCRIPT_URL_HERE">
+            <input
+              type="email"
+              name="email"
+              class="wl__input"
+              placeholder="Your email address"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="wl__btn" id="wl-submit">
+              <span class="wl__btn-text">Join Waitlist</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </form>
+
+          <div class="wl__success" id="wl-success">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            You're in! We'll notify you when the pre-sale opens.
+          </div>
+
+
+          <div class="wl__meta">
+            <div class="wl__stat">
+              <span class="wl__stat-val">B2C</span>
+              <span class="wl__stat-lbl">Home device</span>
+            </div>
+            <div class="wl__meta-sep"></div>
+            <div class="wl__stat">
+              <span class="wl__stat-val">HW + SW</span>
+              <span class="wl__stat-lbl">Hardware & software</span>
+            </div>
+            <div class="wl__meta-sep"></div>
+            <div class="wl__stat">
+              <span class="wl__stat-val">Early access</span>
+              <span class="wl__stat-lbl">Exclusive pre-sell</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: product image -->
+        <div class="wl__visual">
+          <div class="wl__glow"></div>
+          <img
+            src="product%20pre-sell/1.png"
+            alt="NeumaCare Home Device"
+            class="wl__product"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('wl-form');
+    const submitBtn = document.getElementById('wl-submit');
+    const success = document.getElementById('wl-success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitBtn.classList.add('is-loading');
+
+      const endpoint = form.dataset.endpoint;
+      const email = form.querySelector('input[name="email"]').value;
+
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email=' + encodeURIComponent(email)
+      });
+
+      setTimeout(() => {
+        gtag('event', 'waitlist_signup', { event_category: 'engagement' });
+        form.style.display = 'none';
+        success.classList.add('is-visible');
+      }, 700);
+    });
+  </script>
+
+</body>
+</html>
