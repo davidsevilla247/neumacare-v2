@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
   <link rel="stylesheet" href="blog.css?v=2" />
 </head>
-<body>
+<body data-page-title="page.title.blog">
 
   <nav class="blog-nav">
     <a href="index.html">
@@ -27,8 +27,29 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M19 12H5M12 5l-7 7 7 7"/>
       </svg>
-      Back to Blog
+      <span data-i18n="article.nav.back">Back to Blog</span>
     </a>
+    <div class="lang-picker">
+      <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
+        <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-picker__code">EN</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-picker__menu" role="listbox" aria-label="Select language">
+        <button class="lang-picker__item lang-picker__item--active" role="option" aria-selected="true" data-lang="en">
+          <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="es">
+          <span class="lang-picker__flag" aria-hidden="true">🇪🇸</span>
+          Español
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="ca">
+          <svg class="lang-picker__flag lang-picker__flag--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#FCDD09"/><rect y="1.556" width="20" height="1.556" fill="#DA121A"/><rect y="4.667" width="20" height="1.556" fill="#DA121A"/><rect y="7.778" width="20" height="1.556" fill="#DA121A"/><rect y="10.889" width="20" height="1.556" fill="#DA121A"/></svg>
+          Català
+        </button>
+      </div>
+    </div>
   </nav>
 
   <div class="article-hero">
@@ -38,53 +59,53 @@
   <article class="article-wrap">
 
     <div class="article-meta">
-      <span class="article-meta__category">Team &amp; Talent</span>
+      <span class="article-meta__category" data-i18n="euncet.meta.cat">Team &amp; Talent</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__date">March 17, 2026</span>
+      <span class="article-meta__date" data-i18n="euncet.meta.date">March 17, 2026</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__author">NeumaCare Team</span>
+      <span class="article-meta__author" data-i18n="article.meta.author">NeumaCare Team</span>
     </div>
 
-    <h1 class="article-title">Back To Where It All Began — NeumaCare at EUNCET Business School Talent Day</h1>
+    <h1 class="article-title" data-i18n="euncet.title">Back To Where It All Began — NeumaCare at EUNCET Business School Talent Day</h1>
 
     <div class="article-body">
 
-      <p>At NeumaCare, we believe that building transformative technology starts with building the right team. As we enter our next phase of growth, we are actively expanding and seeking young, motivated talent eager to make an impact in the health tech space.</p>
+      <p data-i18n="euncet.p.1">At NeumaCare, we believe that building transformative technology starts with building the right team. As we enter our next phase of growth, we are actively expanding and seeking young, motivated talent eager to make an impact in the health tech space.</p>
 
-      <p>Recently, we had the opportunity to take part in the <strong>Talent Day at EUNCET Business School</strong> — an experience that was both professionally meaningful and personally significant.</p>
+      <p data-i18n-html="euncet.p.2">Recently, we had the opportunity to take part in the <strong>Talent Day at EUNCET Business School</strong> — an experience that was both professionally meaningful and personally significant.</p>
 
       <figure class="article-img">
         <img src="euncet/1773818211593.jpeg" alt="NeumaCare team at EUNCET Business School Talent Day" />
-        <figcaption>NeumaCare connecting with students at EUNCET Business School Talent Day 2026</figcaption>
+        <figcaption data-i18n="euncet.fig.1">NeumaCare connecting with students at EUNCET Business School Talent Day 2026</figcaption>
       </figure>
 
-      <h2>Returning With A New Purpose</h2>
+      <h2 data-i18n="euncet.h2.1">Returning With A New Purpose</h2>
 
-      <p>Returning to the university where part of our journey began — this time with the purpose of identifying and attracting talent — was both inspiring and rewarding. It is a reminder of how far we have come, and of the importance of giving back to the academic communities that help shape entrepreneurs and innovators.</p>
+      <p data-i18n="euncet.p.3">Returning to the university where part of our journey began — this time with the purpose of identifying and attracting talent — was both inspiring and rewarding. It is a reminder of how far we have come, and of the importance of giving back to the academic communities that help shape entrepreneurs and innovators.</p>
 
-      <p>The event allowed us to meet students with strong potential, curiosity, and a proactive mindset. These interactions reaffirm the importance of creating <strong>bridges between academia and startups</strong>, enabling young professionals to engage early with real-world innovation environments.</p>
+      <p data-i18n-html="euncet.p.4">The event allowed us to meet students with strong potential, curiosity, and a proactive mindset. These interactions reaffirm the importance of creating <strong>bridges between academia and startups</strong>, enabling young professionals to engage early with real-world innovation environments.</p>
 
       <figure class="article-img">
         <img src="euncet/1773818212516.jpeg" alt="NeumaCare at EUNCET Talent Day 2026" />
-        <figcaption>Meeting the next generation of health tech talent at EUNCET</figcaption>
+        <figcaption data-i18n="euncet.fig.2">Meeting the next generation of health tech talent at EUNCET</figcaption>
       </figure>
 
-      <h2>What We Are Looking For</h2>
+      <h2 data-i18n="euncet.h2.2">What We Are Looking For</h2>
 
-      <p>As we advance in our development roadmap, strengthening the team becomes essential to successfully navigate the challenges of scaling technology and operations. Over the coming months, we will be opening new opportunities for individuals who want to be part of a project at the intersection of <strong>healthcare, technology, and human-centred design</strong>.</p>
+      <p data-i18n-html="euncet.p.5">As we advance in our development roadmap, strengthening the team becomes essential to successfully navigate the challenges of scaling technology and operations. Over the coming months, we will be opening new opportunities for individuals who want to be part of a project at the intersection of <strong>healthcare, technology, and human-centred design</strong>.</p>
 
-      <p>We are not just looking for skills — we are looking for mindset. People who are curious, proactive, and eager to contribute to something meaningful.</p>
+      <p data-i18n="euncet.p.6">We are not just looking for skills — we are looking for mindset. People who are curious, proactive, and eager to contribute to something meaningful.</p>
 
-      <h2>An Open Invitation</h2>
+      <h2 data-i18n="euncet.h2.3">An Open Invitation</h2>
 
-      <p>If what we are building at NeumaCare resonates with you, we would be glad to connect. Whether through upcoming job openings or direct outreach, we are always open to meeting individuals who believe they can add value to the project.</p>
+      <p data-i18n="euncet.p.7">If what we are building at NeumaCare resonates with you, we would be glad to connect. Whether through upcoming job openings or direct outreach, we are always open to meeting individuals who believe they can add value to the project.</p>
 
       <blockquote class="article-quote">
-        <p>"At NeumaCare, we continue growing with a clear vision: building not only technology, but also the team that will make it possible."</p>
-        <cite>— NeumaCare Team</cite>
+        <p data-i18n="euncet.bq">"At NeumaCare, we continue growing with a clear vision: building not only technology, but also the team that will make it possible."</p>
+        <cite data-i18n="euncet.cite">— NeumaCare Team</cite>
       </blockquote>
 
-      <p>We would like to thank the team at <strong>EUNCET Business School</strong> for organising such a valuable initiative and for trusting us to be part of this event.</p>
+      <p data-i18n-html="euncet.p.8">We would like to thank the team at <strong>EUNCET Business School</strong> for organising such a valuable initiative and for trusting us to be part of this event.</p>
 
     </div>
 
@@ -102,27 +123,49 @@
   </article>
 
   <section class="related">
-    <p class="related__title">Related articles</p>
+    <p class="related__title" data-i18n="related.title">Related articles</p>
     <a href="article-nuclio-hiring-2026.html" class="related__card">
       <img src="nuclio/1772793334555.jpeg" alt="NeumaCare at Nuclio Digital School Hiring Day" />
       <div>
-        <p class="related__card-title">Startup-Ready Talent — NeumaCare at Nuclio Digital School Hiring Day</p>
-        <p class="related__card-date">March 5, 2026</p>
+        <p class="related__card-title" data-i18n="euncet.rel.1.title">Startup-Ready Talent — NeumaCare at Nuclio Digital School Hiring Day</p>
+        <p class="related__card-date" data-i18n="euncet.rel.1.date">March 5, 2026</p>
       </div>
     </a>
     <a href="article-poc-hardware-2026.html" class="related__card">
       <img src="poc/1774251107826.jpeg" alt="NeumaCare Hardware POC 2026" />
       <div>
-        <p class="related__card-title">First Hardware POC Built in Four Weeks</p>
-        <p class="related__card-date">April 28, 2026</p>
+        <p class="related__card-title" data-i18n="euncet.rel.2.title">First Hardware POC Built in Four Weeks</p>
+        <p class="related__card-date" data-i18n="euncet.rel.2.date">April 28, 2026</p>
       </div>
     </a>
   </section>
 
   <footer class="blog-footer">
     <img src="logos/logo_blanco.png" alt="NeumaCare" />
-    <p>© 2025 NeumaCare · All rights reserved</p>
+    <p data-i18n="footer.blog.copy">© 2025 NeumaCare · All rights reserved</p>
   </footer>
 
+  <script src="translations.js"></script>
+
+  <script>
+  (function () {
+    document.querySelectorAll(".lang-picker").forEach(function (picker) {
+      var btn = picker.querySelector(".lang-picker__btn");
+      if (!btn) return;
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = picker.classList.toggle("lang-picker--open");
+        btn.setAttribute("aria-expanded", open);
+      });
+    });
+    document.addEventListener("click", function () {
+      document.querySelectorAll(".lang-picker--open").forEach(function (picker) {
+        picker.classList.remove("lang-picker--open");
+        var btn = picker.querySelector(".lang-picker__btn");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

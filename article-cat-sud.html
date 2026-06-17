@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
   <link rel="stylesheet" href="blog.css?v=2" />
 </head>
-<body>
+<body data-page-title="page.title.blog">
 
   <nav class="blog-nav">
     <a href="index.html">
@@ -27,8 +27,29 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M19 12H5M12 5l-7 7 7 7"/>
       </svg>
-      Back to Blog
+      <span data-i18n="article.nav.back">Back to Blog</span>
     </a>
+    <div class="lang-picker">
+      <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
+        <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-picker__code">EN</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-picker__menu" role="listbox" aria-label="Select language">
+        <button class="lang-picker__item lang-picker__item--active" role="option" aria-selected="true" data-lang="en">
+          <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="es">
+          <span class="lang-picker__flag" aria-hidden="true">🇪🇸</span>
+          Español
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="ca">
+          <svg class="lang-picker__flag lang-picker__flag--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#FCDD09"/><rect y="1.556" width="20" height="1.556" fill="#DA121A"/><rect y="4.667" width="20" height="1.556" fill="#DA121A"/><rect y="7.778" width="20" height="1.556" fill="#DA121A"/><rect y="10.889" width="20" height="1.556" fill="#DA121A"/></svg>
+          Català
+        </button>
+      </div>
+    </div>
   </nav>
 
   <div class="article-hero">
@@ -38,62 +59,62 @@
   <article class="article-wrap">
 
     <div class="article-meta">
-      <span class="article-meta__category">Investment &amp; Growth</span>
+      <span class="article-meta__category" data-i18n="catsud.meta.cat">Investment &amp; Growth</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__date">March 2026</span>
+      <span class="article-meta__date" data-i18n="catsud.meta.date">March 2026</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__author">NeumaCare Team</span>
+      <span class="article-meta__author" data-i18n="article.meta.author">NeumaCare Team</span>
     </div>
 
-    <h1 class="article-title">NeumaCare Selected Among the Top 10 at the 9th CAT SUD Investment Forum</h1>
+    <h1 class="article-title" data-i18n="catsud.title">NeumaCare Selected Among the Top 10 at the 9th CAT SUD Investment Forum</h1>
 
     <div class="article-body">
 
-      <p>NeumaCare has been selected as one of the <strong>10 most promising projects</strong> to pitch at the 9th edition of the <strong>Fòrum d'Inversió CAT SUD</strong>, held at the Palau de Fires i Congressos de Tarragona. The forum brought together over <strong>200 attendees</strong> — investors, entrepreneurs, institutions, and ecosystem stakeholders — for a day focused on innovation, impact, and the future of Southern Catalonia's entrepreneurial landscape.</p>
+      <p data-i18n-html="catsud.p.1">NeumaCare has been selected as one of the <strong>10 most promising projects</strong> to pitch at the 9th edition of the <strong>Fòrum d'Inversió CAT SUD</strong>, held at the Palau de Fires i Congressos de Tarragona. The forum brought together over <strong>200 attendees</strong> — investors, entrepreneurs, institutions, and ecosystem stakeholders — for a day focused on innovation, impact, and the future of Southern Catalonia's entrepreneurial landscape.</p>
 
-      <p>Each selected startup took the stage for a <strong>7-minute pitch</strong> in front of an audience of investors and industry leaders, presenting their value proposition, traction, and growth roadmap. Being chosen among the top ten from a highly competitive pool is a strong signal of confidence in NeumaCare's clinical AI platform and its potential to transform hospital environments at scale.</p>
+      <p data-i18n-html="catsud.p.2">Each selected startup took the stage for a <strong>7-minute pitch</strong> in front of an audience of investors and industry leaders, presenting their value proposition, traction, and growth roadmap. Being chosen among the top ten from a highly competitive pool is a strong signal of confidence in NeumaCare's clinical AI platform and its potential to transform hospital environments at scale.</p>
 
       <figure class="article-img-grid">
         <img src="cat-sud/1774507557239.jpeg" alt="NeumaCare POC exhibition at CAT SUD" />
         <img src="cat-sud/1774507557677.jpeg" alt="NeumaCare team at CAT SUD Investment Forum" />
       </figure>
 
-      <h2>The First POC Exhibition</h2>
+      <h2 data-i18n="catsud.h2.1">The First POC Exhibition</h2>
 
-      <p>Alongside the pitch sessions, this edition featured for the first time a <strong>POC (Proof of Concept) exhibition area</strong>, where participating startups demonstrated their technology live to attendees. For NeumaCare, this was an opportunity to bring our sensory AI platform out of the hospital room and into direct conversation with investors and partners — showcasing in real time how ambient light, sound and personalised therapies can be adapted to individual patients' physiological states.</p>
+      <p data-i18n-html="catsud.p.3">Alongside the pitch sessions, this edition featured for the first time a <strong>POC (Proof of Concept) exhibition area</strong>, where participating startups demonstrated their technology live to attendees. For NeumaCare, this was an opportunity to bring our sensory AI platform out of the hospital room and into direct conversation with investors and partners — showcasing in real time how ambient light, sound and personalised therapies can be adapted to individual patients' physiological states.</p>
 
       <figure class="article-img">
         <img src="cat-sud/1773933043610.jpeg" alt="NeumaCare pitch at CAT SUD Investment Forum" />
-        <figcaption>NeumaCare presenting at the 9th CAT SUD Investment Forum — Palau de Fires i Congressos de Tarragona</figcaption>
+        <figcaption data-i18n="catsud.fig.1">NeumaCare presenting at the 9th CAT SUD Investment Forum — Palau de Fires i Congressos de Tarragona</figcaption>
       </figure>
 
-      <h2>About the CAT SUD Investment Forum</h2>
+      <h2 data-i18n="catsud.h2.2">About the CAT SUD Investment Forum</h2>
 
-      <p>The Fòrum d'Inversió CAT SUD is one of the key investment events in Southern Catalonia, now in its ninth edition. The forum is organised through a broad institutional collaboration involving:</p>
+      <p data-i18n="catsud.p.4">The Fòrum d'Inversió CAT SUD is one of the key investment events in Southern Catalonia, now in its ninth edition. The forum is organised through a broad institutional collaboration involving:</p>
 
-      <ul>
+      <ul data-i18n-html="catsud.ul.1">
         <li><strong>ACCIÓ</strong> — the Catalan Government's agency for business competitiveness</li>
         <li>The municipalities of <strong>Tarragona</strong> and <strong>Reus</strong></li>
         <li>The <strong>Diputació de Tarragona</strong></li>
         <li>The <strong>Universitat Rovira i Virgili (URV)</strong></li>
       </ul>
 
-      <p>The forum positions itself as a meeting point between innovative startups from the southern territories and investors seeking high-impact opportunities, with a particular focus on sectors such as health technology, sustainability, and digital transformation.</p>
+      <p data-i18n="catsud.p.5">The forum positions itself as a meeting point between innovative startups from the southern territories and investors seeking high-impact opportunities, with a particular focus on sectors such as health technology, sustainability, and digital transformation.</p>
 
-      <h2>Sharing the stage with outstanding co-startups</h2>
+      <h2 data-i18n="catsud.h2.3">Sharing the stage with outstanding co-startups</h2>
 
-      <p>NeumaCare shared the stage with nine other outstanding projects selected this year — a diverse cohort spanning health, agri-tech, sustainability and deep tech. Being part of this group reinforces NeumaCare's position within a growing ecosystem of purpose-driven startups building the future from Southern Catalonia.</p>
+      <p data-i18n="catsud.p.6">NeumaCare shared the stage with nine other outstanding projects selected this year — a diverse cohort spanning health, agri-tech, sustainability and deep tech. Being part of this group reinforces NeumaCare's position within a growing ecosystem of purpose-driven startups building the future from Southern Catalonia.</p>
 
       <blockquote class="article-quote">
-        <p>"Participating in the CAT SUD Investment Forum has been an opportunity to connect with people who truly believe in what we are building. The interest we received — both during the pitch and at the POC exhibition — confirms that the market is ready for a more human approach to hospital environments."</p>
-        <cite>— David Sevilla, CEO of NeumaCare</cite>
+        <p data-i18n="catsud.bq">"Participating in the CAT SUD Investment Forum has been an opportunity to connect with people who truly believe in what we are building. The interest we received — both during the pitch and at the POC exhibition — confirms that the market is ready for a more human approach to hospital environments."</p>
+        <cite data-i18n="catsud.cite">— David Sevilla, CEO of NeumaCare</cite>
       </blockquote>
 
-      <h2>A team effort</h2>
+      <h2 data-i18n="catsud.h2.4">A team effort</h2>
 
-      <p>NeumaCare's participation in this forum was made possible by the dedication of the entire team. Special recognition goes to <strong>Ferran Amat</strong>, <strong>Josep Mª Pujades</strong>, <strong>Gemma Mitjana</strong>, <strong>Clara García</strong>, <strong>Francesc Sevilla</strong> and <strong>Carla Fernández</strong> — whose work in preparation, presentation and follow-up made this milestone possible.</p>
+      <p data-i18n-html="catsud.p.7">NeumaCare's participation in this forum was made possible by the dedication of the entire team. Special recognition goes to <strong>Ferran Amat</strong>, <strong>Josep Mª Pujades</strong>, <strong>Gemma Mitjana</strong>, <strong>Clara García</strong>, <strong>Francesc Sevilla</strong> and <strong>Carla Fernández</strong> — whose work in preparation, presentation and follow-up made this milestone possible.</p>
 
-      <p>We are grateful to the organisers of the CAT SUD Investment Forum, to every investor and institution that gave us their attention, and to the broader Southern Catalan ecosystem for continuing to bet on innovation with real impact.</p>
+      <p data-i18n="catsud.p.8">We are grateful to the organisers of the CAT SUD Investment Forum, to every investor and institution that gave us their attention, and to the broader Southern Catalan ecosystem for continuing to bet on innovation with real impact.</p>
 
     </div>
 
@@ -111,27 +132,49 @@
   </article>
 
   <section class="related">
-    <p class="related__title">Related articles</p>
+    <p class="related__title" data-i18n="related.title">Related articles</p>
     <a href="article-primer-2025.html" class="related__card">
       <img src="media/articles/primer-hero.webp" alt="Programa Primer 2025" />
       <div>
-        <p class="related__card-title">Best Startup of the Programa Primer 2025 — Direct access to 4YFN at MWC</p>
-        <p class="related__card-date">December 16, 2025</p>
+        <p class="related__card-title" data-i18n="catsud.rel.1.title">Best Startup of the Programa Primer 2025 — Direct access to 4YFN at MWC</p>
+        <p class="related__card-date" data-i18n="catsud.rel.1.date">December 16, 2025</p>
       </div>
     </a>
     <a href="article-empren-dipta-2025.html" class="related__card" style="margin-top: 12px;">
       <img src="media/articles/empren-hero.webp" alt="Premis Emprèn 2025" />
       <div>
-        <p class="related__card-title">Best Business Project at the Premis Emprèn Dipta 2025</p>
-        <p class="related__card-date">December 11, 2025</p>
+        <p class="related__card-title" data-i18n="catsud.rel.2.title">Best Business Project at the Premis Emprèn Dipta 2025</p>
+        <p class="related__card-date" data-i18n="catsud.rel.2.date">December 11, 2025</p>
       </div>
     </a>
   </section>
 
   <footer class="blog-footer">
     <img src="logos/logo_blanco.png" alt="NeumaCare" />
-    <p>© 2025 NeumaCare · All rights reserved</p>
+    <p data-i18n="footer.blog.copy">© 2025 NeumaCare · All rights reserved</p>
   </footer>
 
+  <script src="translations.js"></script>
+
+  <script>
+  (function () {
+    document.querySelectorAll(".lang-picker").forEach(function (picker) {
+      var btn = picker.querySelector(".lang-picker__btn");
+      if (!btn) return;
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = picker.classList.toggle("lang-picker--open");
+        btn.setAttribute("aria-expanded", open);
+      });
+    });
+    document.addEventListener("click", function () {
+      document.querySelectorAll(".lang-picker--open").forEach(function (picker) {
+        picker.classList.remove("lang-picker--open");
+        var btn = picker.querySelector(".lang-picker__btn");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

@@ -59,25 +59,47 @@
     }
   </style>
 </head>
-<body>
+<body data-page-title="page.title.team">
 
   <nav class="bnb">
     <a href="index.html"><img src="logos/logo_negro.png" alt="NeumaCare" class="bnb__logo" /></a>
     <div class="bnb__divider"></div>
-    <a href="index.html" class="bnb__link">Home</a>
-    <a href="equipo.html" class="bnb__link bnb__link--active">Team</a>
-    <a href="blog.html" class="bnb__link">Blog</a>
-    <a href="waitlist.html" class="bnb__link">Waitlist</a>
+    <a href="index.html" class="bnb__link" data-i18n="nav.home">Home</a>
+    <a href="equipo.html" class="bnb__link bnb__link--active" data-i18n="nav.team">Team</a>
+    <a href="blog.html" class="bnb__link" data-i18n="nav.blog">Blog</a>
+    <a href="waitlist.html" class="bnb__link" data-i18n="nav.waitlist">Waitlist</a>
+    <div class="bnb__divider"></div>
+    <div class="lang-picker">
+      <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
+        <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-picker__code">EN</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-picker__menu" role="listbox" aria-label="Select language">
+        <button class="lang-picker__item lang-picker__item--active" role="option" aria-selected="true" data-lang="en">
+          <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="es">
+          <span class="lang-picker__flag" aria-hidden="true">🇪🇸</span>
+          Español
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="ca">
+          <svg class="lang-picker__flag lang-picker__flag--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#FCDD09"/><rect y="1.556" width="20" height="1.556" fill="#DA121A"/><rect y="4.667" width="20" height="1.556" fill="#DA121A"/><rect y="7.778" width="20" height="1.556" fill="#DA121A"/><rect y="10.889" width="20" height="1.556" fill="#DA121A"/></svg>
+          Català
+        </button>
+      </div>
+    </div>
   </nav>
 
   <section class="team equipo-page is-visible">
       <div class="team__header">
         <div class="team__eyebrow">
           <span class="team__eyebrow-dot"></span>
-          Our Team
+          <span data-i18n="team.eyebrow">Our Team</span>
         </div>
-        <h2 class="team__heading">Meet the team<br>behind NeumaCare.</h2>
-        <p class="team__sub">Clinicians, engineers, and designers united by a single mission: redefine what care environments can do.</p>
+        <h2 class="team__heading" data-i18n-html="team.heading">Meet the team<br>behind NeumaCare.</h2>
+        <p class="team__sub" data-i18n="team.sub">Clinicians, engineers, and designers united by a single mission: redefine what care environments can do.</p>
       </div>
 
       <div class="team__carousel">
@@ -88,7 +110,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">David Sevilla</h3>
-              <p class="team__role">CEO &amp; Founder</p>
+              <p class="team__role" data-i18n="role.ceo">CEO &amp; Founder</p>
             </div>
             <a href="https://www.linkedin.com/in/david-sevilla-marketing/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -101,7 +123,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Joan Jarque</h3>
-              <p class="team__role">CMO</p>
+              <p class="team__role" data-i18n="role.cmo">CMO</p>
             </div>
             <a href="https://www.linkedin.com/in/joanjarque/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -114,7 +136,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Francesc Sevilla</h3>
-              <p class="team__role">CHO</p>
+              <p class="team__role" data-i18n="role.cho">CHO</p>
             </div>
             <a href="https://www.linkedin.com/in/francesc-sevilla-guevara-65246842/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -127,7 +149,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Ferran Amat</h3>
-              <p class="team__role">CPO</p>
+              <p class="team__role" data-i18n="role.cpo">CPO</p>
             </div>
             <a href="https://www.linkedin.com/in/ferran-amat/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -140,7 +162,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Josep Pujades</h3>
-              <p class="team__role">IoT Solutions Architect</p>
+              <p class="team__role" data-i18n="role.iot">IoT Solutions Architect</p>
             </div>
             <a href="https://www.linkedin.com/in/josep-m%C3%AA-pujades-94695b165/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -153,7 +175,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Gemma Pujades</h3>
-              <p class="team__role">Infrastructure Lead</p>
+              <p class="team__role" data-i18n="role.infra">Infrastructure Lead</p>
             </div>
             <a href="https://www.linkedin.com/in/gmitjana/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -166,7 +188,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Clara García</h3>
-              <p class="team__role">Product Designer</p>
+              <p class="team__role" data-i18n="role.proddesign">Product Designer</p>
             </div>
             <a href="https://www.linkedin.com/in/clara-garcia-marfil/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -179,7 +201,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Jimena Castro</h3>
-              <p class="team__role">Brand Designer</p>
+              <p class="team__role" data-i18n="role.branddesign">Brand Designer</p>
             </div>
             <a href="https://www.linkedin.com/in/jimena-castro/?locale=es" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -192,7 +214,7 @@
           <div class="team__info">
             <div class="team__info-text">
               <h3 class="team__name">Julia Vázquez</h3>
-              <p class="team__role">Marketing Intern</p>
+              <p class="team__role" data-i18n="role.mktintern">Marketing Intern</p>
             </div>
             <a href="https://www.linkedin.com/in/julia-vázquez-gonzález-144a153a0/" target="_blank" rel="noopener" class="team__li" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -279,6 +301,30 @@
     requestAnimationFrame(tick);
   })();
 
+  </script>
+
+  <script src="translations.js"></script>
+
+
+  <script>
+  (function () {
+    document.querySelectorAll('.lang-picker').forEach(function (picker) {
+      var btn = picker.querySelector('.lang-picker__btn');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = picker.classList.toggle('lang-picker--open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.lang-picker--open').forEach(function (picker) {
+        picker.classList.remove('lang-picker--open');
+        var btn = picker.querySelector('.lang-picker__btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
   </script>
 
 </body>

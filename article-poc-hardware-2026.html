@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
   <link rel="stylesheet" href="blog.css?v=2" />
 </head>
-<body>
+<body data-page-title="page.title.blog">
 
   <nav class="blog-nav">
     <a href="index.html">
@@ -27,8 +27,29 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M19 12H5M12 5l-7 7 7 7"/>
       </svg>
-      Back to Blog
+      <span data-i18n="article.nav.back">Back to Blog</span>
     </a>
+    <div class="lang-picker">
+      <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
+        <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-picker__code">EN</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-picker__menu" role="listbox" aria-label="Select language">
+        <button class="lang-picker__item lang-picker__item--active" role="option" aria-selected="true" data-lang="en">
+          <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="es">
+          <span class="lang-picker__flag" aria-hidden="true">🇪🇸</span>
+          Español
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="ca">
+          <svg class="lang-picker__flag lang-picker__flag--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#FCDD09"/><rect y="1.556" width="20" height="1.556" fill="#DA121A"/><rect y="4.667" width="20" height="1.556" fill="#DA121A"/><rect y="7.778" width="20" height="1.556" fill="#DA121A"/><rect y="10.889" width="20" height="1.556" fill="#DA121A"/></svg>
+          Català
+        </button>
+      </div>
+    </div>
   </nav>
 
   <div class="article-hero">
@@ -38,29 +59,29 @@
   <article class="article-wrap">
 
     <div class="article-meta">
-      <span class="article-meta__category">Engineering</span>
+      <span class="article-meta__category" data-i18n="poc.meta.cat">Engineering</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__date">April 28, 2026</span>
+      <span class="article-meta__date" data-i18n="poc.meta.date">April 28, 2026</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__author">NeumaCare Team</span>
+      <span class="article-meta__author" data-i18n="article.meta.author">NeumaCare Team</span>
     </div>
 
-    <h1 class="article-title">First Hardware POC Built in Four Weeks — A Key Milestone in Our Engineering Journey</h1>
+    <h1 class="article-title" data-i18n="poc.title">First Hardware POC Built in Four Weeks — A Key Milestone in Our Engineering Journey</h1>
 
     <div class="article-body">
 
-      <p>At NeumaCare, we are proud to share a key milestone in our technological journey: the development of our <strong>first functional hardware proof of concept in just four weeks</strong>. This achievement represents a critical step in transforming our vision into a tangible, testable system.</p>
+      <p data-i18n-html="poc.p.1">At NeumaCare, we are proud to share a key milestone in our technological journey: the development of our <strong>first functional hardware proof of concept in just four weeks</strong>. This achievement represents a critical step in transforming our vision into a tangible, testable system.</p>
 
       <figure class="article-img">
         <img src="poc/1774251107552.jpeg" alt="NeumaCare hardware POC development lab" />
-        <figcaption>Early development sessions at the NeumaCare engineering lab</figcaption>
+        <figcaption data-i18n="poc.fig.1">Early development sessions at the NeumaCare engineering lab</figcaption>
       </figure>
 
-      <h2>From Concept To Functional Prototype In Record Time</h2>
+      <h2 data-i18n="poc.h2.1">From Concept To Functional Prototype In Record Time</h2>
 
-      <p>In less than a month, we have gone from initial design to a working hardware prototype capable of demonstrating the core architecture of our system. This first iteration allows us to better understand how the different components interact, validate system performance, and begin early-stage usability and clinical testing.</p>
+      <p data-i18n="poc.p.2">In less than a month, we have gone from initial design to a working hardware prototype capable of demonstrating the core architecture of our system. This first iteration allows us to better understand how the different components interact, validate system performance, and begin early-stage usability and clinical testing.</p>
 
-      <p>This is not just a prototype — it is the foundation upon which we will iterate, refine, and scale our technology.</p>
+      <p data-i18n="poc.p.3">This is not just a prototype — it is the foundation upon which we will iterate, refine, and scale our technology.</p>
 
       <figure class="article-img-grid">
         <img src="poc/1774251107724.jpeg" alt="NeumaCare POC hardware components" />
@@ -69,54 +90,54 @@
 
       <figure class="article-img">
         <img src="poc/1774251107648.jpeg" alt="NeumaCare Hardware POC 2026 development" />
-        <figcaption>NeumaCare Hardware POC Development 2026</figcaption>
+        <figcaption data-i18n="poc.fig.2">NeumaCare Hardware POC Development 2026</figcaption>
       </figure>
 
-      <h2>Engineering Talent Driving Execution</h2>
+      <h2 data-i18n="poc.h2.2">Engineering Talent Driving Execution</h2>
 
-      <p>Behind this progress is top-tier technical expertise. <strong>Ferran Amat</strong>, a telecommunications engineer specialised in systems, with a master's degree in biomedicine and experience in oncology, has led the development of this POC. His profile represents a strong alignment with NeumaCare's interdisciplinary approach, combining engineering precision with clinical understanding.</p>
+      <p data-i18n-html="poc.p.4">Behind this progress is top-tier technical expertise. <strong>Ferran Amat</strong>, a telecommunications engineer specialised in systems, with a master's degree in biomedicine and experience in oncology, has led the development of this POC. His profile represents a strong alignment with NeumaCare's interdisciplinary approach, combining engineering precision with clinical understanding.</p>
 
-      <p>The ability to translate complex ideas into functional systems in such a short timeframe is what truly accelerates innovation.</p>
+      <p data-i18n="poc.p.5">The ability to translate complex ideas into functional systems in such a short timeframe is what truly accelerates innovation.</p>
 
       <figure class="article-img-grid">
         <img src="poc/1774251107263.jpeg" alt="Ferran Amat leading POC hardware development" />
         <img src="poc/1774251107310.jpeg" alt="NeumaCare engineering and prototyping" />
       </figure>
 
-      <h2>A Platform For Validation And Learning</h2>
+      <h2 data-i18n="poc.h2.3">A Platform For Validation And Learning</h2>
 
-      <p>This hardware POC enables us to initiate <strong>real-world validation processes</strong>. We are now in a position to test system behaviour, gather feedback, and evaluate usability in controlled environments. These early insights will be essential to guide future iterations and ensure that the final product meets both technical and clinical standards.</p>
+      <p data-i18n-html="poc.p.6">This hardware POC enables us to initiate <strong>real-world validation processes</strong>. We are now in a position to test system behaviour, gather feedback, and evaluate usability in controlled environments. These early insights will be essential to guide future iterations and ensure that the final product meets both technical and clinical standards.</p>
 
-      <p>It also marks the starting point for integrating our software layer and advancing toward a fully orchestrated multisensory system.</p>
+      <p data-i18n="poc.p.7">It also marks the starting point for integrating our software layer and advancing toward a fully orchestrated multisensory system.</p>
 
       <figure class="article-img">
         <img src="poc/1774251107595.jpeg" alt="NeumaCare POC system testing" />
-        <figcaption>System behaviour testing at the NeumaCare lab</figcaption>
+        <figcaption data-i18n="poc.fig.3">System behaviour testing at the NeumaCare lab</figcaption>
       </figure>
 
-      <h2>What Comes Next</h2>
+      <h2 data-i18n="poc.h2.4">What Comes Next</h2>
 
-      <p>With this first milestone achieved, our focus now shifts toward <strong>refinement, scalability, and deeper integration</strong>. Each iteration will bring us closer to a robust, deployable solution capable of transforming clinical environments.</p>
+      <p data-i18n-html="poc.p.8">With this first milestone achieved, our focus now shifts toward <strong>refinement, scalability, and deeper integration</strong>. Each iteration will bring us closer to a robust, deployable solution capable of transforming clinical environments.</p>
 
-      <p>And as every product needs a name, we are already thinking ahead. First NeumaPod? Ideas are welcome.</p>
+      <p data-i18n="poc.p.9">And as every product needs a name, we are already thinking ahead. First NeumaPod? Ideas are welcome.</p>
 
       <figure class="article-img-grid">
         <img src="poc/1774251107665.jpeg" alt="NeumaCare POC next iteration planning" />
         <img src="poc/1774251107642.jpeg" alt="NeumaCare hardware roadmap" />
       </figure>
 
-      <h2>Acknowledgments And Forward Vision</h2>
+      <h2 data-i18n="poc.h2.5">Acknowledgments And Forward Vision</h2>
 
-      <p>We would like to recognise the effort and commitment behind this achievement. Building a functional system from scratch in such a short period requires not only technical skill, but also vision, focus, and execution capacity.</p>
+      <p data-i18n="poc.p.10">We would like to recognise the effort and commitment behind this achievement. Building a functional system from scratch in such a short period requires not only technical skill, but also vision, focus, and execution capacity.</p>
 
       <figure class="article-img">
         <img src="poc/1774251111446.jpeg" alt="NeumaCare team and hardware POC milestone" />
-        <figcaption>NeumaCare team — Hardware POC milestone, April 2026</figcaption>
+        <figcaption data-i18n="poc.fig.4">NeumaCare team — Hardware POC milestone, April 2026</figcaption>
       </figure>
 
       <blockquote class="article-quote">
-        <p>"At NeumaCare, we continue moving forward with the same conviction: to design intelligent, human-centred clinical environments powered by technology."</p>
-        <cite>— NeumaCare Team</cite>
+        <p data-i18n="poc.bq">"At NeumaCare, we continue moving forward with the same conviction: to design intelligent, human-centred clinical environments powered by technology."</p>
+        <cite data-i18n="poc.cite">— NeumaCare Team</cite>
       </blockquote>
 
     </div>
@@ -135,27 +156,49 @@
   </article>
 
   <section class="related">
-    <p class="related__title">Related articles</p>
+    <p class="related__title" data-i18n="related.title">Related articles</p>
     <a href="article-cat-sud.html" class="related__card">
       <img src="cat-sud/1774507556929-2.jpeg" alt="NeumaCare at CAT SUD Investment Forum" />
       <div>
-        <p class="related__card-title">NeumaCare Selected Among the Top 10 at the 9th CAT SUD Investment Forum</p>
-        <p class="related__card-date">March 2026</p>
+        <p class="related__card-title" data-i18n="poc.rel.1.title">NeumaCare Selected Among the Top 10 at the 9th CAT SUD Investment Forum</p>
+        <p class="related__card-date" data-i18n="poc.rel.1.date">March 2026</p>
       </div>
     </a>
     <a href="article-primer-2025.html" class="related__card">
       <img src="media/articles/primer-hero.webp" alt="Best Startup Programa Primer 2025" />
       <div>
-        <p class="related__card-title">Best Startup of the Programa Primer 2025</p>
-        <p class="related__card-date">December 16, 2025</p>
+        <p class="related__card-title" data-i18n="poc.rel.2.title">Best Startup of the Programa Primer 2025</p>
+        <p class="related__card-date" data-i18n="poc.rel.2.date">December 16, 2025</p>
       </div>
     </a>
   </section>
 
   <footer class="blog-footer">
     <img src="logos/logo_blanco.png" alt="NeumaCare" />
-    <p>© 2025 NeumaCare · All rights reserved</p>
+    <p data-i18n="footer.blog.copy">© 2025 NeumaCare · All rights reserved</p>
   </footer>
 
+  <script src="translations.js"></script>
+
+  <script>
+  (function () {
+    document.querySelectorAll(".lang-picker").forEach(function (picker) {
+      var btn = picker.querySelector(".lang-picker__btn");
+      if (!btn) return;
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = picker.classList.toggle("lang-picker--open");
+        btn.setAttribute("aria-expanded", open);
+      });
+    });
+    document.addEventListener("click", function () {
+      document.querySelectorAll(".lang-picker--open").forEach(function (picker) {
+        picker.classList.remove("lang-picker--open");
+        var btn = picker.querySelector(".lang-picker__btn");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

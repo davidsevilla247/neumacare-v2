@@ -989,3 +989,23 @@ document.querySelectorAll('.faq__q').forEach(btn => {
     });
   });
 })();
+
+// Language picker toggle
+(function () {
+  document.querySelectorAll('.lang-picker').forEach(function (picker) {
+    var btn = picker.querySelector('.lang-picker__btn');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = picker.classList.toggle('lang-picker--open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.lang-picker--open').forEach(function (picker) {
+      picker.classList.remove('lang-picker--open');
+      var btn = picker.querySelector('.lang-picker__btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();

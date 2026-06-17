@@ -307,15 +307,37 @@
     }
   </style>
 </head>
-<body>
+<body data-page-title="page.title.waitlist">
 
   <nav class="bnb bnb--dark">
     <a href="index.html"><img src="logos/logo_negro.png" alt="NeumaCare" class="bnb__logo" /></a>
     <div class="bnb__divider"></div>
-    <a href="index.html" class="bnb__link">Home</a>
-    <a href="equipo.html" class="bnb__link">Team</a>
-    <a href="blog.html" class="bnb__link">Blog</a>
-    <a href="waitlist.html" class="bnb__link bnb__link--active">Waitlist</a>
+    <a href="index.html" class="bnb__link" data-i18n="nav.home">Home</a>
+    <a href="equipo.html" class="bnb__link" data-i18n="nav.team">Team</a>
+    <a href="blog.html" class="bnb__link" data-i18n="nav.blog">Blog</a>
+    <a href="waitlist.html" class="bnb__link bnb__link--active" data-i18n="nav.waitlist">Waitlist</a>
+    <div class="bnb__divider"></div>
+    <div class="lang-picker">
+      <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
+        <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-picker__code">EN</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-picker__menu" role="listbox" aria-label="Select language">
+        <button class="lang-picker__item lang-picker__item--active" role="option" aria-selected="true" data-lang="en">
+          <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="es">
+          <span class="lang-picker__flag" aria-hidden="true">🇪🇸</span>
+          Español
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="ca">
+          <svg class="lang-picker__flag lang-picker__flag--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#FCDD09"/><rect y="1.556" width="20" height="1.556" fill="#DA121A"/><rect y="4.667" width="20" height="1.556" fill="#DA121A"/><rect y="7.778" width="20" height="1.556" fill="#DA121A"/><rect y="10.889" width="20" height="1.556" fill="#DA121A"/></svg>
+          Català
+        </button>
+      </div>
+    </div>
   </nav>
 
   <section class="wl">
@@ -327,15 +349,15 @@
 
           <div class="wl__badge">
             <span class="wl__badge-dot"></span>
-            Early Adopter &middot; Pre-sell &middot; Crowdfunding
+            <span data-i18n="wl.badge">Early Adopter · Pre-sell · Crowdfunding</span>
           </div>
 
-          <h1 class="wl__title">
+          <h1 class="wl__title" data-i18n-html="wl.title">
             NeumaCare,<br>
             <span class="wl__title-accent">at home.</span>
           </h1>
 
-          <p class="wl__desc">
+          <p class="wl__desc" data-i18n="wl.desc">
             The same sensory intelligence that transforms hospital environments,
             now designed for your home. Hardware + software that optimizes your
             environment for better rest. Be among the first to get it.
@@ -347,11 +369,12 @@
               name="email"
               class="wl__input"
               placeholder="Your email address"
+              data-i18n-placeholder="wl.placeholder"
               required
               autocomplete="email"
             />
             <button type="submit" class="wl__btn" id="wl-submit">
-              <span class="wl__btn-text">Join Waitlist</span>
+              <span class="wl__btn-text" data-i18n="wl.btn">Join Waitlist</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -362,24 +385,24 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
-            You're in! We'll notify you when the pre-sale opens.
+            <span data-i18n="wl.success">You're in! We'll notify you when the pre-sale opens.</span>
           </div>
 
 
           <div class="wl__meta">
             <div class="wl__stat">
               <span class="wl__stat-val">B2C</span>
-              <span class="wl__stat-lbl">Home device</span>
+              <span class="wl__stat-lbl" data-i18n="wl.stat1.lbl">Home device</span>
             </div>
             <div class="wl__meta-sep"></div>
             <div class="wl__stat">
               <span class="wl__stat-val">HW + SW</span>
-              <span class="wl__stat-lbl">Hardware & software</span>
+              <span class="wl__stat-lbl" data-i18n="wl.stat2.lbl">Hardware & software</span>
             </div>
             <div class="wl__meta-sep"></div>
             <div class="wl__stat">
               <span class="wl__stat-val">Early access</span>
-              <span class="wl__stat-lbl">Exclusive pre-sell</span>
+              <span class="wl__stat-lbl" data-i18n="wl.stat3.lbl">Exclusive pre-sell</span>
             </div>
           </div>
 
@@ -424,6 +447,30 @@
         success.classList.add('is-visible');
       }, 700);
     });
+  </script>
+
+  <script src="translations.js"></script>
+
+
+  <script>
+  (function () {
+    document.querySelectorAll('.lang-picker').forEach(function (picker) {
+      var btn = picker.querySelector('.lang-picker__btn');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = picker.classList.toggle('lang-picker--open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.lang-picker--open').forEach(function (picker) {
+        picker.classList.remove('lang-picker--open');
+        var btn = picker.querySelector('.lang-picker__btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
   </script>
 
 </body>

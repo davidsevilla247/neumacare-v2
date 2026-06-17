@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
   <link rel="stylesheet" href="blog.css?v=2" />
 </head>
-<body>
+<body data-page-title="page.title.blog">
 
   <nav class="blog-nav">
     <a href="index.html">
@@ -27,8 +27,29 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M19 12H5M12 5l-7 7 7 7"/>
       </svg>
-      Back to Blog
+      <span data-i18n="article.nav.back">Back to Blog</span>
     </a>
+    <div class="lang-picker">
+      <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
+        <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-picker__code">EN</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-picker__menu" role="listbox" aria-label="Select language">
+        <button class="lang-picker__item lang-picker__item--active" role="option" aria-selected="true" data-lang="en">
+          <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="es">
+          <span class="lang-picker__flag" aria-hidden="true">🇪🇸</span>
+          Español
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="ca">
+          <svg class="lang-picker__flag lang-picker__flag--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#FCDD09"/><rect y="1.556" width="20" height="1.556" fill="#DA121A"/><rect y="4.667" width="20" height="1.556" fill="#DA121A"/><rect y="7.778" width="20" height="1.556" fill="#DA121A"/><rect y="10.889" width="20" height="1.556" fill="#DA121A"/></svg>
+          Català
+        </button>
+      </div>
+    </div>
   </nav>
 
   <div class="article-hero">
@@ -38,50 +59,50 @@
   <article class="article-wrap">
 
     <div class="article-meta">
-      <span class="article-meta__category">Awards &amp; Recognition</span>
+      <span class="article-meta__category" data-i18n="primer.meta.cat">Awards &amp; Recognition</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__date">December 16, 2025</span>
+      <span class="article-meta__date" data-i18n="primer.meta.date">December 16, 2025</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__author">NeumaCare Team</span>
+      <span class="article-meta__author" data-i18n="article.meta.author">NeumaCare Team</span>
     </div>
 
-    <h1 class="article-title">Best Startup of the Programa Primer 2025 — Direct access to 4YFN at Mobile World Congress</h1>
+    <h1 class="article-title" data-i18n="primer.title">Best Startup of the Programa Primer 2025 — Direct access to 4YFN at Mobile World Congress</h1>
 
     <div class="article-body">
 
-      <p>NeumaCare has been recognised as the <strong>best startup of the Programa Primer 2025</strong>, an initiative of the Catalan Government co-financed by the European Social Fund Plus. This award grants NeumaCare direct access to <strong>4YFN 2026</strong> — the leading startup event within the Mobile World Congress in Barcelona — opening the door to global visibility and strategic partnerships in healthcare technology.</p>
+      <p data-i18n-html="primer.p.1">NeumaCare has been recognised as the <strong>best startup of the Programa Primer 2025</strong>, an initiative of the Catalan Government co-financed by the European Social Fund Plus. This award grants NeumaCare direct access to <strong>4YFN 2026</strong> — the leading startup event within the Mobile World Congress in Barcelona — opening the door to global visibility and strategic partnerships in healthcare technology.</p>
 
-      <h2>What is Programa Primer?</h2>
+      <h2 data-i18n="primer.h2.1">What is Programa Primer?</h2>
 
-      <p>The <a href="https://empresa.gencat.cat/ca/treb_ambits_actuacio/empresa-emprenedoria/emprenedoria/programa-primer/" target="_blank" rel="noopener">Programa Primer</a> is a pre-acceleration programme funded by the Government of Catalonia and co-financed by the European Social Fund Plus. In its 2025 edition, the programme committed <strong>1.7 million euros</strong> in funding and operated through:</p>
+      <p data-i18n-html="primer.p.2">The <a href="https://empresa.gencat.cat/ca/treb_ambits_actuacio/empresa-emprenedoria/emprenedoria/programa-primer/" target="_blank" rel="noopener">Programa Primer</a> is a pre-acceleration programme funded by the Government of Catalonia and co-financed by the European Social Fund Plus. In its 2025 edition, the programme committed <strong>1.7 million euros</strong> in funding and operated through:</p>
 
-      <ul>
+      <ul data-i18n-html="primer.ul.1">
         <li>32 pre-accelerator programmes across 17 regions of Catalonia</li>
         <li>Approximately 7,500 hours of training and mentoring</li>
         <li>Support for over 520 entrepreneurs</li>
       </ul>
 
-      <p>The programme is designed to validate early-stage startups and prepare them for growth, connecting founders with mentors, investors and corporate partners across sectors.</p>
+      <p data-i18n="primer.p.3">The programme is designed to validate early-stage startups and prepare them for growth, connecting founders with mentors, investors and corporate partners across sectors.</p>
 
       <figure class="article-img">
         <img src="media/articles/primer-img1.webp" alt="NeumaCare Programa Primer award ceremony" />
-        <figcaption>NeumaCare team receiving the Best Startup award at Programa Primer 2025</figcaption>
+        <figcaption data-i18n="primer.fig.1">NeumaCare team receiving the Best Startup award at Programa Primer 2025</figcaption>
       </figure>
 
-      <h2>Innovation with real impact in healthcare</h2>
+      <h2 data-i18n="primer.h2.2">Innovation with real impact in healthcare</h2>
 
-      <p>The recognition validates NeumaCare's approach to <strong>innovation with real health impact</strong>: humanising hospital environments through non-pharmacological, AI-driven sensory therapies focused on patient emotional wellbeing. Our platform adapts ambient light, sound and scent in real time based on each patient's physiological state — reducing anxiety, improving sleep quality and supporting clinical recovery without additional medication.</p>
+      <p data-i18n-html="primer.p.4">The recognition validates NeumaCare's approach to <strong>innovation with real health impact</strong>: humanising hospital environments through non-pharmacological, AI-driven sensory therapies focused on patient emotional wellbeing. Our platform adapts ambient light, sound and scent in real time based on each patient's physiological state — reducing anxiety, improving sleep quality and supporting clinical recovery without additional medication.</p>
 
       <figure class="article-img-grid">
         <img src="media/articles/primer-img2.webp" alt="NeumaCare Programa Primer presentation" />
         <img src="media/articles/primer-img3.webp" alt="NeumaCare Programa Primer team" />
       </figure>
 
-      <h2>Gateway to 4YFN 2026 at Mobile World Congress</h2>
+      <h2 data-i18n="primer.h2.3">Gateway to 4YFN 2026 at Mobile World Congress</h2>
 
-      <p>As the best startup award winner, NeumaCare earns <strong>direct entry to 4YFN 2026</strong> — Four Years From Now — the flagship startup summit running alongside the Mobile World Congress. This platform will provide:</p>
+      <p data-i18n-html="primer.p.5">As the best startup award winner, NeumaCare earns <strong>direct entry to 4YFN 2026</strong> — Four Years From Now — the flagship startup summit running alongside the Mobile World Congress. This platform will provide:</p>
 
-      <ul>
+      <ul data-i18n-html="primer.ul.2">
         <li>Global visibility in front of leading startups, investors and corporations</li>
         <li>Strategic partnerships within the healthcare technology ecosystem</li>
         <li>Accelerated pathways for deploying the NeumaCare system in healthcare centres internationally</li>
@@ -90,24 +111,24 @@
 
       <figure class="article-img">
         <img src="media/articles/primer-img4.webp" alt="NeumaCare at awards 2025" />
-        <figcaption>NeumaCare at the Programa Primer 2025 final event</figcaption>
+        <figcaption data-i18n="primer.fig.2">NeumaCare at the Programa Primer 2025 final event</figcaption>
       </figure>
 
-      <h2>Two recognitions in one week</h2>
+      <h2 data-i18n="primer.h2.4">Two recognitions in one week</h2>
 
-      <p>This award arrives just days after NeumaCare was also named <a href="article-empren-dipta-2025.html">best business project at the Premis Emprèn Dipta 2025</a> by the Diputació de Tarragona — a double recognition in a single week that confirms the momentum behind our clinical AI platform.</p>
+      <p data-i18n-html="primer.p.6">This award arrives just days after NeumaCare was also named <a href="article-empren-dipta-2025.html">best business project at the Premis Emprèn Dipta 2025</a> by the Diputació de Tarragona — a double recognition in a single week that confirms the momentum behind our clinical AI platform.</p>
 
       <figure class="article-img">
         <img src="media/articles/primer-team.webp" alt="NeumaCare team 2025" />
-        <figcaption>The NeumaCare team — December 2025</figcaption>
+        <figcaption data-i18n="primer.fig.3">The NeumaCare team — December 2025</figcaption>
       </figure>
 
       <blockquote class="article-quote">
-        <p>"We continue advancing with a clear purpose: to care for environments in order to better care for people. This recognition gives us even more energy to bring NeumaCare to every hospital that wants to offer a more humane experience."</p>
-        <cite>— David Sevilla, CEO of NeumaCare</cite>
+        <p data-i18n="primer.bq">"We continue advancing with a clear purpose: to care for environments in order to better care for people. This recognition gives us even more energy to bring NeumaCare to every hospital that wants to offer a more humane experience."</p>
+        <cite data-i18n="primer.cite">— David Sevilla, CEO of NeumaCare</cite>
       </blockquote>
 
-      <p>We are grateful to the Catalan Government, the Programa Primer team, all the mentors who walked alongside us, and every healthcare professional who believes that the future of medicine is not only clinical — it is also deeply human.</p>
+      <p data-i18n="primer.p.7">We are grateful to the Catalan Government, the Programa Primer team, all the mentors who walked alongside us, and every healthcare professional who believes that the future of medicine is not only clinical — it is also deeply human.</p>
 
     </div>
 
@@ -125,20 +146,42 @@
   </article>
 
   <section class="related">
-    <p class="related__title">Related articles</p>
+    <p class="related__title" data-i18n="related.title">Related articles</p>
     <a href="article-empren-dipta-2025.html" class="related__card">
       <img src="media/articles/empren-hero.webp" alt="Premis Emprèn 2025" />
       <div>
-        <p class="related__card-title">Best Business Project at the Premis Emprèn Dipta 2025</p>
-        <p class="related__card-date">December 11, 2025</p>
+        <p class="related__card-title" data-i18n="primer.rel.1.title">Best Business Project at the Premis Emprèn Dipta 2025</p>
+        <p class="related__card-date" data-i18n="primer.rel.1.date">December 11, 2025</p>
       </div>
     </a>
   </section>
 
   <footer class="blog-footer">
     <img src="logos/logo_blanco.png" alt="NeumaCare" />
-    <p>© 2025 NeumaCare · All rights reserved</p>
+    <p data-i18n="footer.blog.copy">© 2025 NeumaCare · All rights reserved</p>
   </footer>
 
+  <script src="translations.js"></script>
+
+  <script>
+  (function () {
+    document.querySelectorAll(".lang-picker").forEach(function (picker) {
+      var btn = picker.querySelector(".lang-picker__btn");
+      if (!btn) return;
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = picker.classList.toggle("lang-picker--open");
+        btn.setAttribute("aria-expanded", open);
+      });
+    });
+    document.addEventListener("click", function () {
+      document.querySelectorAll(".lang-picker--open").forEach(function (picker) {
+        picker.classList.remove("lang-picker--open");
+        var btn = picker.querySelector(".lang-picker__btn");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

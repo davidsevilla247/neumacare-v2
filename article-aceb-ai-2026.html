@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
   <link rel="stylesheet" href="blog.css?v=2" />
 </head>
-<body>
+<body data-page-title="page.title.blog">
 
   <nav class="blog-nav">
     <a href="index.html">
@@ -27,8 +27,29 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M19 12H5M12 5l-7 7 7 7"/>
       </svg>
-      Back to Blog
+      <span data-i18n="article.nav.back">Back to Blog</span>
     </a>
+    <div class="lang-picker">
+      <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
+        <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-picker__code">EN</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-picker__menu" role="listbox" aria-label="Select language">
+        <button class="lang-picker__item lang-picker__item--active" role="option" aria-selected="true" data-lang="en">
+          <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="es">
+          <span class="lang-picker__flag" aria-hidden="true">🇪🇸</span>
+          Español
+        </button>
+        <button class="lang-picker__item" role="option" aria-selected="false" data-lang="ca">
+          <svg class="lang-picker__flag lang-picker__flag--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#FCDD09"/><rect y="1.556" width="20" height="1.556" fill="#DA121A"/><rect y="4.667" width="20" height="1.556" fill="#DA121A"/><rect y="7.778" width="20" height="1.556" fill="#DA121A"/><rect y="10.889" width="20" height="1.556" fill="#DA121A"/></svg>
+          Català
+        </button>
+      </div>
+    </div>
   </nav>
 
   <div class="article-hero">
@@ -38,72 +59,72 @@
   <article class="article-wrap">
 
     <div class="article-meta">
-      <span class="article-meta__category">Events</span>
+      <span class="article-meta__category" data-i18n="aceb.meta.cat">Events</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__date">January 22, 2026</span>
+      <span class="article-meta__date" data-i18n="aceb.meta.date">January 22, 2026</span>
       <span class="article-meta__dot">·</span>
-      <span class="article-meta__author">NeumaCare Team</span>
+      <span class="article-meta__author" data-i18n="article.meta.author">NeumaCare Team</span>
     </div>
 
-    <h1 class="article-title">AI and the Future of Human-Centered Care — NeumaCare at ACEB Berguedà</h1>
+    <h1 class="article-title" data-i18n="aceb.title">AI and the Future of Human-Centered Care — NeumaCare at ACEB Berguedà</h1>
 
     <div class="article-body">
 
-      <p>At NeumaCare, we are proud to have taken part in a high-impact discussion on the role of artificial intelligence in healthcare, within the framework of a session organised by <strong>ACEB Berguedà</strong>. This event brought together leading voices from across sectors to explore how AI is already transforming the present — and how it can shape a more human future.</p>
+      <p data-i18n-html="aceb.p.1">At NeumaCare, we are proud to have taken part in a high-impact discussion on the role of artificial intelligence in healthcare, within the framework of a session organised by <strong>ACEB Berguedà</strong>. This event brought together leading voices from across sectors to explore how AI is already transforming the present — and how it can shape a more human future.</p>
 
       <figure class="article-img">
         <img src="aceb/1770674107446.jpeg" alt="NeumaCare at ACEB Berguedà AI session" />
-        <figcaption>NeumaCare presenting at the ACEB Berguedà AI session, January 2026</figcaption>
+        <figcaption data-i18n="aceb.fig.1">NeumaCare presenting at the ACEB Berguedà AI session, January 2026</figcaption>
       </figure>
 
-      <h2>Artificial Intelligence As A Driver Of Human-Centered Care</h2>
+      <h2 data-i18n="aceb.h2.1">Artificial Intelligence As A Driver Of Human-Centered Care</h2>
 
-      <p>During the session, we had the opportunity to present our perspective on one of the most relevant challenges in modern healthcare: how to ensure that technological progress translates into more humane, patient-centred care.</p>
+      <p data-i18n="aceb.p.2">During the session, we had the opportunity to present our perspective on one of the most relevant challenges in modern healthcare: how to ensure that technological progress translates into more humane, patient-centred care.</p>
 
-      <p>At NeumaCare, we defend a clear position — <strong>AI should not distance us from patients, but bring us closer to them</strong>. Our approach focuses on developing an intelligent system capable of adapting environmental stimuli in real time, based on the physiological and emotional state of the patient. By integrating clinical data, real-time biomarkers, and historical responses, we aim to create environments that respond dynamically to individual needs.</p>
+      <p data-i18n-html="aceb.p.3">At NeumaCare, we defend a clear position — <strong>AI should not distance us from patients, but bring us closer to them</strong>. Our approach focuses on developing an intelligent system capable of adapting environmental stimuli in real time, based on the physiological and emotional state of the patient. By integrating clinical data, real-time biomarkers, and historical responses, we aim to create environments that respond dynamically to individual needs.</p>
 
       <figure class="article-img-grid">
         <img src="aceb/1770674107447.jpeg" alt="NeumaCare ACEB AI Berguedà 2026" />
         <img src="aceb/1770674107413.jpeg" alt="NeumaCare AI presentation Berguedà" />
       </figure>
 
-      <h2>Sharing The Stage With Leading Thinkers</h2>
+      <h2 data-i18n="aceb.h2.2">Sharing The Stage With Leading Thinkers</h2>
 
-      <p>The event gathered <strong>more than 230 attendees</strong> and featured an exceptional lineup of speakers across different domains of artificial intelligence. It was an honour to share the stage with renowned figures such as <strong>Xavier Sala-i-Martin</strong>, as well as other leading professionals who are actively shaping the future of AI and innovation.</p>
+      <p data-i18n-html="aceb.p.4">The event gathered <strong>more than 230 attendees</strong> and featured an exceptional lineup of speakers across different domains of artificial intelligence. It was an honour to share the stage with renowned figures such as <strong>Xavier Sala-i-Martin</strong>, as well as other leading professionals who are actively shaping the future of AI and innovation.</p>
 
-      <p>Moments like these go beyond professional exposure — they represent personal milestones. Sharing space with individuals who have influenced the way we understand complex systems is both inspiring and grounding.</p>
+      <p data-i18n="aceb.p.5">Moments like these go beyond professional exposure — they represent personal milestones. Sharing space with individuals who have influenced the way we understand complex systems is both inspiring and grounding.</p>
 
       <figure class="article-img">
         <img src="aceb/1770674107475.jpeg" alt="ACEB Berguedà AI session speakers 2026" />
-        <figcaption>Over 230 attendees gathered for the ACEB Berguedà AI session</figcaption>
+        <figcaption data-i18n="aceb.fig.2">Over 230 attendees gathered for the ACEB Berguedà AI session</figcaption>
       </figure>
 
-      <h2>A Cross-Sector Perspective On AI</h2>
+      <h2 data-i18n="aceb.h2.3">A Cross-Sector Perspective On AI</h2>
 
-      <p>One of the strengths of the session was its multidisciplinary nature. From industrial applications and data-driven decision-making to startup innovation, the event showcased how AI is being applied across diverse sectors.</p>
+      <p data-i18n="aceb.p.6">One of the strengths of the session was its multidisciplinary nature. From industrial applications and data-driven decision-making to startup innovation, the event showcased how AI is being applied across diverse sectors.</p>
 
-      <p>Within this context, bringing the conversation into healthcare — and specifically into the <strong>humanisation of care</strong> — allowed us to contribute a differentiated perspective, highlighting the importance of designing systems that are not only efficient, but also empathetic and responsive.</p>
+      <p data-i18n-html="aceb.p.7">Within this context, bringing the conversation into healthcare — and specifically into the <strong>humanisation of care</strong> — allowed us to contribute a differentiated perspective, highlighting the importance of designing systems that are not only efficient, but also empathetic and responsive.</p>
 
-      <h2>From Vision To Implementation</h2>
+      <h2 data-i18n="aceb.h2.4">From Vision To Implementation</h2>
 
-      <p>Our participation also served to reinforce the technological direction of NeumaCare. We are actively developing an <strong>AI engine capable of orchestrating environmental conditions based on patient data</strong>, moving from reactive care models toward preventive and adaptive systems.</p>
+      <p data-i18n-html="aceb.p.8">Our participation also served to reinforce the technological direction of NeumaCare. We are actively developing an <strong>AI engine capable of orchestrating environmental conditions based on patient data</strong>, moving from reactive care models toward preventive and adaptive systems.</p>
 
-      <p>This vision aligns with a broader shift in healthcare: understanding the environment as a clinical variable that can — and should — be measured, analysed, and optimised.</p>
+      <p data-i18n="aceb.p.9">This vision aligns with a broader shift in healthcare: understanding the environment as a clinical variable that can — and should — be measured, analysed, and optimised.</p>
 
       <figure class="article-img-grid">
         <img src="aceb/1770674107336.jpeg" alt="NeumaCare AI engine clinical environments" />
         <img src="aceb/1770674107510.jpeg" alt="NeumaCare ACEB session networking" />
       </figure>
 
-      <h2>Acknowledgments And Forward Outlook</h2>
+      <h2 data-i18n="aceb.h2.5">Acknowledgments And Forward Outlook</h2>
 
-      <p>We would like to thank <strong>ACEB Berguedà</strong> for organising a session of such quality and relevance, and for creating a space where meaningful discussions about the future of AI can take place.</p>
+      <p data-i18n-html="aceb.p.10">We would like to thank <strong>ACEB Berguedà</strong> for organising a session of such quality and relevance, and for creating a space where meaningful discussions about the future of AI can take place.</p>
 
-      <p>A special thanks as well to all the speakers and attendees who contributed to a rich and inspiring exchange of ideas.</p>
+      <p data-i18n="aceb.p.11">A special thanks as well to all the speakers and attendees who contributed to a rich and inspiring exchange of ideas.</p>
 
       <blockquote class="article-quote">
-        <p>"At NeumaCare, we remain committed to our mission: leveraging technology to design more human, intelligent, and responsive healthcare environments."</p>
-        <cite>— NeumaCare Team</cite>
+        <p data-i18n="aceb.bq">"At NeumaCare, we remain committed to our mission: leveraging technology to design more human, intelligent, and responsive healthcare environments."</p>
+        <cite data-i18n="aceb.cite">— NeumaCare Team</cite>
       </blockquote>
 
     </div>
@@ -122,27 +143,49 @@
   </article>
 
   <section class="related">
-    <p class="related__title">Related articles</p>
+    <p class="related__title" data-i18n="related.title">Related articles</p>
     <a href="article-mwc-4yfn-2026.html" class="related__card">
       <img src="mwc/1772528723461.jpeg" alt="NeumaCare at 4YFN MWC Barcelona 2026" />
       <div>
-        <p class="related__card-title">NeumaCare at 4YFN – Mobile World Congress Barcelona 2026</p>
-        <p class="related__card-date">February 27, 2026</p>
+        <p class="related__card-title" data-i18n="aceb.rel.1.title">NeumaCare at 4YFN – Mobile World Congress Barcelona 2026</p>
+        <p class="related__card-date" data-i18n="aceb.rel.1.date">February 27, 2026</p>
       </div>
     </a>
     <a href="article-primer-2025.html" class="related__card">
       <img src="media/articles/primer-hero.webp" alt="Best Startup Programa Primer 2025" />
       <div>
-        <p class="related__card-title">Best Startup of the Programa Primer 2025</p>
-        <p class="related__card-date">December 16, 2025</p>
+        <p class="related__card-title" data-i18n="aceb.rel.2.title">Best Startup of the Programa Primer 2025</p>
+        <p class="related__card-date" data-i18n="aceb.rel.2.date">December 16, 2025</p>
       </div>
     </a>
   </section>
 
   <footer class="blog-footer">
     <img src="logos/logo_blanco.png" alt="NeumaCare" />
-    <p>© 2025 NeumaCare · All rights reserved</p>
+    <p data-i18n="footer.blog.copy">© 2025 NeumaCare · All rights reserved</p>
   </footer>
 
+  <script src="translations.js"></script>
+
+  <script>
+  (function () {
+    document.querySelectorAll(".lang-picker").forEach(function (picker) {
+      var btn = picker.querySelector(".lang-picker__btn");
+      if (!btn) return;
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = picker.classList.toggle("lang-picker--open");
+        btn.setAttribute("aria-expanded", open);
+      });
+    });
+    document.addEventListener("click", function () {
+      document.querySelectorAll(".lang-picker--open").forEach(function (picker) {
+        picker.classList.remove("lang-picker--open");
+        var btn = picker.querySelector(".lang-picker__btn");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

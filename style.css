@@ -2825,6 +2825,145 @@ body {
   color: #9EB0F0;
 }
 
+/* ── LANGUAGE PICKER ──────────────────────────────────────── */
+.lang-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.lang-picker__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(11,9,23,0.5);
+  transition: background 0.22s ease, color 0.22s ease;
+  white-space: nowrap;
+}
+.lang-picker__btn:hover,
+.lang-picker--open .lang-picker__btn {
+  background: rgba(0,0,0,0.05);
+  color: #0B0917;
+}
+.lang-picker__flag {
+  font-size: 15px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.lang-picker__flag--svg {
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: block;
+}
+.lang-picker__code {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+.lang-picker__chevron {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  opacity: 0.4;
+}
+.lang-picker--open .lang-picker__chevron {
+  transform: rotate(180deg);
+  opacity: 0.65;
+}
+.lang-picker__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: rgba(255,255,255,0.98);
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  padding: 5px;
+  min-width: 138px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s 0.18s;
+  z-index: 1100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.lang-picker--open .lang-picker__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s;
+}
+.lang-picker__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(11,9,23,0.65);
+  text-align: left;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang-picker__item:hover {
+  background: rgba(0,0,0,0.05);
+  color: #0B0917;
+}
+.lang-picker__item--active {
+  color: #9EB0F0;
+  background: rgba(158,176,240,0.12);
+}
+.lang-picker__item--active:hover {
+  background: rgba(158,176,240,0.18);
+  color: #7a96ea;
+}
+.bnb--dark .lang-picker__btn {
+  color: rgba(255,255,255,0.4);
+}
+.bnb--dark .lang-picker__btn:hover,
+.bnb--dark .lang-picker--open .lang-picker__btn {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+}
+.bnb--dark .lang-picker__menu {
+  background: rgba(18,18,32,0.97);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+.bnb--dark .lang-picker__item {
+  color: rgba(255,255,255,0.55);
+}
+.bnb--dark .lang-picker__item:hover {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+}
+.bnb--dark .lang-picker__item--active {
+  color: #9EB0F0;
+  background: rgba(158,176,240,0.18);
+}
+.bnb--dark .lang-picker__item--active:hover {
+  color: #b8c8f5;
+  background: rgba(158,176,240,0.24);
+}
+
 /* ── BENTO CAPABILITIES SECTION ───────────────────────────── */
 .bento {
   background: #08081a;
