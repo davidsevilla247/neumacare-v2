@@ -4,3 +4,8 @@ Thumbs.db
 node_modules/
 .env
 .claude/
+
+# Raw source image folders (unoptimized originals, superseded by clean renamed/resized folders)
+/Innovation Day/
+/IV Congrés de Persones amb Càncer i Familiars de Catalunya/
+/reus startup/

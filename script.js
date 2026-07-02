@@ -129,64 +129,6 @@ document.querySelectorAll('.feat-reveal').forEach(el => featObserver.observe(el)
   }, { passive: true });
 })();
 
-// Team carousel — auto-scroll + drag
-(function () {
-  const track    = document.querySelector('.team__stage');
-  const carousel = document.querySelector('.team__carousel');
-  if (!track || !carousel) return;
-
-  const origCards = [...track.querySelectorAll('.team__card')];
-  origCards.forEach(c => track.appendChild(c.cloneNode(true)));
-
-  const GAP       = 11;
-  const cardW     = origCards[0].offsetWidth;
-  const setW      = origCards.length * (cardW + GAP);
-  const autoSpeed = 0.4;
-
-  let posX        = 0;
-  let dragging    = false;
-  let dragStartX  = 0;
-  let dragStartPos = 0;
-
-  function normalize(x) {
-    let p = x % setW;
-    if (p > 0) p -= setW;
-    return p;
-  }
-
-  function tick() {
-    if (!dragging) posX = normalize(posX - autoSpeed);
-    track.style.transform = `translateX(${posX}px)`;
-    requestAnimationFrame(tick);
-  }
-
-  carousel.addEventListener('mousedown', e => {
-    dragging      = true;
-    dragStartX    = e.clientX;
-    dragStartPos  = posX;
-    carousel.classList.add('is-dragging');
-    e.preventDefault();
-  });
-  document.addEventListener('mouseup', () => {
-    dragging = false;
-    carousel.classList.remove('is-dragging');
-  });
-  document.addEventListener('mousemove', e => {
-    if (!dragging) return;
-    posX = normalize(dragStartPos + (e.clientX - dragStartX));
-  });
-
-  carousel.addEventListener('touchstart', e => {
-    dragStartX   = e.touches[0].clientX;
-    dragStartPos = posX;
-  }, { passive: true });
-  carousel.addEventListener('touchmove', e => {
-    posX = normalize(dragStartPos + (e.touches[0].clientX - dragStartX));
-  }, { passive: true });
-
-  requestAnimationFrame(tick);
-})();
-
 // Interactive progress bar sliders in the glass card
 (function () {
   let activeRow = null;
@@ -250,6 +192,137 @@ const scObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
+
+// Showcase section — pinned, slides swap on scroll (Hardware → Software → AI Engine)
+(function () {
+  const sc     = document.querySelector('.sc');
+  const slides = document.querySelectorAll('.sc__slide');
+  const dots   = document.querySelectorAll('.sc__dot');
+  const wrap   = document.querySelector('.snap-wrap');
+  if (!sc || !slides.length || !wrap) return;
+
+  const PARALLAX = 64; // px of drift across each slide's own scroll segment
+  const segment = 1 / slides.length;
+
+  let ticking = false;
+  let started = false; // becomes true once the section is half scrolled into view,
+                        // so entrance + image parallax play early, not once fully pinned
+
+  function update() {
+    ticking = false;
+    const total = sc.offsetHeight - window.innerHeight;
+    if (total <= 0) return;
+    const rectTop = sc.getBoundingClientRect().top;
+    const preRoll = window.innerHeight * 0.5; // extra "runway" before the section is fully pinned
+
+    if (!started) {
+      if (rectTop > preRoll) return; // wait until the section is halfway into view
+      started = true;
+    }
+
+    // Progress starts advancing as soon as the section is half visible (rectTop === preRoll),
+    // not only once it's fully pinned (rectTop === 0) — keeps the image parallax/blur in sync
+    // with the text instead of sitting frozen until the pin fully engages.
+    const progress = Math.min(Math.max((preRoll - rectTop) / (total + preRoll), 0), 1);
+    const index = Math.min(Math.floor(progress / segment), slides.length - 1);
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === index);
+
+      const img = slide.querySelector('.sc__hero-img');
+      if (!img) return;
+      const local = Math.min(Math.max((progress - i * segment) / segment, 0), 1);
+      // AI Engine (slide 2) stays at its original, unscaled size — no zoom, no drift
+      // (drift needs extra scale margin to avoid exposing edges, so it's off here too).
+      const scale = i === 0 ? 1.2 : (i === 2 ? 1 : 1.1);
+      const drift = i === 2 ? 0 : (local - 0.5) * PARALLAX;
+      img.style.transform = `scale(${scale}) translateY(${drift.toFixed(1)}px)`;
+    });
+
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+  }
+
+  wrap.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  update();
+})();
+
+// Milestones carousel — pinned, advances horizontally as the page scrolls vertically
+(function () {
+  const mst       = document.querySelector('.mst');
+  const track     = document.querySelector('.mst__track');
+  const cards     = document.querySelectorAll('.mst__card');
+  const wrap      = document.querySelector('.snap-wrap');
+  const sideDate  = document.querySelector('.mst__side-date');
+  const sideTitle = document.querySelector('.mst__side-title');
+  if (!mst || !track || !cards.length || !wrap) return;
+
+  let ticking = false;
+  let started = false; // only kicks in once the section is actually pinned in view
+  let lastIndex = -1;
+
+  // Measure the scrollable range once, before any card enlarges — reading
+  // track.scrollWidth on every tick would create a feedback loop, since the
+  // active card growing changes scrollWidth, which shifts the scroll target,
+  // which can flip which card is active, causing a visible glitch on entry.
+  const maxScroll = track.scrollWidth - track.clientWidth;
+
+  function update() {
+    ticking = false;
+    const total = mst.offsetHeight - window.innerHeight;
+    if (total <= 0) return;
+    const rectTop = mst.getBoundingClientRect().top;
+
+    if (!started) {
+      if (rectTop > 0) return;
+      started = true;
+    }
+
+    const progress = Math.min(Math.max(-rectTop / total, 0), 1);
+    track.scrollLeft = progress * maxScroll;
+
+    // Which card is "closest to center" follows directly from progress —
+    // no need to read back layout geometry (write-then-read on every scroll
+    // frame forces the browser to recalc layout synchronously, which is
+    // what was causing the section to stutter).
+    const index = Math.min(Math.floor(progress * cards.length), cards.length - 1);
+    if (index !== lastIndex) {
+      lastIndex = index;
+      cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
+
+      const active = cards[index];
+      const date = active.querySelector('.mst__card-date');
+      const title = active.querySelector('.mst__card-title');
+      if (sideDate && date) sideDate.textContent = date.textContent;
+      if (sideTitle && title) sideTitle.textContent = title.textContent;
+    }
+  }
+
+  wrap.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Re-sync the side panel text after a language switch, since it's a
+  // one-time copy from the active card rather than a live data-i18n target.
+  document.addEventListener('i18n:changed', () => {
+    if (lastIndex < 0) return;
+    const active = cards[lastIndex];
+    const date = active.querySelector('.mst__card-date');
+    const title = active.querySelector('.mst__card-title');
+    if (sideDate && date) sideDate.textContent = date.textContent;
+    if (sideTitle && title) sideTitle.textContent = title.textContent;
+  });
+
+  update();
+})();
 
 // Reviews section reveal on scroll
 const revObserver = new IntersectionObserver((entries) => {
@@ -884,13 +957,13 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   }
 
   const PHASE = {
-    Dawn:  { color: '#fbbf24', bg: 'rgba(251,191,36,0.15)'  },
-    Day:   { color: '#93c5fd', bg: 'rgba(147,197,253,0.13)' },
-    Dusk:  { color: '#fb923c', bg: 'rgba(251,146,60,0.15)'  },
-    Night: { color: '#a78bfa', bg: 'rgba(167,139,250,0.15)' },
+    Dawn:  { color: '#C0AAEC', bg: 'rgba(192,170,236,0.16)' },
+    Day:   { color: '#9EB0F0', bg: 'rgba(158,176,240,0.16)' },
+    Dusk:  { color: '#C0AAEC', bg: 'rgba(192,170,236,0.16)' },
+    Night: { color: '#6B76B5', bg: 'rgba(107,118,181,0.16)' },
   };
-  const DOT_COLOR = { Dawn:'#fbbf24', Day:'#38bdf8', Dusk:'#f97316', Night:'#818cf8' };
-  const DOT_GLOW  = { Dawn:'rgba(251,191,36,0.2)', Day:'rgba(56,189,248,0.2)', Dusk:'rgba(249,115,22,0.2)', Night:'rgba(129,140,248,0.2)' };
+  const DOT_COLOR = { Dawn:'#C0AAEC', Day:'#9EB0F0', Dusk:'#C0AAEC', Night:'#6B76B5' };
+  const DOT_GLOW  = { Dawn:'rgba(192,170,236,0.25)', Day:'rgba(158,176,240,0.25)', Dusk:'rgba(192,170,236,0.25)', Night:'rgba(107,118,181,0.25)' };
 
   function updateCircadian(p) {
     const mins  = Math.round(360 + p * 1020);          // 6:00 → 23:00
@@ -967,27 +1040,27 @@ document.querySelectorAll('.faq__q').forEach(btn => {
   update();
 })();
 
-// Rev section tabs
+// Rev section tabs — click still works (mobile fallback, no pin there)
 (function () {
   const tabs   = [...document.querySelectorAll('.rev__tab')];
   const panels = [...document.querySelectorAll('.rev__panel')];
   if (!tabs.length) return;
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
-      panels.forEach(p => p.classList.add('rev__panel--hidden'));
-      tab.classList.add('is-active');
-      tab.setAttribute('aria-selected', 'true');
-      const target = document.getElementById('rev-panel-' + tab.dataset.tab);
-      if (target) {
-        target.classList.remove('rev__panel--hidden');
-        target.style.animation = 'none';
-        target.offsetHeight; // reflow to restart animation
-        target.style.animation = '';
-      }
-    });
-  });
+  function activate(tab) {
+    tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+    panels.forEach(p => p.classList.add('rev__panel--hidden'));
+    tab.classList.add('is-active');
+    tab.setAttribute('aria-selected', 'true');
+    const target = document.getElementById('rev-panel-' + tab.dataset.tab);
+    if (target) {
+      target.classList.remove('rev__panel--hidden');
+      target.style.animation = 'none';
+      target.offsetHeight; // reflow to restart animation
+      target.style.animation = '';
+    }
+  }
+
+  tabs.forEach(tab => tab.addEventListener('click', () => activate(tab)));
 })();
 
 // Language picker toggle
