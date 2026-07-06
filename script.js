@@ -258,12 +258,13 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
   const track     = document.querySelector('.mst__track');
   const cards     = document.querySelectorAll('.mst__card');
   const wrap      = document.querySelector('.snap-wrap');
-  const sideDate  = document.querySelector('.mst__side-date');
   const sideTitle = document.querySelector('.mst__side-title');
+  const bgImg     = document.querySelector('.mst__bg-img');
   if (!mst || !track || !cards.length || !wrap) return;
 
   let ticking = false;
-  let started = false; // only kicks in once the section is actually pinned in view
+  let started = false; // becomes true once the section is 75% scrolled into view,
+                        // so the carousel starts moving before the pin fully engages
   let lastIndex = -1;
 
   // Measure the scrollable range once, before any card enlarges — reading
@@ -277,13 +278,16 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
     const total = mst.offsetHeight - window.innerHeight;
     if (total <= 0) return;
     const rectTop = mst.getBoundingClientRect().top;
+    const preRoll = window.innerHeight * 0.25; // 25% of viewport left to enter = 75% scrolled in
 
     if (!started) {
-      if (rectTop > 0) return;
+      if (rectTop > preRoll) return; // wait until the section is 75% scrolled into view
       started = true;
     }
 
-    const progress = Math.min(Math.max(-rectTop / total, 0), 1);
+    // Progress starts advancing as soon as the section is 75% visible (rectTop === preRoll),
+    // not only once it's fully pinned (rectTop === 0) — mirrors the Showcase section's timing.
+    const progress = Math.min(Math.max((preRoll - rectTop) / (total + preRoll), 0), 1);
     track.scrollLeft = progress * maxScroll;
 
     // Which card is "closest to center" follows directly from progress —
@@ -296,10 +300,10 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
       cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
 
       const active = cards[index];
-      const date = active.querySelector('.mst__card-date');
       const title = active.querySelector('.mst__card-title');
-      if (sideDate && date) sideDate.textContent = date.textContent;
+      const img = active.querySelector('.mst__img');
       if (sideTitle && title) sideTitle.textContent = title.textContent;
+      if (bgImg && img) bgImg.src = img.src;
     }
   }
 
@@ -315,9 +319,7 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
   document.addEventListener('i18n:changed', () => {
     if (lastIndex < 0) return;
     const active = cards[lastIndex];
-    const date = active.querySelector('.mst__card-date');
     const title = active.querySelector('.mst__card-title');
-    if (sideDate && date) sideDate.textContent = date.textContent;
     if (sideTitle && title) sideTitle.textContent = title.textContent;
   });
 
@@ -336,22 +338,6 @@ const revObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
 
-
-// ── FAQ entrance animation — staggered, all devices ──────────────────────
-(function () {
-  const groups = [...document.querySelectorAll('.faq__group')];
-  if (!groups.length) return;
-  const stagger = window.innerWidth <= 768 ? 120 : 250;
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      groups.forEach((group, i) => {
-        setTimeout(() => group.classList.add('faq--visible'), i * stagger);
-      });
-      observer.disconnect();
-    }
-  }, { threshold: 0.1 });
-  observer.observe(document.querySelector('.faq__list'));
-})();
 
 // ── TEAM section entrance — all devices ──────────────────────────────────
 (function () {
@@ -378,21 +364,6 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   }, { threshold: 0.1 });
   observer.observe(section);
 })();
-
-// FAQ accordion
-document.querySelectorAll('.faq__q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item  = btn.closest('.faq__item');
-    const group = btn.closest('.faq__group');
-    const isOpen = item.classList.contains('faq__item--open');
-    document.querySelectorAll('.faq__item--open').forEach(el => el.classList.remove('faq__item--open'));
-    document.querySelectorAll('.faq__group--open').forEach(el => el.classList.remove('faq__group--open'));
-    if (!isOpen) {
-      item.classList.add('faq__item--open');
-      group.classList.add('faq__group--open');
-    }
-  });
-});
 
 // ── FOOTER: newsletter subscribe interaction ───────────────────────────────
 (function () {

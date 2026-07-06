@@ -4094,7 +4094,39 @@ body {
   overflow: hidden;
 }
 
+/* Background preview — shows the active card's image, right half, fading toward center */
+.mst__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.mst__bg-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 60%);
+  mask-image: linear-gradient(to right, transparent 0%, black 60%);
+}
+
+/* Fades the image to the section background at the top/bottom edges */
+.mst__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #F8F6FF 0%, transparent 15%, transparent 85%, #F8F6FF 100%);
+  pointer-events: none;
+}
+
 .mst__header {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -4130,6 +4162,8 @@ body {
 }
 
 .mst__stage {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 36px;
@@ -4145,14 +4179,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.mst__side-date {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #9EB0F0;
 }
 
 .mst__side-title {
@@ -4229,6 +4255,7 @@ body {
   .mst__card.is-active { width: 220px; height: 300px; }
 }
 @media (max-width: 900px) {
+  .mst__bg { display: none; }
   .mst__stage { flex-direction: column; gap: 24px; padding: 0 20px; }
   .mst__side { flex: none; text-align: center; align-items: center; }
   .mst__side-title { -webkit-line-clamp: 3; }
@@ -4420,6 +4447,7 @@ body {
   line-height: 1.18;
   letter-spacing: -0.04em;
   color: #130F1E;
+  max-width: 620px;
 }
 
 /* Inline avatar stack */
@@ -4448,7 +4476,7 @@ body {
   font-size: 16px;
   line-height: 1.72;
   color: rgba(0,0,0,0.46);
-  max-width: 500px;
+  max-width: 620px;
 }
 
 .cta__btns {
@@ -4584,18 +4612,30 @@ body {
   transform: translateY(0);
 }
 
-/* ── CTA section entrance animation ── */
-.cta__left,
-.cta__right {
+/* ── CTA section entrance animation — each element fades/slides in on its own ──
+   Uses the standalone `translate` property (not `transform`) so it composes
+   cleanly with .cta__card:hover's own `transform: translateY(-4px)` lift. */
+.cta__heading,
+.cta__sub,
+.cta__btns,
+.cta__card {
   opacity: 0;
-  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  translate: 0 24px;
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), translate 0.65s cubic-bezier(0.22,1,0.36,1);
 }
-.cta__left  { transform: translateX(-44px); }
-.cta__right { transform: translateX(44px); transition-delay: 0.18s; }
-.cta.is-visible .cta__left,
-.cta.is-visible .cta__right {
+.cta__heading { transition-delay: 0s; }
+.cta__sub     { transition-delay: 0.1s; }
+.cta__btns    { transition-delay: 0.2s; }
+.cta__card:nth-child(1) { transition-delay: 0.15s; }
+.cta__card:nth-child(2) { transition-delay: 0.27s; }
+.cta__card:nth-child(3) { transition-delay: 0.39s; }
+
+.cta.is-visible .cta__heading,
+.cta.is-visible .cta__sub,
+.cta.is-visible .cta__btns,
+.cta.is-visible .cta__card {
   opacity: 1;
-  transform: translateX(0);
+  translate: 0 0;
 }
 
 /* ── FOOTER (dentro de .cta) ─────────────────────────────── */
@@ -5280,7 +5320,4 @@ body {
   .team__heading  { transition-delay: 0.08s; }
   .team__sub      { transition-delay: 0.15s; }
   .team__carousel { transition-delay: 0.24s; }
-  /* CTA: switch to vertical motion on mobile (horizontal looks odd) */
-  .cta__left  { transform: translateY(28px); transition-delay: 0s; }
-  .cta__right { transform: translateY(28px); transition-delay: 0.12s; }
 }

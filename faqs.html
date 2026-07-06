@@ -11,24 +11,37 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeumaCare's First Real-World Usability Test — Hospital Althaia — NeumaCare</title>
+  <title>FAQs — NeumaCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=42" />
   <link rel="apple-touch-icon" href="logos/apple-touch-icon.png" />
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
-  <link rel="stylesheet" href="blog.css?v=5" />
-</head>
-<body data-page-title="page.title.blog">
+  <style>
+    html, body { height: auto; overflow: auto; }
+    body { background: #F8F6FF; margin: 0; }
 
-  <nav class="blog-nav">
-    <a href="index.html">
-      <img src="logos/NC_LOGO_%20(1).png" alt="NeumaCare" class="blog-nav__logo" />
-    </a>
-    <a href="blog.html" class="blog-nav__back">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M19 12H5M12 5l-7 7 7 7"/>
-      </svg>
-      <span data-i18n="article.nav.back">Back to Blog</span>
-    </a>
+    .faq.faq-page {
+      height: auto;
+      min-height: 100svh;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body data-page-title="page.title.faqs">
+
+  <nav class="bnb">
+    <a href="index.html"><img src="logos/NC_LOGO_%20(1).png" alt="NeumaCare" class="bnb__logo" /></a>
+    <div class="bnb__divider"></div>
+    <a href="index.html" class="bnb__link" data-i18n="nav.home">Home</a>
+    <a href="equipo.html" class="bnb__link" data-i18n="nav.team">Team</a>
+    <a href="blog.html" class="bnb__link" data-i18n="nav.blog">Blog</a>
+    <a href="waitlist.html" class="bnb__link" data-i18n="nav.waitlist">Waitlist</a>
+    <a href="contact.html" class="bnb__link" data-i18n="nav.contact">Contact</a>
+    <div class="bnb__divider"></div>
     <div class="lang-picker">
       <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
         <span class="lang-picker__flag" aria-hidden="true">🇬🇧</span>
@@ -52,84 +65,70 @@
     </div>
   </nav>
 
-  <div class="article-hero">
-    <img src="althaia/1780917521486.jpeg" alt="NeumaCare deployed in a real patient room at Hospital Althaia in Manresa" />
-  </div>
+  <section class="faq faq-page" id="faq">
+    <div class="faq__wrap">
+      <h2 class="faq__heading" data-i18n="faq.heading">Your questions answered</h2>
 
-  <article class="article-wrap">
+      <div class="faq__list">
 
-    <div class="article-meta">
-      <span class="article-meta__category" data-i18n="althaia.meta.cat">Events</span>
-      <span class="article-meta__dot">·</span>
-      <span class="article-meta__date" data-i18n="althaia.meta.date">June 8, 2026</span>
-      <span class="article-meta__dot">·</span>
-      <span class="article-meta__author" data-i18n="article.meta.author">NeumaCare Team</span>
-    </div>
+        <div class="faq__group">
+          <div class="faq__item">
+            <button class="faq__q">
+              <span data-i18n="faq.q1">What does NeumaCare do?</span>
+              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq__a"><p data-i18n="faq.a1">NeumaCare transforms healthcare spaces into more human and intelligent environments through adaptive sensory technology, modulating light, sound and scent to improve the patient experience.</p></div>
+          </div>
+          <hr class="faq__divider">
+        </div>
 
-    <h1 class="article-title" data-i18n="althaia.title">NeumaCare's First Real-World Usability Test — At Hospital Althaia In Manresa</h1>
+        <div class="faq__group">
+          <div class="faq__item">
+            <button class="faq__q">
+              <span data-i18n="faq.q2">Is NeumaCare only focused on sleep quality?</span>
+              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq__a"><p data-i18n="faq.a2">No. Sleep quality is the current focus of our pilot experiences, but NeumaCare's broader vision is to improve the overall care experience through adaptive sensory environments.</p></div>
+          </div>
+          <hr class="faq__divider">
+        </div>
 
-    <div class="article-body">
+        <div class="faq__group">
+          <div class="faq__item">
+            <button class="faq__q">
+              <span data-i18n="faq.q3">How can hospitals evaluate its impact?</span>
+              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq__a"><p data-i18n="faq.a3">Pilot experiences can combine environmental data, perceived sleep quality, patient feedback and healthcare team insights to evaluate the impact in real care environments.</p></div>
+          </div>
+          <hr class="faq__divider">
+        </div>
 
-      <p data-i18n="althaia.p.1">This morning, we traded our offices for the wards of Hospital Althaia in Manresa. And we couldn't be happier.</p>
+        <div class="faq__group">
+          <div class="faq__item">
+            <button class="faq__q">
+              <span data-i18n="faq.q4">What types of healthcare facilities can use NeumaCare?</span>
+              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq__a"><p data-i18n="faq.a4">NeumaCare is designed for hospitals, clinics and long-term care facilities looking to enhance the patient environment through intelligent, non-invasive sensory technology.</p></div>
+          </div>
+          <hr class="faq__divider">
+        </div>
 
-      <h2 data-i18n="althaia.h2.1">Our First Usability Test In A Real Hospital Environment</h2>
+        <div class="faq__group faq__group--last">
+          <div class="faq__item">
+            <button class="faq__q">
+              <span data-i18n="faq.q5">How does the AI adaptation work?</span>
+              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq__a"><p data-i18n="faq.a5">The system continuously reads physiological and contextual signals from each room and adjusts light, sound and scent parameters in real time using evidence-based therapeutic protocols.</p></div>
+          </div>
+        </div>
 
-      <p data-i18n="althaia.p.2">We carried out our first usability test in a real hospital environment. At NeumaCare, we believe technology only makes sense if it's genuinely useful for people — so being there and hearing direct feedback from healthcare staff was an incredible milestone for us.</p>
-
-      <figure class="article-img">
-        <img src="althaia/1780917523221.jpeg" alt="NeumaCare team with medical staff in a patient room at Hospital Althaia" />
-        <figcaption data-i18n="althaia.fig.1">NeumaCare deployed in a real patient room at Hospital Althaia</figcaption>
-      </figure>
-
-      <figure class="article-img-grid">
-        <img src="althaia/1780917521057.jpeg" alt="Reviewing the NeumaCare dashboard with Hospital Althaia staff" />
-        <img src="althaia/1780917522314.jpeg" alt="Hospital Althaia staff testing the NeumaCare device" />
-      </figure>
-
-      <h2 data-i18n="althaia.h2.2">Grateful To Althaia For Making This Possible</h2>
-
-      <p data-i18n-html="althaia.p.3">Thank you so much to <strong>Althaia, Xarxa Assistencial Universitària de Manresa</strong>, for welcoming us, for trusting entrepreneurial talent, and for helping us shape the future of hospital care. It's a true privilege to work with institutions this committed.</p>
-
-      <figure class="article-img">
-        <img src="althaia/1780917523155.jpeg" alt="Fine-tuning NeumaCare's light, sound and scent protocols with the medical team" />
-        <figcaption data-i18n="althaia.fig.2">Fine-tuning NeumaCare's light, sound and scent protocols with the medical team</figcaption>
-      </figure>
-
-      <blockquote class="article-quote">
-        <p data-i18n="althaia.bq">"It's a true privilege to work with institutions this committed."</p>
-        <cite data-i18n="althaia.cite">— NeumaCare Team</cite>
-      </blockquote>
-
-    </div>
-
-    <div class="article-tags">
-      <span class="article-tag">Events</span>
-      <span class="article-tag">Althaia</span>
-      <span class="article-tag">Usability Testing</span>
-      <span class="article-tag">Hospital Innovation</span>
-      <span class="article-tag">Manresa</span>
-      <span class="article-tag">Clinical Validation</span>
-      <span class="article-tag">Health Tech</span>
-    </div>
-
-  </article>
-
-  <section class="related">
-    <p class="related__title" data-i18n="related.title">Related articles</p>
-    <a href="article-egarsat-cecot-2026.html" class="related__card">
-      <img src="egarsat/1781615439009.jpeg" alt="NeumaCare presenting to Hospital Egarsat's leadership at Cecot" />
-      <div>
-        <p class="related__card-title" data-i18n="althaia.rel.1.title">NeumaCare Meets Hospital Egarsat And Presents To Its Leadership At Cecot</p>
-        <p class="related__card-date" data-i18n="althaia.rel.1.date">June 16, 2026</p>
       </div>
-    </a>
-    <a href="article-reus-startups-summit-2026.html" class="related__card">
-      <img src="reus-startup/img_5538.jpeg" alt="NeumaCare at the Reus Start-Ups Summit" />
-      <div>
-        <p class="related__card-title" data-i18n="althaia.rel.2.title">NeumaCare at the Reus Start-Ups Summit — Closing REDESSA's Incubation Program</p>
-        <p class="related__card-date" data-i18n="althaia.rel.2.date">June 11, 2026</p>
-      </div>
-    </a>
+
+      <p class="faq__footer" data-i18n-html="faq.footer">Can't find what you're looking for? <a href="contact.html" class="faq__link">Contact our team</a></p>
+    </div>
   </section>
 
   <div class="ftr-outer">
@@ -252,21 +251,48 @@
   <script src="translations.js?v=19"></script>
 
   <script>
+  // FAQ accordion
+  document.querySelectorAll('.faq__q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item  = btn.closest('.faq__item');
+      var group = btn.closest('.faq__group');
+      var isOpen = item.classList.contains('faq__item--open');
+      document.querySelectorAll('.faq__item--open').forEach(function (el) { el.classList.remove('faq__item--open'); });
+      document.querySelectorAll('.faq__group--open').forEach(function (el) { el.classList.remove('faq__group--open'); });
+      if (!isOpen) {
+        item.classList.add('faq__item--open');
+        group.classList.add('faq__group--open');
+      }
+    });
+  });
+
+  // FAQ entrance animation — staggered
   (function () {
-    document.querySelectorAll(".lang-picker").forEach(function (picker) {
-      var btn = picker.querySelector(".lang-picker__btn");
+    var groups = [].slice.call(document.querySelectorAll('.faq__group'));
+    if (!groups.length) return;
+    var stagger = window.innerWidth <= 768 ? 120 : 250;
+    groups.forEach(function (group, i) {
+      setTimeout(function () { group.classList.add('faq--visible'); }, i * stagger);
+    });
+  })();
+  </script>
+
+  <script>
+  (function () {
+    document.querySelectorAll('.lang-picker').forEach(function (picker) {
+      var btn = picker.querySelector('.lang-picker__btn');
       if (!btn) return;
-      btn.addEventListener("click", function (e) {
+      btn.addEventListener('click', function (e) {
         e.stopPropagation();
-        var open = picker.classList.toggle("lang-picker--open");
-        btn.setAttribute("aria-expanded", open);
+        var open = picker.classList.toggle('lang-picker--open');
+        btn.setAttribute('aria-expanded', open);
       });
     });
-    document.addEventListener("click", function () {
-      document.querySelectorAll(".lang-picker--open").forEach(function (picker) {
-        picker.classList.remove("lang-picker--open");
-        var btn = picker.querySelector(".lang-picker__btn");
-        if (btn) btn.setAttribute("aria-expanded", "false");
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.lang-picker--open').forEach(function (picker) {
+        picker.classList.remove('lang-picker--open');
+        var btn = picker.querySelector('.lang-picker__btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
       });
     });
   })();
