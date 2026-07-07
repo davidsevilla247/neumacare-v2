@@ -4134,25 +4134,6 @@ body {
   text-align: center;
 }
 
-.mst__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.35);
-}
-
-.mst__eyebrow-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #9EB0F0;
-  display: inline-block;
-}
-
 .mst__heading {
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 600;
