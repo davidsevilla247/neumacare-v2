@@ -5390,12 +5390,12 @@ body {
   /* Sections pinned to exactly one screen */
   .hero--editorial { height: 100svh !important; }
   .switch-sec { height: 100svh !important; overflow: hidden !important; }
-  /* Showcase (Hardware/Software/AI) and Milestones: keep their multi-viewport
-     scroll-driving height on mobile too — collapsing to 100svh (like other
-     sections) leaves .sc__pin/.mst__pin no room to pin across, so the
-     scroll-progress math always reads 0 and the slides/carousel never move. */
-  .sc  { height: 300vh !important; }
-  .mst { height: 320vh !important; }
+  /* Showcase (Hardware/Software/AI) and Milestones: on mobile these are
+     self-contained auto-advancing carousels (see script.js), not scroll-pinned
+     — so they use the normal single-screen section height, not the desktop's
+     300vh/320vh scroll-driving height. */
+  .sc__pin  { position: relative !important; }
+  .mst__pin { position: relative !important; }
   /* Ambient: full screen static on mobile */
   .ambient-zone { height: 100svh !important; }
   .ambient-sec { height: 100svh !important; }

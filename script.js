@@ -152,6 +152,32 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
   const wrap   = document.querySelector('.snap-wrap');
   if (!sc || !slides.length || !wrap) return;
 
+  // Mobile: self-contained carousel — auto-advances every 3s, or on tap,
+  // completely independent of page scroll (the pinned scroll-jack effect
+  // used on desktop doesn't translate well to touch scrolling).
+  if (window.innerWidth <= 768) {
+    let index = 0;
+    let timer = null;
+
+    function render() {
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+    }
+    function next() {
+      index = (index + 1) % slides.length;
+      render();
+    }
+    function restart() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, 3000);
+    }
+
+    sc.addEventListener('click', () => { next(); restart(); });
+    render();
+    restart();
+    return;
+  }
+
   const PARALLAX = 64; // px of drift across each slide's own scroll segment
   const segment = 1 / slides.length;
 
@@ -219,6 +245,46 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
   const sideTitle = document.querySelector('.mst__side-title');
   const bgImg     = document.querySelector('.mst__bg-img');
   if (!mst || !track || !cards.length || !wrap) return;
+
+  // Mobile: self-contained carousel — auto-advances every 3s, or on tap,
+  // same as the Showcase section above (no dependency on page scroll).
+  if (window.innerWidth <= 768) {
+    let index = 0;
+    let timer = null;
+
+    function render() {
+      cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
+      const active = cards[index];
+      const title  = active.querySelector('.mst__card-title');
+      const img    = active.querySelector('.mst__img');
+      if (sideTitle && title) sideTitle.textContent = title.textContent;
+      if (bgImg && img) bgImg.src = img.src;
+      active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+    function next() {
+      index = (index + 1) % cards.length;
+      render();
+    }
+    function restart() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, 3000);
+    }
+
+    // Tapping a card should still open its article — only advance the
+    // carousel when the tap lands on the surrounding chrome.
+    mst.addEventListener('click', (e) => {
+      if (e.target.closest('.mst__card')) return;
+      next();
+      restart();
+    });
+    document.addEventListener('i18n:changed', () => {
+      const title = cards[index].querySelector('.mst__card-title');
+      if (sideTitle && title) sideTitle.textContent = title.textContent;
+    });
+    render();
+    restart();
+    return;
+  }
 
   let ticking = false;
   let started = false; // becomes true once the section is 75% scrolled into view,
