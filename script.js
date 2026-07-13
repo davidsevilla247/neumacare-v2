@@ -80,55 +80,6 @@ document.querySelectorAll('.feat-reveal').forEach(el => featObserver.observe(el)
   requestAnimationFrame(tick);
 })();
 
-// Dynamic nav color — white on light sections, dark on dark sections
-(function () {
-  const snapWrap = document.querySelector('.snap-wrap');
-  const nav      = document.querySelector('.bnb');
-  if (!snapWrap || !nav) return;
-
-  const sections    = [...snapWrap.querySelectorAll('section')];
-  const darkClasses = ['pil']; // sections with dark backgrounds
-
-  function update() {
-    const idx    = Math.round(snapWrap.scrollTop / snapWrap.clientHeight);
-    const active = sections[idx];
-    if (!active) return;
-    const isDark = darkClasses.some(c => active.classList.contains(c));
-    nav.classList.toggle('bnb--dark', isDark);
-  }
-
-  snapWrap.addEventListener('scroll', update, { passive: true });
-  update(); // set correct state on load
-})();
-
-// Nav bar — scroll to section + keep active state in sync
-(function () {
-  const snapWrap = document.querySelector('.snap-wrap');
-  const sections = [...document.querySelectorAll('.snap-wrap section')];
-  const btns     = [...document.querySelectorAll('.bnb__item')];
-
-  function setActive(idx) {
-    btns.forEach(b => b.classList.remove('bnb__item--active'));
-    if (btns[idx]) btns[idx].classList.add('bnb__item--active');
-  }
-
-  // Click → scroll to section
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idx = parseInt(btn.dataset.section, 10);
-      if (!isNaN(idx) && sections[idx]) {
-        snapWrap.scrollTo({ top: sections[idx].offsetTop, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Scroll → sync active state
-  snapWrap.addEventListener('scroll', () => {
-    const idx = Math.round(snapWrap.scrollTop / snapWrap.clientHeight);
-    setActive(idx);
-  }, { passive: true });
-})();
-
 // Interactive progress bar sliders in the glass card
 (function () {
   let activeRow = null;
@@ -242,12 +193,19 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
   }
 
-  wrap.addEventListener('scroll', () => {
+  // Listen on both .snap-wrap (desktop, where it's the scroll container) and
+  // window (mobile, where .snap-wrap switches to overflow:visible and the
+  // document/body scrolls instead) — whichever one is actually scrolling
+  // fires update(), which reads position purely from getBoundingClientRect()
+  // so it's correct regardless of which ancestor owns the scroll.
+  function onScroll() {
     if (!ticking) {
       requestAnimationFrame(update);
       ticking = true;
     }
-  }, { passive: true });
+  }
+  wrap.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   update();
 })();
@@ -307,12 +265,16 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
     }
   }
 
-  wrap.addEventListener('scroll', () => {
+  // See the Showcase section above for why both listeners are needed —
+  // .snap-wrap only scrolls on desktop; window scrolls on mobile.
+  function onScroll() {
     if (!ticking) {
       requestAnimationFrame(update);
       ticking = true;
     }
-  }, { passive: true });
+  }
+  wrap.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // Re-sync the side panel text after a language switch, since it's a
   // one-time copy from the active card rather than a live data-i18n target.
@@ -643,9 +605,11 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   if (exploreBtn) {
     exploreBtn.addEventListener('click', e => {
       e.preventDefault();
-      const snapWrap = document.querySelector('.snap-wrap');
+      // scrollIntoView works regardless of which ancestor actually scrolls
+      // (.snap-wrap on desktop, the document on mobile), unlike calling
+      // .scrollTo() on a hardcoded container that may not be the real one.
       const sections = [...document.querySelectorAll('.snap-wrap section')];
-      if (sections[1]) snapWrap.scrollTo({ top: sections[1].offsetTop, behavior: 'smooth' });
+      if (sections[1]) sections[1].scrollIntoView({ behavior: 'smooth' });
     });
   }
 
@@ -1032,6 +996,32 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   }
 
   tabs.forEach(tab => tab.addEventListener('click', () => activate(tab)));
+})();
+
+// Mobile nav — burger opens a slide-in drawer
+(function () {
+  const burger   = document.querySelector('.bnb__burger');
+  const drawer   = document.querySelector('.bnb__drawer');
+  const backdrop = document.querySelector('.bnb__drawer-backdrop');
+  const closeBtn = document.querySelector('.bnb__drawer-close');
+  if (!burger || !drawer || !backdrop) return;
+
+  function open() {
+    drawer.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+  }
+  function close() {
+    drawer.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
+  burger.addEventListener('click', open);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  drawer.querySelectorAll('.bnb__drawer-link').forEach(link => link.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
 
 // Language picker toggle

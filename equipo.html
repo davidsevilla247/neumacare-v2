@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=43" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <link rel="apple-touch-icon" href="logos/apple-touch-icon.png" />
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon.png?v=4" />
@@ -62,11 +62,16 @@
   <nav class="bnb">
     <a href="index.html"><img src="logos/NC_LOGO_%20(1).png" alt="NeumaCare" class="bnb__logo" /></a>
     <div class="bnb__divider"></div>
+    <div class="bnb__links">
     <a href="index.html" class="bnb__link" data-i18n="nav.home">Home</a>
     <a href="equipo.html" class="bnb__link bnb__link--active" data-i18n="nav.team">Team</a>
     <a href="blog.html" class="bnb__link" data-i18n="nav.blog">Blog</a>
     <a href="waitlist.html" class="bnb__link" data-i18n="nav.waitlist">Waitlist</a>
     <a href="contact.html" class="bnb__link" data-i18n="nav.contact">Contact</a>
+    </div>
+    <button class="bnb__burger" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
     <div class="bnb__divider"></div>
     <div class="lang-picker">
       <button class="lang-picker__btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Language: English">
@@ -90,6 +95,18 @@
       </div>
     </div>
   </nav>
+  <div class="bnb__drawer-backdrop"></div>
+  <div class="bnb__drawer">
+    <button class="bnb__drawer-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <a href="index.html" class="bnb__drawer-link" data-i18n="nav.home">Home</a>
+    <a href="equipo.html" class="bnb__drawer-link bnb__drawer-link--active" data-i18n="nav.team">Team</a>
+    <a href="blog.html" class="bnb__drawer-link" data-i18n="nav.blog">Blog</a>
+    <a href="waitlist.html" class="bnb__drawer-link" data-i18n="nav.waitlist">Waitlist</a>
+    <a href="contact.html" class="bnb__drawer-link" data-i18n="nav.contact">Contact</a>
+  </div>
+
 
   <section class="team equipo-page is-visible">
       <div class="team__header">
@@ -407,6 +424,35 @@
 
   <script src="translations.js?v=21"></script>
 
+
+  <script>
+  (function () {
+    var burger   = document.querySelector('.bnb__burger');
+    var drawer   = document.querySelector('.bnb__drawer');
+    var backdrop = document.querySelector('.bnb__drawer-backdrop');
+    var closeBtn = document.querySelector('.bnb__drawer-close');
+    if (!burger || !drawer || !backdrop) return;
+
+    function open() {
+      drawer.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+    }
+    function close() {
+      drawer.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+
+    burger.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+    [].slice.call(drawer.querySelectorAll('.bnb__drawer-link')).forEach(function (link) {
+      link.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+  </script>
 
   <script>
   (function () {

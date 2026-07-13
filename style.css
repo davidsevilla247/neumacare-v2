@@ -2996,6 +2996,101 @@ body {
   color: #9EB0F0;
 }
 
+/* ── MOBILE NAV: burger + slide-in drawer ────────────────────
+   .bnb__links wraps the inline link list; on desktop it's transparent
+   to flex layout (display:contents) so it doesn't affect the pill's
+   sizing. Below 768px it's swapped for a burger button that opens a
+   fixed sidebar drawer — the pill nav itself is too narrow to fit
+   5 links + logo + language picker on a phone screen. */
+.bnb__links {
+  display: contents;
+}
+
+.bnb__burger {
+  display: none;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(11,9,23,0.6);
+  padding: 0;
+}
+.bnb__burger svg { width: 19px; height: 19px; }
+.bnb--dark .bnb__burger { color: rgba(255,255,255,0.75); }
+
+.bnb__drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11,9,23,0.45);
+  z-index: 1001;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.bnb__drawer-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bnb__drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(78vw, 320px);
+  background: #ffffff;
+  z-index: 1002;
+  box-shadow: -12px 0 48px rgba(0,0,0,0.18);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.bnb__drawer.is-open {
+  transform: translateX(0);
+}
+
+.bnb__drawer-close {
+  align-self: flex-end;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.05);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: rgba(0,0,0,0.6);
+  margin-bottom: 20px;
+}
+.bnb__drawer-close svg { width: 16px; height: 16px; }
+
+.bnb__drawer-link {
+  display: block;
+  padding: 16px 4px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #130F1E;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.bnb__drawer-link--active { color: #9EB0F0; }
+
+@media (max-width: 768px) {
+  .bnb__links { display: none; }
+  .bnb__burger { display: flex; }
+}
+
 /* ── LANGUAGE PICKER ──────────────────────────────────────── */
 .lang-picker {
   position: relative;
@@ -4492,6 +4587,7 @@ body {
 .cta__btn-icon {
   width: 46px;
   height: 46px;
+  flex-shrink: 0;
   border-radius: 50%;
   border: 1.5px solid rgba(0,0,0,0.12);
   background: transparent;
@@ -5294,6 +5390,12 @@ body {
   /* Sections pinned to exactly one screen */
   .hero--editorial { height: 100svh !important; }
   .switch-sec { height: 100svh !important; overflow: hidden !important; }
+  /* Showcase (Hardware/Software/AI) and Milestones: keep their multi-viewport
+     scroll-driving height on mobile too — collapsing to 100svh (like other
+     sections) leaves .sc__pin/.mst__pin no room to pin across, so the
+     scroll-progress math always reads 0 and the slides/carousel never move. */
+  .sc  { height: 300vh !important; }
+  .mst { height: 320vh !important; }
   /* Ambient: full screen static on mobile */
   .ambient-zone { height: 100svh !important; }
   .ambient-sec { height: 100svh !important; }
