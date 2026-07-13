@@ -251,6 +251,11 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
   if (window.innerWidth <= 768) {
     let index = 0;
     let timer = null;
+    // Scroll only the horizontal card track — never scrollIntoView the card
+    // itself, since that scrolls the whole *page* vertically to reveal it
+    // (a real bug on first render: the page would jump straight to this
+    // section on load, before the user had scrolled anywhere near it).
+    const mobileMaxScroll = track.scrollWidth - track.clientWidth;
 
     function render() {
       cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
@@ -259,7 +264,8 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
       const img    = active.querySelector('.mst__img');
       if (sideTitle && title) sideTitle.textContent = title.textContent;
       if (bgImg && img) bgImg.src = img.src;
-      active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      const left = cards.length > 1 ? (index / (cards.length - 1)) * mobileMaxScroll : 0;
+      track.scrollTo({ left, behavior: 'smooth' });
     }
     function next() {
       index = (index + 1) % cards.length;
