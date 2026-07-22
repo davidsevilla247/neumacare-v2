@@ -12,6 +12,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NeumaCare — Sensory AI for Patient Care</title>
+  <meta name="description" content="NeumaCare designs sensory AI-powered hospital rooms that adapt light, sound and air to each patient&#x27;s physiological needs — improving comfort and recovery." />
+  <link rel="canonical" href="https://neumacare.cat/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NeumaCare" />
+  <meta property="og:title" content="NeumaCare — Sensory AI for Patient Care" />
+  <meta property="og:description" content="NeumaCare designs sensory AI-powered hospital rooms that adapt light, sound and air to each patient&#x27;s physiological needs — improving comfort and recovery." />
+  <meta property="og:url" content="https://neumacare.cat/" />
+  <meta property="og:image" content="https://neumacare.cat/assets/images/branding/og-default.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NeumaCare — Sensory AI for Patient Care" />
+  <meta name="twitter:description" content="NeumaCare designs sensory AI-powered hospital rooms that adapt light, sound and air to each patient&#x27;s physiological needs — improving comfort and recovery." />
+  <meta name="twitter:image" content="https://neumacare.cat/assets/images/branding/og-default.webp" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -19,6 +38,55 @@
   <link rel="apple-touch-icon" href="assets/images/branding/apple-touch-icon.png" />
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/branding/favicon-32.png?v=4" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://neumacare.cat/#organization",
+      "name": "NeumaCare",
+      "legalName": "NEUMACARE SYSTEMS, SOCIEDAD LIMITADA",
+      "url": "https://neumacare.cat/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://neumacare.cat/assets/images/branding/apple-touch-icon.png",
+        "width": 180,
+        "height": 180
+      },
+      "description": "NeumaCare designs sensory AI-powered hospital rooms that adapt light, sound and air to each patient's physiological needs.",
+      "foundingDate": "2026-01-21",
+      "founder": {
+        "@type": "Person",
+        "name": "David Sevilla"
+      },
+      "email": "davidsevilla@neumacare.cat",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Carrer Rivera Sans, s/n",
+        "addressLocality": "L'Hospitalet de l'Infant",
+        "addressRegion": "Tarragona",
+        "postalCode": "43890",
+        "addressCountry": "ES"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/neumacare/",
+        "https://www.instagram.com/neumacare/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://neumacare.cat/#website",
+      "name": "NeumaCare",
+      "url": "https://neumacare.cat/",
+      "publisher": {
+        "@id": "https://neumacare.cat/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+  </script>
 </head>
 <body data-page-title="page.title.index">
 <svg width="0" height="0" style="position:absolute;overflow:hidden">
@@ -30,7 +98,7 @@
   </defs>
 </svg>
 
-  <div class="snap-wrap">
+  <div class="snap-wrap" role="main">
 
   <!-- HERO 1 -->
   <div class="hero-scroll-zone">
@@ -61,18 +129,18 @@
             the environment to each patient's physiological needs.
           </p>
           <div class="hero__ctas anim delay-4">
-            <a href="#" class="hero__cta hero__cta--primary" id="cta-explore">
+            <button type="button" class="hero__cta hero__cta--primary" id="cta-explore">
               <span data-i18n="hero.cta.explore">Explore System</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-            </a>
-            <a href="#" class="hero__cta hero__cta--ghost" id="cta-demo">
+            </button>
+            <button type="button" class="hero__cta hero__cta--ghost" id="cta-demo">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="5,3 19,12 5,21"/>
               </svg>
               <span data-i18n="hero.cta.demo">Watch Demo</span>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -80,11 +148,11 @@
     </div>
 
     <!-- Mobile-only play button, bottom-right (icon only) -->
-    <a href="#" class="hero__play-mobile" id="cta-demo-mobile" aria-label="Watch Demo">
+    <button type="button" class="hero__play-mobile" id="cta-demo-mobile" aria-label="Watch Demo">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
         <polygon points="6,4 20,12 6,20"/>
       </svg>
-    </a>
+    </button>
 
   </section>
   </div><!-- /hero-scroll-zone -->
@@ -121,7 +189,7 @@
   <section class="sc">
     <div class="sc__pin">
       <div class="sc__slide" data-slide="0">
-        <img class="sc__hero-img" src="assets/images/product/neumacare-hardware-device.png" alt="NeumaCare Hardware" />
+        <img class="sc__hero-img" src="assets/images/product/neumacare-hardware-device.webp" alt="NeumaCare Hardware" width="1640" height="959" loading="eager" fetchpriority="high" />
         <div class="sc__hero-text">
           <span class="sc__num">01</span>
           <h2 class="sc__heading" data-i18n="sc.heading">Hardware</h2>
@@ -135,7 +203,7 @@
       </div>
 
       <div class="sc__slide" data-slide="1">
-        <img class="sc__hero-img" src="assets/images/product/neumacare-software-dashboard.png" alt="NeumaCare Software" />
+        <img class="sc__hero-img" src="assets/images/product/neumacare-software-dashboard.webp" alt="NeumaCare Software" width="1540" height="1021" loading="lazy" />
         <div class="sc__hero-text">
           <span class="sc__num">02</span>
           <h2 class="sc__heading" data-i18n="sc2.heading">Software</h2>
@@ -149,7 +217,7 @@
       </div>
 
       <div class="sc__slide" data-slide="2">
-        <img class="sc__hero-img" src="assets/images/product/neumacare-ai-engine.png" alt="NeumaCare AI Engine" />
+        <img class="sc__hero-img" src="assets/images/product/neumacare-ai-engine.webp" alt="NeumaCare AI Engine" width="1544" height="1018" loading="lazy" />
         <div class="sc__hero-text">
           <span class="sc__num">03</span>
           <h2 class="sc__heading" data-i18n="sc3.heading">AI Engine</h2>
@@ -418,7 +486,7 @@
 
         <!-- Photo card -->
         <div class="ambient-card ambient-card--6 ambient-photo">
-          <img src="assets/images/product/ai-face-detection-demo.png" alt="Patient" class="ambient-photo__img" />
+          <img src="assets/images/product/ai-face-detection-demo.webp" alt="Patient" class="ambient-photo__img" width="1024" height="1024" loading="lazy" />
           <div class="ambient-photo__label" data-i18n="ambient.photo.label">Room 214</div>
           <div class="ambient-photo__icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)" stroke="none">
@@ -432,7 +500,7 @@
         <!-- AI Assist widget -->
         <div class="ambient-card ambient-card--5 ambient-ai">
           <div class="ambient-ai__circle">
-            <img src="assets/images/branding/favicon-white.png" width="22" height="22" alt="NeumaCare AI" />
+            <img src="assets/images/branding/favicon-white.webp" width="22" height="22" alt="NeumaCare AI" loading="lazy" />
           </div>
           <div class="ambient-ai__label" data-i18n="ambient.ai.label">AI Assist</div>
           <div class="ambient-ai__dots">
@@ -462,7 +530,7 @@
           <div class="trifeat__glass">
             <div class="trifeat__glass-header">
               <div class="trifeat__glass-icon">
-                <img src="assets/images/branding/favicon-white.png" alt="NeumaCare" />
+                <img src="assets/images/branding/favicon-white.webp" alt="NeumaCare" width="1000" height="1000" loading="lazy" />
               </div>
               <div>
                 <p class="trifeat__glass-name">NeumaCare AI</p>
@@ -503,7 +571,7 @@
             <div class="trifeat__ring trifeat__ring--1"></div>
             <div class="trifeat__ring trifeat__ring--2"></div>
             <!-- Central NC -->
-            <div class="trifeat__orbit-center"><img src="assets/images/branding/favicon-white.png" alt="NC" class="trifeat__orbit-favicon" /></div>
+            <div class="trifeat__orbit-center"><img src="assets/images/branding/favicon-white.webp" alt="NC" class="trifeat__orbit-favicon" width="1000" height="1000" loading="lazy" /></div>
             <!-- Orbiting devices -->
             <div class="trifeat__orbit-item trifeat__orbit-item--top" data-label="Sound">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
@@ -578,7 +646,7 @@
           <div class="trifeat__card-visual">
           <div class="trifeat__chat">
             <div class="trifeat__chat-reply">
-              <div class="trifeat__chat-avatar"><img src="assets/images/branding/favicon-white.png" alt="NC" class="trifeat__chat-favicon" /></div>
+              <div class="trifeat__chat-avatar"><img src="assets/images/branding/favicon-white.webp" alt="NC" class="trifeat__chat-favicon" width="1000" height="1000" loading="lazy" /></div>
               <div>
                 <p class="trifeat__chat-name">NeumaCare AI</p>
                 <p class="trifeat__chat-msg" data-i18n="feat4.chat.msg">Reduce ambient light 40% and activate the Sleep Recovery protocol.</p>
@@ -633,7 +701,7 @@
             <p class="rev__quote"><span data-i18n="rev.quote1">"The arrival of NeumaCare represents an opportunity to move towards more humanized care with less reliance on medication. It provides benefits for both patients and healthcare staff."</span></p>
             <div class="rev__card-footer">
               <div class="rev__author">
-                <img class="rev__avatar" src="assets/images/reviews/viladot.jpg" alt="Dra. Viladot" />
+                <img class="rev__avatar" src="assets/images/reviews/viladot.webp" alt="Dra. Viladot" width="1063" height="1063" loading="lazy" />
                 <div>
                   <div class="rev__name">Dra. Viladot</div>
                   <div class="rev__role" data-i18n="rev.role1">Internist</div>
@@ -653,7 +721,7 @@
             <p class="rev__quote"><span data-i18n="rev.quote2">"We believe NeumaCare can become a key tool to reduce stress and anxiety in our patients. The ability to adapt light, sound, and scent stimuli according to physiological state could significantly improve comfort within the unit."</span></p>
             <div class="rev__card-footer">
               <div class="rev__author">
-                <img class="rev__avatar" src="assets/images/reviews/aligue.jpg" alt="Dr. Aligué" />
+                <img class="rev__avatar" src="assets/images/reviews/aligue.webp" alt="Dr. Aligué" width="1061" height="1061" loading="lazy" />
                 <div>
                   <div class="rev__name">Dr. Aligué</div>
                   <div class="rev__role" data-i18n="rev.role2">Internist</div>
@@ -673,7 +741,7 @@
             <p class="rev__quote"><span data-i18n="rev.quote3">"From a physiotherapy perspective, we see NeumaCare as a tool with enormous potential to optimize rehabilitation sessions. It allows us to work with patients who are more alert, calm, and cooperative."</span></p>
             <div class="rev__card-footer">
               <div class="rev__author">
-                <img class="rev__avatar" src="assets/images/reviews/chus.jpg" alt="Chus Del Rincón" />
+                <img class="rev__avatar" src="assets/images/reviews/chus.webp" alt="Chus Del Rincón" width="326" height="325" loading="lazy" />
                 <div>
                   <div class="rev__name">Chus Del Rincón</div>
                   <div class="rev__role" data-i18n="rev.role3">Physiotherapist</div>
@@ -695,37 +763,37 @@
       <div class="rev__panel rev__panel--hidden" id="rev-panel-media" role="tabpanel">
         <div class="rev__media-grid">
           <a href="https://www.youtube.com/watch?si=gNsZNN0ls1Zwpv1R&v=WQhkAJNhkVA&feature=youtu.be" target="_blank" rel="noopener" class="rev__media-item">
-            <img src="assets/images/press/calafell-tv-radio.png" alt="Calafell TV / Ràdio" />
+            <img src="assets/images/press/calafell-tv-radio.webp" alt="Calafell TV / Ràdio" width="236" height="100" loading="lazy" />
           </a>
           <a href="https://www.linkedin.com/posts/david-sevilla-marketing_laltre-dia-vam-tenir-loportunitat-dexplicar-activity-7421809250445774848-I9px?utm_source=share&utm_medium=member_desktop&rcm=ACoAADAPi6ABiIJ7NWicjMsgEK9rlBlc_CzJPTM" target="_blank" rel="noopener" class="rev__media-item">
-            <img src="assets/images/press/la-xarxa.png" alt="La Xarxa" />
+            <img src="assets/images/press/la-xarxa.webp" alt="La Xarxa" width="1500" height="600" loading="lazy" />
           </a>
           <a href="https://www.diaridetarragona.com/economia/244043/neumacare-estancia-hospital-amable.html" target="_blank" rel="noopener" class="rev__media-item">
-            <img src="assets/images/press/diari-tarragona.png" alt="Diari de Tarragona" />
+            <img src="assets/images/press/diari-tarragona.webp" alt="Diari de Tarragona" width="1500" height="600" loading="lazy" />
           </a>
           <a href="https://youtu.be/FrmiAJdNySc?si=43JiGesXtP1BaDaY&t=96" target="_blank" rel="noopener" class="rev__media-item">
-            <img src="assets/images/press/connecta10.png" alt="Connecta10 Comarques" />
+            <img src="assets/images/press/connecta10.webp" alt="Connecta10 Comarques" width="600" height="335" loading="lazy" />
           </a>
           <a href="https://www.diarimes.com/es/reus/251015/incubadora-redessa-duplica-numero-proyectos-acompanara-5-a-edicion_195092.html" target="_blank" rel="noopener" class="rev__media-item">
-            <img src="assets/images/press/diari-mes.png" alt="Diari Més" />
+            <img src="assets/images/press/diari-mes.webp" alt="Diari Més" width="600" height="135" loading="lazy" />
           </a>
           <a href="https://www.youtube.com/watch?v=TV1etbfohSM" target="_blank" rel="noopener" class="rev__media-item">
-            <img src="assets/images/press/canal-reus.png" alt="Canal Reus" />
+            <img src="assets/images/press/canal-reus.webp" alt="Canal Reus" width="681" height="574" loading="lazy" />
           </a>
         </div>
       </div>
 
       <div class="rev__panel rev__panel--hidden" id="rev-panel-partners" role="tabpanel">
         <div class="rev__partners-grid">
-          <div class="rev__partner-item"><img src="assets/images/partners/tarragona-impulsa.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/cecot.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/i2cat.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/incubadora-redessa.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/cambra-tarragona.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/accio-catalonia-trade-investment.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/generalitat-de-catalunya.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/diputacio-tarragona.png" alt="" /></div>
-          <div class="rev__partner-item"><img src="assets/images/partners/ajuntament-de-tarragona.png" alt="" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/tarragona-impulsa.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/cecot.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/i2cat.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/incubadora-redessa.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/cambra-tarragona.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/accio-catalonia-trade-investment.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/generalitat-de-catalunya.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/diputacio-tarragona.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
+          <div class="rev__partner-item"><img src="assets/images/partners/ajuntament-de-tarragona.webp" alt="" width="1000" height="1000" loading="lazy" /></div>
         </div>
       </div>
 
@@ -744,9 +812,9 @@
           <h2 class="cta__heading">
             <span data-i18n="cta.heading.pre">Speak with our</span>
             <span class="cta__av-wrap">
-              <img src="assets/images/team/david-sevilla.png"    alt="David"    class="cta__avatar" />
-              <img src="assets/images/team/joan-jarque.png"      alt="Joan"     class="cta__avatar" />
-              <img src="assets/images/team/francesc-sevilla.png" alt="Francesc" class="cta__avatar" />
+              <img src="assets/images/team/david-sevilla.webp"    alt="David"    class="cta__avatar" width="1000" height="1000" loading="lazy" />
+              <img src="assets/images/team/joan-jarque.webp"      alt="Joan"     class="cta__avatar" width="1000" height="1000" loading="lazy" />
+              <img src="assets/images/team/francesc-sevilla.webp" alt="Francesc" class="cta__avatar" width="1000" height="1000" loading="lazy" />
             </span>
             <span data-i18n="cta.heading.post">experts about your care environment.</span>
           </h2>
@@ -794,13 +862,13 @@
       <!-- Left: brand + tagline + newsletter -->
       <div class="ftr__left">
         <div class="ftr__brand">
-          <img src="assets/images/branding/neumacare-logo-footer.png" alt="NeumaCare" class="ftr__logo-img" />
+          <img src="assets/images/branding/neumacare-logo-footer.webp" alt="NeumaCare" class="ftr__logo-img" width="600" height="137" loading="lazy" />
         </div>
         <p class="ftr__tagline" data-i18n="ftr.tagline">Transforming patient care through sensory intelligence.</p>
         <div class="ftr__nl">
-          <p class="ftr__nl-label" data-i18n="ftr.nl.label">Subscribe to our newsletter</p>
+          <p class="ftr__nl-label" id="ftr-nl-label" data-i18n="ftr.nl.label">Subscribe to our newsletter</p>
           <div class="ftr__nl-form">
-            <input type="email" class="ftr__nl-input" placeholder="Your email address" data-i18n-placeholder="ftr.nl.placeholder" />
+            <input type="email" class="ftr__nl-input" placeholder="Your email address" data-i18n-placeholder="ftr.nl.placeholder" aria-labelledby="ftr-nl-label" />
             <button class="ftr__nl-btn" aria-label="Subscribe">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -811,7 +879,7 @@
       </div>
 
       <!-- Middle: nav links -->
-      <nav class="ftr__nav">
+      <nav class="ftr__nav" aria-label="Footer">
         <div class="ftr__col">
           <a href="index.html" class="ftr__link" data-i18n="nav.home">Home</a>
           <a href="equipo.html" class="ftr__link" data-i18n="nav.team">Team</a>
@@ -825,7 +893,7 @@
       <div class="ftr__blog-col">
         <p class="ftr__blog-heading" data-i18n="ftr.blog.heading">Latest from the blog</p>
         <a href="article-innovation-day-2026.html" class="ftr__blog-item">
-          <img src="assets/images/events/innovation-day-2026/photo-02.jpeg" alt="Innovation Day 2026" class="ftr__blog-thumb" />
+          <img src="assets/images/events/innovation-day-2026/photo-02.webp" alt="Innovation Day 2026" class="ftr__blog-thumb" width="1600" height="900" loading="lazy" />
           <div class="ftr__blog-info">
             <p class="ftr__blog-date">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="14" height="12" rx="2"/><path d="M1 7h14M5 1v4M11 1v4"/></svg>
@@ -835,7 +903,7 @@
           </div>
         </a>
         <a href="article-egarsat-cecot-2026.html" class="ftr__blog-item">
-          <img src="assets/images/events/egarsat-cecot-2026/photo-01.jpeg" alt="Hospital Egarsat and Cecot" class="ftr__blog-thumb" />
+          <img src="assets/images/events/egarsat-cecot-2026/photo-01.webp" alt="Hospital Egarsat and Cecot" class="ftr__blog-thumb" width="1600" height="900" loading="lazy" />
           <div class="ftr__blog-info">
             <p class="ftr__blog-date">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="14" height="12" rx="2"/><path d="M1 7h14M5 1v4M11 1v4"/></svg>
@@ -845,7 +913,7 @@
           </div>
         </a>
         <a href="article-congres-cancer-catalunya-2026.html" class="ftr__blog-item">
-          <img src="assets/images/events/congres-cancer-catalunya-2026/photo-01.jpeg" alt="IV Congress of People with Cancer and Families of Catalonia" class="ftr__blog-thumb" />
+          <img src="assets/images/events/congres-cancer-catalunya-2026/photo-01.webp" alt="IV Congress of People with Cancer and Families of Catalonia" class="ftr__blog-thumb" width="1200" height="800" loading="lazy" />
           <div class="ftr__blog-info">
             <p class="ftr__blog-date">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="14" height="12" rx="2"/><path d="M1 7h14M5 1v4M11 1v4"/></svg>
@@ -885,8 +953,8 @@
   </div><!-- /.snap-wrap -->
 
   <!-- BOTTOM NAV BAR -->
-  <nav class="bnb">
-    <a href="index.html"><img src="assets/images/branding/neumacare-logo-nav.png" alt="NeumaCare" class="bnb__logo" /></a>
+  <header><nav class="bnb" aria-label="Primary">
+    <a href="index.html"><img src="assets/images/branding/neumacare-logo-nav.webp" alt="NeumaCare" class="bnb__logo" width="600" height="137" loading="eager" /></a>
     <div class="bnb__divider"></div>
     <div class="bnb__links">
     <a href="index.html" class="bnb__link bnb__link--active" data-i18n="nav.home">Home</a>
@@ -928,7 +996,7 @@
         </button>
       </div>
     </div>
-  </nav>
+  </nav></header>
 
   <div class="bnb__drawer-backdrop"></div>
   <div class="bnb__drawer">
@@ -965,7 +1033,7 @@
     </div>
   </div>
 
-  <script src="translations.js?v=34"></script>
+  <script src="translations.js?v=35"></script>
   <script src="script.js?v=28"></script>
 </body>
 </html>

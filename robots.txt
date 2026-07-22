@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neumacare.cat/sitemap.xml
