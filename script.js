@@ -379,7 +379,7 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   const items  = document.querySelectorAll('.trifeat__orbit-item[data-label]');
   if (!center || !items.length) return;
 
-  const logoHTML = '<img src="logos/favicon-white.png" alt="NC" class="trifeat__orbit-favicon" />';
+  const logoHTML = '<img src="assets/images/branding/favicon-white.png" alt="NC" class="trifeat__orbit-favicon" />';
 
   function swap(content, isLabel) {
     center.classList.add('switching');

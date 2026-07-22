@@ -589,7 +589,7 @@ body {
 }
 
 .hero--light .hero__bg {
-  background-image: url('background2.avif');
+  background-image: url('assets/images/backgrounds/hero-ambient-glow.avif');
   opacity: 0.55;
 }
 
@@ -3675,7 +3675,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('capt/capt4.png') center/cover no-repeat;
+  background: url('assets/images/backgrounds/product-section-backdrop.png') center/cover no-repeat;
   filter: brightness(1.2) saturate(80%);
   z-index: 0;
 }
