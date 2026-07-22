@@ -236,130 +236,6 @@ document.querySelectorAll('.sc-reveal').forEach(el => scObserver.observe(el));
   update();
 })();
 
-// Milestones carousel — pinned, advances horizontally as the page scrolls vertically
-(function () {
-  const mst       = document.querySelector('.mst');
-  const track     = document.querySelector('.mst__track');
-  const cards     = document.querySelectorAll('.mst__card');
-  const wrap      = document.querySelector('.snap-wrap');
-  const sideTitle = document.querySelector('.mst__side-title');
-  const bgImg     = document.querySelector('.mst__bg-img');
-  if (!mst || !track || !cards.length || !wrap) return;
-
-  // Mobile: self-contained carousel — auto-advances every 3s, or on tap,
-  // same as the Showcase section above (no dependency on page scroll).
-  if (window.innerWidth <= 768) {
-    let index = 0;
-    let timer = null;
-    // Scroll only the horizontal card track — never scrollIntoView the card
-    // itself, since that scrolls the whole *page* vertically to reveal it
-    // (a real bug on first render: the page would jump straight to this
-    // section on load, before the user had scrolled anywhere near it).
-    const mobileMaxScroll = track.scrollWidth - track.clientWidth;
-
-    function render() {
-      cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
-      const active = cards[index];
-      const title  = active.querySelector('.mst__card-title');
-      const img    = active.querySelector('.mst__img');
-      if (sideTitle && title) sideTitle.textContent = title.textContent;
-      if (bgImg && img) bgImg.src = img.src;
-      const left = cards.length > 1 ? (index / (cards.length - 1)) * mobileMaxScroll : 0;
-      track.scrollTo({ left, behavior: 'smooth' });
-    }
-    function next() {
-      index = (index + 1) % cards.length;
-      render();
-    }
-    function restart() {
-      if (timer) clearInterval(timer);
-      timer = setInterval(next, 3000);
-    }
-
-    // Tapping a card should still open its article — only advance the
-    // carousel when the tap lands on the surrounding chrome.
-    mst.addEventListener('click', (e) => {
-      if (e.target.closest('.mst__card')) return;
-      next();
-      restart();
-    });
-    document.addEventListener('i18n:changed', () => {
-      const title = cards[index].querySelector('.mst__card-title');
-      if (sideTitle && title) sideTitle.textContent = title.textContent;
-    });
-    render();
-    restart();
-    return;
-  }
-
-  let ticking = false;
-  let started = false; // becomes true once the section is 75% scrolled into view,
-                        // so the carousel starts moving before the pin fully engages
-  let lastIndex = -1;
-
-  // Measure the scrollable range once, before any card enlarges — reading
-  // track.scrollWidth on every tick would create a feedback loop, since the
-  // active card growing changes scrollWidth, which shifts the scroll target,
-  // which can flip which card is active, causing a visible glitch on entry.
-  const maxScroll = track.scrollWidth - track.clientWidth;
-
-  function update() {
-    ticking = false;
-    const total = mst.offsetHeight - window.innerHeight;
-    if (total <= 0) return;
-    const rectTop = mst.getBoundingClientRect().top;
-    const preRoll = window.innerHeight * 0.25; // 25% of viewport left to enter = 75% scrolled in
-
-    if (!started) {
-      if (rectTop > preRoll) return; // wait until the section is 75% scrolled into view
-      started = true;
-    }
-
-    // Progress starts advancing as soon as the section is 75% visible (rectTop === preRoll),
-    // not only once it's fully pinned (rectTop === 0) — mirrors the Showcase section's timing.
-    const progress = Math.min(Math.max((preRoll - rectTop) / (total + preRoll), 0), 1);
-    track.scrollLeft = progress * maxScroll;
-
-    // Which card is "closest to center" follows directly from progress —
-    // no need to read back layout geometry (write-then-read on every scroll
-    // frame forces the browser to recalc layout synchronously, which is
-    // what was causing the section to stutter).
-    const index = Math.min(Math.floor(progress * cards.length), cards.length - 1);
-    if (index !== lastIndex) {
-      lastIndex = index;
-      cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
-
-      const active = cards[index];
-      const title = active.querySelector('.mst__card-title');
-      const img = active.querySelector('.mst__img');
-      if (sideTitle && title) sideTitle.textContent = title.textContent;
-      if (bgImg && img) bgImg.src = img.src;
-    }
-  }
-
-  // See the Showcase section above for why both listeners are needed —
-  // .snap-wrap only scrolls on desktop; window scrolls on mobile.
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }
-  wrap.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // Re-sync the side panel text after a language switch, since it's a
-  // one-time copy from the active card rather than a live data-i18n target.
-  document.addEventListener('i18n:changed', () => {
-    if (lastIndex < 0) return;
-    const active = cards[lastIndex];
-    const title = active.querySelector('.mst__card-title');
-    if (sideTitle && title) sideTitle.textContent = title.textContent;
-  });
-
-  update();
-})();
-
 // Reviews section reveal on scroll
 const revObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1092,8 +968,18 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   burger.addEventListener('click', open);
   if (closeBtn) closeBtn.addEventListener('click', close);
   backdrop.addEventListener('click', close);
-  drawer.querySelectorAll('.bnb__drawer-link').forEach(link => link.addEventListener('click', close));
+  drawer.querySelectorAll('.bnb__drawer-link:not(.bnb__drawer-toggle)').forEach(link => link.addEventListener('click', close));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // "About Us" accordion — expands in place, doesn't close the drawer
+  drawer.querySelectorAll('.bnb__drawer-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const group = toggle.closest('.bnb__drawer-group');
+      if (!group) return;
+      const isOpen = group.classList.toggle('bnb__drawer-group--open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+  });
 })();
 
 // Language picker toggle
@@ -1111,6 +997,26 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
     document.querySelectorAll('.lang-picker--open').forEach(function (picker) {
       picker.classList.remove('lang-picker--open');
       var btn = picker.querySelector('.lang-picker__btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
+// "About Us" nav dropdown toggle (desktop pill nav)
+(function () {
+  document.querySelectorAll('.bnb__dropdown').forEach(function (dd) {
+    var btn = dd.querySelector('.bnb__dropdown-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = dd.classList.toggle('bnb__dropdown--open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.bnb__dropdown--open').forEach(function (dd) {
+      dd.classList.remove('bnb__dropdown--open');
+      var btn = dd.querySelector('.bnb__dropdown-btn');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
   });

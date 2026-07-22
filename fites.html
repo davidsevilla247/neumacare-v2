@@ -11,7 +11,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — NeumaCare</title>
+  <title>Milestones — NeumaCare</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -23,220 +23,21 @@
     html, body { height: auto; overflow: auto; }
     body { background: #F8F6FF; margin: 0; }
 
-    .contact-page {
+    section.fites-page {
       min-height: 100svh;
-      height: auto;
-      overflow: visible;
+      padding-top: 124px;
       box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 140px 24px 64px;
     }
 
-    .contact__wrap {
-      width: 100%;
-      max-width: 1040px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .contact__intro-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(158,176,240,0.35);
-      background: rgba(158,176,240,0.1);
-      border-radius: 100px;
-      padding: 6px 14px;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: #6B76B5;
-      margin-bottom: 24px;
-    }
-
-    .contact__heading {
-      font-size: clamp(32px, 3.6vw, 46px);
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -0.04em;
-      color: #130F1E;
-      margin-bottom: 20px;
-    }
-
-    .contact__sub {
-      font-size: 16px;
-      line-height: 1.72;
-      color: rgba(0,0,0,0.46);
-      max-width: 420px;
-      margin-bottom: 32px;
-    }
-
-    .contact__meta {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .contact__meta-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: rgba(0,0,0,0.55);
-      text-decoration: none;
-    }
-    .contact__meta-item:hover { color: #130F1E; }
-
-    .contact__meta-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.09);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(0,0,0,0.5);
-      flex-shrink: 0;
-    }
-    .contact__meta-icon svg { width: 15px; height: 15px; }
-
-    /* ── Form card ── */
-    .contact__card {
-      background: #ffffff;
-      border: 1.5px solid rgba(0,0,0,0.08);
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.06);
-    }
-
-    .contact__form { display: flex; flex-direction: column; gap: 18px; }
-
-    .contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-    .contact__field { display: flex; flex-direction: column; gap: 7px; }
-
-    .contact__label {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: rgba(0,0,0,0.55);
-      letter-spacing: -0.01em;
-    }
-
-    .contact__input,
-    .contact__select,
-    .contact__textarea {
-      width: 100%;
-      box-sizing: border-box;
-      background: #F8F6FF;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 12px;
-      padding: 13px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: #130F1E;
-      outline: none;
-      transition: border-color 0.2s ease, background 0.2s ease;
-      appearance: none;
-    }
-    .contact__input::placeholder,
-    .contact__textarea::placeholder { color: rgba(0,0,0,0.28); }
-    .contact__input:focus,
-    .contact__select:focus,
-    .contact__textarea:focus {
-      border-color: rgba(158,176,240,0.6);
-      background: #ffffff;
-    }
-
-    .contact__select-wrap { position: relative; }
-    .contact__select-wrap svg {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 12px;
-      height: 12px;
-      color: rgba(0,0,0,0.35);
-      pointer-events: none;
-    }
-
-    .contact__textarea { resize: vertical; min-height: 100px; font-family: 'Inter', sans-serif; }
-
-    .contact__submit {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #9EB0F0 0%, #C0AAEC 100%);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 100px;
-      padding: 15px 28px;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(158,176,240,0.32);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      margin-top: 4px;
-    }
-    .contact__submit:hover { transform: scale(1.02); box-shadow: 0 6px 28px rgba(158,176,240,0.5); }
-    .contact__submit:active { transform: scale(0.97); }
-    .contact__submit.is-loading { opacity: 0.7; pointer-events: none; }
-
-    .contact__note {
-      font-size: 12px;
-      color: rgba(0,0,0,0.32);
-      text-align: center;
-      margin-top: 2px;
-    }
-
-    /* Success state */
-    .contact__success {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 12px;
-      padding: 40px 12px;
-    }
-    .contact__success.is-visible { display: flex; }
-    .contact__success-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: rgba(158,176,240,0.12);
-      color: #6B76B5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 6px;
-    }
-    .contact__success-icon svg { width: 24px; height: 24px; }
-    .contact__success-title { font-size: 18px; font-weight: 600; color: #130F1E; letter-spacing: -0.02em; }
-    .contact__success-desc { font-size: 14px; color: rgba(0,0,0,0.5); max-width: 320px; line-height: 1.6; }
-
-    @media (max-width: 900px) {
-      .contact-page { padding: 124px 20px 56px; }
-      .contact__wrap { grid-template-columns: 1fr; gap: 40px; }
-      .contact__sub { max-width: 100%; }
-      .contact__card { padding: 28px; }
+    @media (max-width: 768px) {
+      section.fites-page { padding-top: 116px; }
     }
     @media (max-width: 480px) {
-      .contact-page { padding: 108px 16px 48px; }
-      .contact__row { grid-template-columns: 1fr; }
-      .contact__card { padding: 22px; border-radius: 18px; }
+      section.fites-page { padding-top: 108px; }
     }
   </style>
 </head>
-<body data-page-title="page.title.contact">
+<body data-page-title="page.title.milestones">
 
   <nav class="bnb">
     <a href="index.html"><img src="logos/NC_LOGO_%20(1).png" alt="NeumaCare" class="bnb__logo" /></a>
@@ -244,17 +45,17 @@
     <div class="bnb__links">
     <a href="index.html" class="bnb__link" data-i18n="nav.home">Home</a>
     <div class="bnb__dropdown">
-      <button type="button" class="bnb__link bnb__dropdown-btn" aria-haspopup="true" aria-expanded="false">
+      <button type="button" class="bnb__link bnb__dropdown-btn bnb__link--active" aria-haspopup="true" aria-expanded="false">
         <span data-i18n="nav.about">About</span>
         <svg class="bnb__dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="bnb__dropdown-menu">
         <a href="equipo.html" class="bnb__dropdown-item" data-i18n="nav.team">Team</a>
-        <a href="fites.html" class="bnb__dropdown-item" data-i18n="nav.milestones">Milestones</a>
+        <a href="fites.html" class="bnb__dropdown-item bnb__dropdown-item--active" data-i18n="nav.milestones">Milestones</a>
         <a href="insights.html" class="bnb__dropdown-item" data-i18n="nav.insights">Insights</a>
       </div>
     </div>
-    <a href="contact.html" class="bnb__link bnb__link--active" data-i18n="nav.contact">Contact</a>
+    <a href="contact.html" class="bnb__link" data-i18n="nav.contact">Contact</a>
     </div>
     <button class="bnb__burger" aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/></svg>
@@ -289,111 +90,118 @@
     </button>
     <a href="index.html" class="bnb__drawer-link" data-i18n="nav.home">Home</a>
     <div class="bnb__drawer-group">
-      <button type="button" class="bnb__drawer-link bnb__drawer-toggle" aria-expanded="false">
+      <button type="button" class="bnb__drawer-link bnb__drawer-toggle bnb__drawer-link--active" aria-expanded="false">
         <span data-i18n="nav.about">About</span>
         <svg class="bnb__drawer-toggle-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="bnb__drawer-submenu">
         <a href="equipo.html" class="bnb__drawer-sublink" data-i18n="nav.team">Team</a>
-        <a href="fites.html" class="bnb__drawer-sublink" data-i18n="nav.milestones">Milestones</a>
+        <a href="fites.html" class="bnb__drawer-sublink bnb__drawer-link--active" data-i18n="nav.milestones">Milestones</a>
       <a href="insights.html" class="bnb__drawer-sublink" data-i18n="nav.insights">Insights</a>
       </div>
     </div>
-    <a href="contact.html" class="bnb__drawer-link bnb__drawer-link--active" data-i18n="nav.contact">Contact</a>
+    <a href="contact.html" class="bnb__drawer-link" data-i18n="nav.contact">Contact</a>
   </div>
 
 
-  <section class="contact-page">
-    <div class="contact__wrap">
+  <section class="fites-page">
 
-      <!-- Left: intro -->
-      <div class="contact__intro">
-        <span class="contact__intro-eyebrow" data-i18n="nav.contact">Contact</span>
-        <h1 class="contact__heading" data-i18n="contact.heading">Get in Touch</h1>
-        <p class="contact__sub" data-i18n="contact.sub">Have a question about NeumaCare, want to explore a pilot, or just want to say hello? Tell us a bit about what you need and our team will get back to you shortly.</p>
-        <div class="contact__meta">
-          <a href="mailto:davidsevilla@neumacare.cat" class="contact__meta-item">
-            <span class="contact__meta-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-            </span>
-            davidsevilla@neumacare.cat
-          </a>
-          <a href="https://www.linkedin.com/company/neumacare/" target="_blank" rel="noopener" class="contact__meta-item">
-            <span class="contact__meta-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </span>
-            LinkedIn — NeumaCare
-          </a>
-          <a href="https://www.instagram.com/neumacare?igsh=NHQ2bGNvZ2JmOW1s&amp;utm_source=qr" target="_blank" rel="noopener" class="contact__meta-item">
-            <span class="contact__meta-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </span>
-            Instagram — NeumaCare
-          </a>
+    <div class="fites-masthead">
+      <h1 class="fites-masthead__title" data-i18n="mst.heading">Milestones</h1>
+    </div>
+
+    <!-- First screen — exactly 4 columns × 2 rows -->
+    <div class="fites-hero-grid">
+
+      <!-- 1 — Emprèn Dipta, 2×2, the four left-hand blocks -->
+      <a href="article-empren-dipta-2025.html" class="fites-tile fites-tile--empren">
+        <img class="fites-tile__img" src="media/articles/empren-hero.webp" alt="Premis Emprèn Dipta 2025" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.empren">Best Business Project — Emprèn Dipta 2025</span>
         </div>
+      </a>
+
+      <!-- top-right quadrant, left cell — brief note, bottom-left aligned -->
+      <div class="fites-tile fites-tile--blank fites-tile--note">
+        <p class="fites-tile__note" data-i18n="fites.note1">Awards, events and turning points from NeumaCare's journey.</p>
       </div>
 
-      <!-- Right: form card -->
-      <div class="contact__card">
-        <form class="contact__form" id="contact-form" data-mailto="davidsevilla@neumacare.cat">
-
-          <div class="contact__row">
-            <div class="contact__field">
-              <label class="contact__label" for="c-name" data-i18n="contact.form.name.label">Full Name</label>
-              <input type="text" id="c-name" name="name" class="contact__input" data-i18n-placeholder="contact.form.name.placeholder" placeholder="Your name" required />
-            </div>
-            <div class="contact__field">
-              <label class="contact__label" for="c-email" data-i18n="contact.form.email.label">Email</label>
-              <input type="email" id="c-email" name="email" class="contact__input" data-i18n-placeholder="contact.form.email.placeholder" placeholder="you@example.com" required />
-            </div>
-          </div>
-
-          <div class="contact__field">
-            <label class="contact__label" for="c-org" data-i18n="contact.form.org.label">Organization / Facility</label>
-            <input type="text" id="c-org" name="organization" class="contact__input" data-i18n-placeholder="contact.form.org.placeholder" placeholder="Hospital, clinic or company (optional)" />
-          </div>
-
-          <div class="contact__field">
-            <label class="contact__label" for="c-reason" data-i18n="contact.form.reason.label">Reason for Contact</label>
-            <div class="contact__select-wrap">
-              <select id="c-reason" name="reason" class="contact__select" required>
-                <option value="" data-i18n="contact.form.reason.placeholder" disabled selected>Select a reason</option>
-                <option value="general" data-i18n="contact.form.reason.opt1">General Inquiry</option>
-                <option value="demo" data-i18n="contact.form.reason.opt2">Book a Demo</option>
-                <option value="pilot" data-i18n="contact.form.reason.opt3">Start a Pilot Program</option>
-                <option value="partnership" data-i18n="contact.form.reason.opt4">Partnership &amp; Collaboration</option>
-                <option value="investment" data-i18n="contact.form.reason.opt8">Investment Inquiry</option>
-                <option value="press" data-i18n="contact.form.reason.opt5">Press &amp; Media</option>
-                <option value="careers" data-i18n="contact.form.reason.opt6">Careers</option>
-                <option value="other" data-i18n="contact.form.reason.opt7">Other</option>
-              </select>
-              <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
-
-          <div class="contact__field">
-            <label class="contact__label" for="c-message" data-i18n="contact.form.message.label">Message</label>
-            <textarea id="c-message" name="message" class="contact__textarea" data-i18n-placeholder="contact.form.message.placeholder" placeholder="Tell us more about what you need..." required></textarea>
-          </div>
-
-          <button type="submit" class="contact__submit" id="contact-submit">
-            <span data-i18n="contact.form.submit">Send Message</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-
-          <p class="contact__note" data-i18n="contact.form.note">We typically respond within 1-2 business days.</p>
-        </form>
-
-        <div class="contact__success" id="contact-success">
-          <span class="contact__success-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </span>
-          <p class="contact__success-title" data-i18n="contact.form.success.title">Message sent!</p>
-          <p class="contact__success-desc" data-i18n="contact.form.success.desc">Your email app should have opened with your message ready — just hit send there to reach our team.</p>
+      <!-- CAT SUD -->
+      <a href="article-cat-sud.html" class="fites-tile fites-tile--catsud">
+        <img class="fites-tile__img" src="cat-sud/1774507556929-2.jpeg" alt="NeumaCare at CAT SUD Investment Forum" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.catsud">Top 10 — CAT SUD Investment Forum</span>
         </div>
-      </div>
+      </a>
+
+      <!-- Althaia -->
+      <a href="article-althaia-manresa-2026.html" class="fites-tile fites-tile--althaia">
+        <img class="fites-tile__img" src="althaia/1780917523058.jpeg" alt="NeumaCare's first real-world usability test at Hospital Althaia" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.althaia">First Real-World Usability Test</span>
+        </div>
+      </a>
+
+      <!-- Primer 2025 (swapped position with MWC 4YFN) -->
+      <a href="article-primer-2025.html" class="fites-tile fites-tile--mwc">
+        <img class="fites-tile__img" src="media/articles/primer-img1.webp" alt="Best Startup Programa Primer 2025" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.primer">Best Startup — Programa Primer 2025</span>
+        </div>
+      </a>
 
     </div>
+
+    <!-- Second screen — remaining milestones, same 4×2 / one-viewport grid.
+         Row 1: blank, MWC 4YFN (swapped with Primer), blank, blank. Row 2: four full contents. -->
+    <div class="fites-more-grid">
+
+      <div class="fites-tile fites-tile--blank" aria-hidden="true"></div>
+
+      <a href="article-mwc-4yfn-2026.html" class="fites-tile">
+        <img class="fites-tile__img" src="mwc/1772528723461.jpeg" alt="NeumaCare at 4YFN Mobile World Congress Barcelona 2026" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.mwc">4YFN — Mobile World Congress 2026</span>
+        </div>
+      </a>
+
+      <div class="fites-tile fites-tile--blank" aria-hidden="true"></div>
+
+      <!-- 4th block of this row — brief note, bottom-left aligned -->
+      <div class="fites-tile fites-tile--blank fites-tile--note">
+        <p class="fites-tile__note" data-i18n="fites.note2">And there's more to come — new hospital pilots, partnerships and product milestones are already in motion as we keep expanding NeumaCare's reach.</p>
+      </div>
+
+      <a href="article-poc-hardware-2026.html" class="fites-tile">
+        <img class="fites-tile__img" src="poc/1774251107826.jpeg" alt="NeumaCare First Hardware POC V2" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.poc">First Hardware POC in Four Weeks</span>
+        </div>
+      </a>
+
+      <a href="article-reus-startups-summit-2026.html" class="fites-tile">
+        <img class="fites-tile__img" src="reus-startup/img_5536.jpeg" alt="NeumaCare at the Reus Start-Ups Summit" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.reussummit">Reus Start-Ups Summit Finalist</span>
+        </div>
+      </a>
+
+      <a href="article-egarsat-cecot-2026.html" class="fites-tile">
+        <img class="fites-tile__img" src="egarsat2/1781185144160.jpeg" alt="NeumaCare presenting to Hospital Egarsat's leadership at Cecot" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.egarsat">Hospital Egarsat &amp; Cecot</span>
+        </div>
+      </a>
+
+      <a href="article-congres-cancer-catalunya-2026.html" class="fites-tile">
+        <img class="fites-tile__img" src="congres-cancer/1781512600151.jpeg" alt="NeumaCare at the IV Congress of People with Cancer and Families of Catalonia" />
+        <div class="fites-tile__overlay">
+          <span class="fites-tile__title" data-i18n="mst.title.cancercongress">IV Congress on Cancer Care</span>
+        </div>
+      </a>
+
+    </div>
+
   </section>
 
   <div class="ftr-outer">
@@ -523,47 +331,6 @@
 
   <script src="translations.js?v=32"></script>
 
-  <script>
-  (function () {
-    var form    = document.getElementById('contact-form');
-    var submit  = document.getElementById('contact-submit');
-    var success = document.getElementById('contact-success');
-    if (!form) return;
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      submit.classList.add('is-loading');
-
-      var name    = form.querySelector('#c-name').value.trim();
-      var email   = form.querySelector('#c-email').value.trim();
-      var org     = form.querySelector('#c-org').value.trim();
-      var reasonEl = form.querySelector('#c-reason');
-      var reason  = reasonEl.options[reasonEl.selectedIndex].text;
-      var message = form.querySelector('#c-message').value.trim();
-
-      var subject = 'NeumaCare contact form — ' + reason + ' — ' + name;
-      var body = [
-        'Name: ' + name,
-        'Email: ' + email,
-        'Organization: ' + (org || '—'),
-        'Reason: ' + reason,
-        '',
-        message
-      ].join('\n');
-
-      var mailto = 'mailto:' + form.dataset.mailto
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-      window.location.href = mailto;
-
-      setTimeout(function () {
-        if (typeof gtag === 'function') gtag('event', 'contact_form_submit', { event_category: 'engagement' });
-        form.style.display = 'none';
-        success.classList.add('is-visible');
-      }, 400);
-    });
-  })();
-  </script>
 
   <script>
   (function () {
@@ -644,5 +411,6 @@
     });
   })();
   </script>
+
 </body>
 </html>
