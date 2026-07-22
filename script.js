@@ -626,19 +626,27 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   const switchSec = document.querySelector('.switch-sec');
   if (!switchSec) return;
 
-  // Entrance animation via IntersectionObserver — the section fades in,
-  // then flips itself to the "on" state (dark bg, white text, knob moved),
-  // mirroring the scroll-driven flip that happens on desktop.
-  const observer = new IntersectionObserver((entries) => {
+  // Entrance animation — fades the content in once, the first time any
+  // part of the section becomes visible.
+  const entranceObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         switchSec.classList.add('is-visible');
-        setTimeout(() => switchSec.classList.add('switch-sec--on'), 350);
-        observer.unobserve(switchSec);
+        entranceObserver.unobserve(switchSec);
       }
     });
   }, { threshold: 0.25 });
-  observer.observe(switchSec);
+  entranceObserver.observe(switchSec);
+
+  // On/off flip — mirrors the desktop scroll-driven effect: only flips to
+  // "on" once the whole section has scrolled fully into view, and flips
+  // back "off" as soon as it's no longer fully shown (e.g. scrolling back up).
+  const onOffObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      switchSec.classList.toggle('switch-sec--on', e.isIntersecting);
+    });
+  }, { threshold: 0.98 });
+  onOffObserver.observe(switchSec);
 
   // Interactive toggle: tap to switch on/off
   const toggleWrap = switchSec.querySelector('.switch-sec__toggle-wrap');
