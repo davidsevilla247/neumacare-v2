@@ -626,11 +626,14 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
   const switchSec = document.querySelector('.switch-sec');
   if (!switchSec) return;
 
-  // Entrance animation via IntersectionObserver
+  // Entrance animation via IntersectionObserver — the section fades in,
+  // then flips itself to the "on" state (dark bg, white text, knob moved),
+  // mirroring the scroll-driven flip that happens on desktop.
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         switchSec.classList.add('is-visible');
+        setTimeout(() => switchSec.classList.add('switch-sec--on'), 350);
         observer.unobserve(switchSec);
       }
     });
