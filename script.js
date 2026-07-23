@@ -292,6 +292,15 @@ document.querySelectorAll('.rev-reveal').forEach(el => revObserver.observe(el));
       setTimeout(() => form.style.borderColor = '', 1200);
       return;
     }
+
+    if (window.NC_SHEETS_ENDPOINT) {
+      fetch(window.NC_SHEETS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ formType: 'newsletter', email: val })
+      }).catch(() => {});
+    }
+
     btn.innerHTML = checkSVG;
     btn.classList.add('subscribed');
     input.value = '';

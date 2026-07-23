@@ -605,6 +605,15 @@
         setTimeout(function () { form.style.borderColor = ''; }, 1200);
         return;
       }
+
+      if (window.NC_SHEETS_ENDPOINT) {
+        fetch(window.NC_SHEETS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ formType: 'newsletter', email: val })
+        }).catch(function () {});
+      }
+
       btn.innerHTML = checkSVG;
       btn.classList.add('subscribed');
       input.value = '';
@@ -621,6 +630,7 @@
   })();
   </script>
 
+  <script>window.NC_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz1R2Gedq-bqHMlPjnJ2gRphBmFgMWvGEufVuEiFZdpzyTFUKfFgRoAs1repID_gcRbBQ/exec';</script>
   <script src="translations.js?v=35"></script>
 
   <script>
@@ -653,6 +663,14 @@
         _template: 'table',
         _captcha: 'false'
       };
+
+      if (window.NC_SHEETS_ENDPOINT) {
+        fetch(window.NC_SHEETS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ formType: 'contact', name: name, email: email, organization: org || '—', reason: reason, message: message })
+        }).catch(function () {});
+      }
 
       fetch(form.dataset.endpoint, {
         method: 'POST',
