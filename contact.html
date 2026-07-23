@@ -242,6 +242,17 @@
     .contact__success-title { font-size: 18px; font-weight: 600; color: #130F1E; letter-spacing: -0.02em; }
     .contact__success-desc { font-size: 14px; color: rgba(0,0,0,0.5); max-width: 320px; line-height: 1.6; }
 
+    /* Error state */
+    .contact__form-error {
+      display: none;
+      font-size: 13px;
+      color: #C0392B;
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .contact__form-error.is-visible { display: block; }
+
     @media (max-width: 900px) {
       .contact-page { padding: 124px 20px 56px; }
       .contact__wrap { grid-template-columns: 1fr; gap: 40px; }
@@ -421,7 +432,7 @@
 
       <!-- Right: form card -->
       <div class="contact__card">
-        <form class="contact__form" id="contact-form" data-mailto="davidsevilla@neumacare.cat">
+        <form class="contact__form" id="contact-form" data-endpoint="https://formsubmit.co/ajax/davidsevilla@neumacare.cat">
 
           <div class="contact__row">
             <div class="contact__field">
@@ -468,6 +479,7 @@
           </button>
 
           <p class="contact__note" data-i18n="contact.form.note">We typically respond within 1-2 business days.</p>
+          <p class="contact__form-error" id="contact-error" data-i18n="contact.form.error">Something went wrong sending your message. Please try again, or email us directly at davidsevilla@neumacare.cat.</p>
         </form>
 
         <div class="contact__success" id="contact-success">
@@ -475,15 +487,15 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </span>
           <p class="contact__success-title" data-i18n="contact.form.success.title">Message sent!</p>
-          <p class="contact__success-desc" data-i18n="contact.form.success.desc">Your email app should have opened with your message ready — just hit send there to reach our team.</p>
+          <p class="contact__success-desc" data-i18n="contact.form.success.desc">Thanks for reaching out — we've received your message and will get back to you soon.</p>
         </div>
       </div>
 
     </div>
   </section>
 
+  </main>
   <div class="ftr-outer">
-    </main>
 
     <footer class="ftr">
     <div class="ftr__row">
@@ -616,11 +628,13 @@
     var form    = document.getElementById('contact-form');
     var submit  = document.getElementById('contact-submit');
     var success = document.getElementById('contact-success');
+    var errorEl = document.getElementById('contact-error');
     if (!form) return;
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       submit.classList.add('is-loading');
+      errorEl.classList.remove('is-visible');
 
       var name    = form.querySelector('#c-name').value.trim();
       var email   = form.querySelector('#c-email').value.trim();
@@ -629,26 +643,32 @@
       var reason  = reasonEl.options[reasonEl.selectedIndex].text;
       var message = form.querySelector('#c-message').value.trim();
 
-      var subject = 'NeumaCare contact form — ' + reason + ' — ' + name;
-      var body = [
-        'Name: ' + name,
-        'Email: ' + email,
-        'Organization: ' + (org || '—'),
-        'Reason: ' + reason,
-        '',
-        message
-      ].join('\n');
+      var payload = {
+        name: name,
+        email: email,
+        organization: org || '—',
+        reason: reason,
+        message: message,
+        _subject: 'NeumaCare contact form — ' + reason + ' — ' + name,
+        _template: 'table',
+        _captcha: 'false'
+      };
 
-      var mailto = 'mailto:' + form.dataset.mailto
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-      window.location.href = mailto;
-
-      setTimeout(function () {
-        if (typeof gtag === 'function') gtag('event', 'contact_form_submit', { event_category: 'engagement' });
-        form.style.display = 'none';
-        success.classList.add('is-visible');
-      }, 400);
+      fetch(form.dataset.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) { if (!res.ok) throw new Error('Request failed'); return res.json(); })
+        .then(function () {
+          if (typeof gtag === 'function') gtag('event', 'contact_form_submit', { event_category: 'engagement' });
+          form.style.display = 'none';
+          success.classList.add('is-visible');
+        })
+        .catch(function () {
+          submit.classList.remove('is-loading');
+          errorEl.classList.add('is-visible');
+        });
     });
   })();
   </script>
